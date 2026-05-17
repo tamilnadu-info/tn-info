@@ -6,10 +6,12 @@ import LiveWire from "@/components/LiveWire";
 import DevSection from "@/components/DevSection";
 import Footer from "@/components/Footer";
 import DistrictModal from "@/components/DistrictModal";
+import MobileDrawer from "@/components/MobileDrawer";
 
 export default function Home() {
   return (
     <>
+      <MobileDrawer />
       <DistrictModal />
       <Header />
       <main>

@@ -1,6 +1,7 @@
 import GHStars from "./GHStars";
 import LanguageToggle from "./LanguageToggle";
 import StatRotator from "./StatRotator";
+import HamburgerBtn from "./HamburgerBtn";
 
 export default function Header() {
   return (
@@ -39,6 +40,7 @@ export default function Header() {
           <div className="actions">
             <LanguageToggle />
             <GHStars />
+            <HamburgerBtn />
           </div>
         </div>
       </div>

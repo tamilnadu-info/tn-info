@@ -32,6 +32,13 @@ const notoSansTamil = Noto_Sans_Tamil({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#FBF6EC",
+};
+
 export const metadata: Metadata = {
   title: { template: "%s | TN-Info.in", default: "TN-Info.in — Tamil Nadu Open Data" },
   description:
