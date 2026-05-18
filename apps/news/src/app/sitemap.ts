@@ -1,31 +1,28 @@
 import type { MetadataRoute } from "next";
 import { TN_NEWS } from "@/data/news";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://news.tn-info.in";
+const BASE = "https://news.tn-info.in";
 
-  const newsUrls = [
-    ...TN_NEWS.hot.map((n) => ({
-      url: `${base}/${n.id}`,
-      lastModified: new Date(n.isoDate),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    })),
-    ...TN_NEWS.hidden.map((n) => ({
-      url: `${base}/${n.id}`,
-      lastModified: new Date(n.isoDate),
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    })),
-  ];
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const hotUrls: MetadataRoute.Sitemap = TN_NEWS.hot.map((n) => ({
+    url: `${BASE}/${n.id}`,
+    lastModified: new Date(n.isoDate),
+    changeFrequency: "daily" as const,
+    priority: 0.9,
+  }));
+
+  const hiddenUrls: MetadataRoute.Sitemap = TN_NEWS.hidden.map((n) => ({
+    url: `${BASE}/${n.id}`,
+    lastModified: new Date(n.isoDate),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
 
   return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    ...newsUrls,
+    { url: BASE, lastModified: now, changeFrequency: "daily", priority: 1.0 },
+    ...hotUrls,
+    ...hiddenUrls,
   ];
 }

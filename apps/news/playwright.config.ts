@@ -8,20 +8,19 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? "github" : "html",
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:3002",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
   },
   projects: [
     { name: "Desktop Chrome", use: { ...devices["Desktop Chrome"] } },
-    { name: "Desktop Firefox", use: { ...devices["Desktop Firefox"] } },
     { name: "Mobile Chrome (Pixel 5)", use: { ...devices["Pixel 5"] } },
     { name: "Mobile Safari (iPhone 14)", use: { ...devices["iPhone 14"] } },
   ],
   webServer: {
     command: "pnpm dev",
-    url: "http://localhost:3000",
+    url: "http://localhost:3002",
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },

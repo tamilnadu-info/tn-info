@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import MobileDrawer from "@/components/MobileDrawer";
+import JsonLd from "@/components/JsonLd";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -46,46 +47,61 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | TN-Info Events",
-    default: "Events calendar · TN-Info.in",
+    template: "%s | TN Info Events",
+    default: "Tech Events in Tamil Nadu | TN Info Events Calendar",
   },
   description:
-    "Tamil Nadu tech and political events — conferences, hackathons, civic meetups + neutrally-listed legislative and electoral events.",
+    "Tech events in Tamil Nadu — conferences, hackathons, civic meetups, and political events. Tamil Nadu's open events calendar with .ics download. Free and updated.",
   keywords: [
+    "tech events in TN",
+    "tech events Tamil Nadu",
     "Tamil Nadu events",
-    "TN tech events",
-    "Chennai events",
+    "TN events",
+    "Chennai tech events",
     "hackathon Tamil Nadu",
-    "civic tech",
-    "TN Assembly",
-    "Tamil Nadu calendar",
+    "hackathon TN",
+    "civic meetup Tamil Nadu",
+    "Tamil Nadu conference",
+    "TN calendar",
+    "Tamil Nadu tech",
+    "TN info events",
+    "events in Chennai",
+    "Tamil Nadu political events",
+    "open data Tamil Nadu",
   ],
   authors: [{ name: "Destrosec", url: "https://destrosec.com" }],
   metadataBase: new URL("https://events.tn-info.in"),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { "en-IN": "/", ta: "/" },
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
+    alternateLocale: ["ta_IN"],
     url: "https://events.tn-info.in",
     siteName: "TN-Info.in",
-    title: "Events calendar · TN-Info.in",
+    title: "Tech Events in Tamil Nadu | TN Info Events Calendar",
     description:
-      "Tamil Nadu tech and political events — conferences, hackathons, civic meetups + neutrally-listed legislative and electoral events.",
-    images: [
-      { url: "/og.png", width: 1200, height: 630, alt: "TN-Info Events" },
-    ],
+      "Tech events in Tamil Nadu — conferences, hackathons, civic meetups. Download as .ics. Bilingual (English + Tamil).",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "TN Info Events — Tamil Nadu Events Calendar" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Events calendar · TN-Info.in",
+    title: "Tech Events in Tamil Nadu | TN Info Events",
     description:
-      "Tamil Nadu events — tech, political, civic. Download as .ics.",
+      "Upcoming tech, civic, and political events in Tamil Nadu. Download as .ics.",
     images: ["/og.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [
@@ -94,6 +110,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon", sizes: "180x180" }],
   },
+  category: "events",
 };
 
 export default function RootLayout({
@@ -107,6 +124,7 @@ export default function RootLayout({
       className={`${crimsonPro.variable} ${manrope.variable} ${jetbrainsMono.variable} ${notoSansTamil.variable}`}
     >
       <body data-lang="en">
+        <JsonLd />
         <MobileDrawer />
         {children}
       </body>

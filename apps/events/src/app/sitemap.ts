@@ -1,23 +1,20 @@
 import type { MetadataRoute } from "next";
 import { TN_EVENTS } from "@/data/events";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://events.tn-info.in";
+const BASE = "https://events.tn-info.in";
 
-  const eventUrls = TN_EVENTS.map((e) => ({
-    url: `${base}${e.href}`,
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const eventPages: MetadataRoute.Sitemap = TN_EVENTS.map((e) => ({
+    url: `${BASE}${e.href}`,
     lastModified: new Date(e.date),
-    changeFrequency: "monthly" as const,
+    changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
   return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    ...eventUrls,
+    { url: BASE, lastModified: now, changeFrequency: "daily", priority: 1.0 },
+    ...eventPages,
   ];
 }

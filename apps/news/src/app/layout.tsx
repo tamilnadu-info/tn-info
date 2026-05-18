@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import MobileDrawer from "@/components/MobileDrawer";
+import JsonLd from "@/components/JsonLd";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -46,44 +47,62 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | TN-Info News",
-    default: "News desk · TN-Info.in",
+    template: "%s | TN News — TN-Info.in",
+    default: "TN News | Tamil Nadu News — Hot & Hidden Stories",
   },
   description:
-    "Hot + Hidden news from Tamil Nadu — mainstream stories plus stories surfaced from RTI replies, audit queues and dashboards.",
+    "TN News — Tamil Nadu's open news desk. HOT mainstream stories and HIDDEN stories surfaced from RTI replies, audit reports, and government dashboards. Bilingual (English + Tamil).",
   keywords: [
-    "Tamil Nadu news",
     "TN news",
-    "RTI news",
+    "Tamil Nadu news",
+    "TN news today",
+    "Tamil Nadu today news",
+    "TN blog",
+    "Tamil Nadu blog",
+    "TN info news",
+    "RTI news Tamil Nadu",
     "hidden news Tamil Nadu",
-    "civic data",
-    "open data",
-    "Tamil Nadu government",
+    "Tamil Nadu government news",
+    "civic data India",
+    "TNEA news",
+    "Tamil Nadu scheme news",
+    "TN election news",
+    "open data Tamil Nadu",
+    "tamilnadu news",
   ],
   authors: [{ name: "Destrosec", url: "https://destrosec.com" }],
   metadataBase: new URL("https://news.tn-info.in"),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { "en-IN": "/", ta: "/" },
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
+    alternateLocale: ["ta_IN"],
     url: "https://news.tn-info.in",
     siteName: "TN-Info.in",
-    title: "News desk · TN-Info.in",
+    title: "TN News | Tamil Nadu News — Hot & Hidden Stories",
     description:
-      "Hot + Hidden news from Tamil Nadu — mainstream stories plus stories surfaced from RTI replies, audit queues and dashboards.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "TN-Info News" }],
+      "TN News — HOT stories everyone should know + HIDDEN stories from RTI replies and audit queues. Open, free, bilingual.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "TN News — Tamil Nadu Open News Desk" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "News desk · TN-Info.in",
+    title: "TN News | Tamil Nadu News",
     description:
-      "Hot + Hidden news from Tamil Nadu — RTI-sourced, audit-surfaced, editorially curated.",
+      "TN News — Hot + Hidden stories from Tamil Nadu. RTI-sourced, audit-surfaced, editorially curated.",
     images: ["/og.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [
@@ -92,6 +111,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon", sizes: "180x180" }],
   },
+  category: "news",
 };
 
 export default function RootLayout({
@@ -105,6 +125,7 @@ export default function RootLayout({
       className={`${crimsonPro.variable} ${manrope.variable} ${jetbrainsMono.variable} ${notoSansTamil.variable}`}
     >
       <body data-lang="en">
+        <JsonLd />
         <MobileDrawer />
         {children}
       </body>

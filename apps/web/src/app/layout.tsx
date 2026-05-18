@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Crimson_Pro, Manrope, JetBrains_Mono, Noto_Sans_Tamil } from "next/font/google";
 import "./globals.css";
 import DisclaimerModal from "@/components/DisclaimerModal";
+import JsonLd from "@/components/JsonLd";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -40,41 +41,77 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: { template: "%s | TN-Info.in", default: "TN-Info.in — Tamil Nadu Open Data" },
+  title: {
+    template: "%s | TN Info — TN-Info.in",
+    default: "TN Info | Tamil Nadu Open Data — Districts, Elections, Schemes, News",
+  },
   description:
-    "Open-source civic data platform for Tamil Nadu — 38 districts, 234 constituencies, every scheme. Free REST API and RSS feeds.",
+    "TN Info — the open civic data platform for Tamil Nadu. 38 districts, 234 constituencies, 47 government schemes, tech events, and RTI-sourced news. Free REST API and RSS feeds.",
   keywords: [
+    "TN Info",
+    "TN",
     "Tamil Nadu",
+    "Tamil Nadu info",
+    "TN news",
+    "TN blog",
+    "Tamil Nadu news",
+    "Tamil Nadu open data",
     "TN election",
+    "Tamil Nadu election results",
     "TNEA",
-    "government schemes",
-    "open data",
-    "civic tech",
+    "Tamil Nadu government schemes",
+    "tech events Tamil Nadu",
+    "tech events TN",
     "Tamil Nadu districts",
+    "civic data India",
+    "open data Tamil Nadu",
+    "TN government",
+    "tamilnadu",
   ],
   authors: [{ name: "Destrosec", url: "https://destrosec.com" }],
   metadataBase: new URL("https://tn-info.in"),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-IN": "/",
+      "ta": "/",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
+    alternateLocale: ["ta_IN"],
     url: "https://tn-info.in",
     siteName: "TN-Info.in",
-    title: "TN-Info.in — Tamil Nadu Open Data",
+    title: "TN Info | Tamil Nadu Open Data — Districts, Elections, Schemes",
     description:
-      "Open-source civic data platform for Tamil Nadu — 38 districts, 234 constituencies, every scheme.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "TN-Info.in" }],
+      "TN Info — open civic data platform for Tamil Nadu. Elections, government schemes, education, tech events, and RTI-sourced news. Free API.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "TN Info — Tamil Nadu Open Data Platform",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TN-Info.in — Tamil Nadu Open Data",
-    description: "Open-source civic data for Tamil Nadu — free API, RSS feeds, 38 districts.",
+    title: "TN Info | Tamil Nadu Open Data",
+    description:
+      "TN Info — elections, schemes, TNEA, tech events, RTI news. Free API for Tamil Nadu civic data.",
     images: ["/og.png"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: [
@@ -83,6 +120,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon", sizes: "180x180" }],
   },
+  category: "government",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -92,6 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${crimsonPro.variable} ${manrope.variable} ${jetbrainsMono.variable} ${notoSansTamil.variable}`}
     >
       <body data-lang="en">
+        <JsonLd />
         <DisclaimerModal />
         {children}
       </body>
