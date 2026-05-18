@@ -1,20 +1,25 @@
 import { defineConfig, devices } from "@playwright/test";
+import path from "path";
 
 /**
  * Root-level config — runs ALL 3 apps sequentially, one test at a time.
- * Starts all 3 dev servers automatically before the test run.
+ * Uses ports 4000/4001/4002 to avoid conflicts with local dev servers.
  *
  * Usage:
  *   pnpm test:all              → headless
- *   pnpm test:all --headed     → headed (watch mode)
- *   pnpm test:all --ui         → Playwright UI (best for debugging)
- *
- * NOTE: global testDir + per-project testMatch is required for UI mode
- * to correctly surface all test files in the left-hand panel.
+ *   pnpm test:all --headed     → headed (watch every test in a browser)
+ *   pnpm test:all --ui         → Playwright UI (interactive panel)
  */
+
+const ROOT = path.resolve(__dirname);
+
 export default defineConfig({
-  testDir: ".",
-  testMatch: "apps/*/src/e2e/**/*.spec.ts",
+  testDir: ROOT,
+  testMatch: [
+    "apps/web/src/e2e/**/*.spec.ts",
+    "apps/events/src/e2e/**/*.spec.ts",
+    "apps/news/src/e2e/**/*.spec.ts",
+  ],
 
   fullyParallel: false,
   workers: 1,
@@ -32,78 +37,78 @@ export default defineConfig({
     {
       name: "web · Desktop Chrome",
       testMatch: "apps/web/src/e2e/**/*.spec.ts",
-      use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:3000" },
+      use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:4000" },
     },
     {
       name: "web · Desktop Firefox",
       testMatch: "apps/web/src/e2e/**/*.spec.ts",
-      use: { ...devices["Desktop Firefox"], baseURL: "http://localhost:3000" },
+      use: { ...devices["Desktop Firefox"], baseURL: "http://localhost:4000" },
     },
     {
       name: "web · Pixel 5",
       testMatch: "apps/web/src/e2e/**/*.spec.ts",
-      use: { ...devices["Pixel 5"], baseURL: "http://localhost:3000" },
+      use: { ...devices["Pixel 5"], baseURL: "http://localhost:4000" },
     },
     {
       name: "web · iPhone 14",
       testMatch: "apps/web/src/e2e/**/*.spec.ts",
-      use: { ...devices["iPhone 14"], baseURL: "http://localhost:3000" },
+      use: { ...devices["iPhone 14"], baseURL: "http://localhost:4000" },
     },
 
     // ── Events app ──────────────────────────────────────────────────────────
     {
       name: "events · Desktop Chrome",
       testMatch: "apps/events/src/e2e/**/*.spec.ts",
-      use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:3001" },
+      use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:4001" },
     },
     {
       name: "events · Pixel 5",
       testMatch: "apps/events/src/e2e/**/*.spec.ts",
-      use: { ...devices["Pixel 5"], baseURL: "http://localhost:3001" },
+      use: { ...devices["Pixel 5"], baseURL: "http://localhost:4001" },
     },
     {
       name: "events · iPhone 14",
       testMatch: "apps/events/src/e2e/**/*.spec.ts",
-      use: { ...devices["iPhone 14"], baseURL: "http://localhost:3001" },
+      use: { ...devices["iPhone 14"], baseURL: "http://localhost:4001" },
     },
 
     // ── News app ────────────────────────────────────────────────────────────
     {
       name: "news · Desktop Chrome",
       testMatch: "apps/news/src/e2e/**/*.spec.ts",
-      use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:3002" },
+      use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:4002" },
     },
     {
       name: "news · Pixel 5",
       testMatch: "apps/news/src/e2e/**/*.spec.ts",
-      use: { ...devices["Pixel 5"], baseURL: "http://localhost:3002" },
+      use: { ...devices["Pixel 5"], baseURL: "http://localhost:4002" },
     },
     {
       name: "news · iPhone 14",
       testMatch: "apps/news/src/e2e/**/*.spec.ts",
-      use: { ...devices["iPhone 14"], baseURL: "http://localhost:3002" },
+      use: { ...devices["iPhone 14"], baseURL: "http://localhost:4002" },
     },
   ],
 
   webServer: [
     {
       name: "web",
-      command: "pnpm --filter @tn-info/web dev",
-      url: "http://localhost:3000",
+      command: "PORT=4000 pnpm --filter @tn-info/web dev",
+      url: "http://localhost:4000",
       reuseExistingServer: !process.env.CI,
       timeout: 120000,
     },
     {
       name: "events",
-      command: "pnpm --filter @tn-info/events dev",
-      url: "http://localhost:3001",
+      command: "pnpm --filter @tn-info/events exec next dev --turbopack --port 4001",
+      url: "http://localhost:4001",
       reuseExistingServer: !process.env.CI,
       timeout: 120000,
     },
     {
       name: "news",
-      command: "pnpm --filter @tn-info/news dev",
-      url: "http://localhost:3002",
+      command: "pnpm --filter @tn-info/news exec next dev --turbopack --port 4002",
+      url: "http://localhost:4002",
       reuseExistingServer: !process.env.CI,
       timeout: 120000,
     },
