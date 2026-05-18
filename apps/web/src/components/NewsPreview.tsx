@@ -2,7 +2,7 @@
 
 import { TN_NEWS } from "@/data/news";
 
-const NEWS_URL = "https://news-tn-info-alwu9zo0q-karuppanthepentesters-projects.vercel.app";
+const NEWS_URL = "https://news.tn-info.in";
 
 export default function NewsPreview() {
   const hotItems = TN_NEWS.hot.slice(0, 3);

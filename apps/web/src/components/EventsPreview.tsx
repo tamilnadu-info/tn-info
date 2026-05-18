@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { TN_EVENTS } from "@/data/events";
 
-const EVENTS_URL = "https://events-tn-info-jzbezn86z-karuppanthepentesters-projects.vercel.app";
+const EVENTS_URL = "https://events.tn-info.in";
 
 type Kind = "all" | "tech" | "political";
 

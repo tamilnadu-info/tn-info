@@ -31,8 +31,8 @@ export default function Header() {
           <nav className="nav">
             <a href="#districts">Districts</a>
             <a href="#feed">Updates</a>
-            <a href="https://news-tn-info-alwu9zo0q-karuppanthepentesters-projects.vercel.app" target="_blank" rel="noopener">News</a>
-            <a href="https://events-tn-info-jzbezn86z-karuppanthepentesters-projects.vercel.app" target="_blank" rel="noopener">Events</a>
+            <a href="https://news.tn-info.in" target="_blank" rel="noopener">News</a>
+            <a href="https://events.tn-info.in" target="_blank" rel="noopener">Events</a>
             <a href="#api" className="api">
               API
             </a>
