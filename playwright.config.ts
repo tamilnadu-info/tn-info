@@ -8,8 +8,14 @@ import { defineConfig, devices } from "@playwright/test";
  *   pnpm test:all              → headless
  *   pnpm test:all --headed     → headed (watch mode)
  *   pnpm test:all --ui         → Playwright UI (best for debugging)
+ *
+ * NOTE: global testDir + per-project testMatch is required for UI mode
+ * to correctly surface all test files in the left-hand panel.
  */
 export default defineConfig({
+  testDir: ".",
+  testMatch: "apps/*/src/e2e/**/*.spec.ts",
+
   fullyParallel: false,
   workers: 1,
   forbidOnly: !!process.env.CI,
@@ -25,56 +31,56 @@ export default defineConfig({
     // ── Web app ─────────────────────────────────────────────────────────────
     {
       name: "web · Desktop Chrome",
-      testDir: "apps/web/src/e2e",
+      testMatch: "apps/web/src/e2e/**/*.spec.ts",
       use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:3000" },
     },
     {
       name: "web · Desktop Firefox",
-      testDir: "apps/web/src/e2e",
+      testMatch: "apps/web/src/e2e/**/*.spec.ts",
       use: { ...devices["Desktop Firefox"], baseURL: "http://localhost:3000" },
     },
     {
       name: "web · Pixel 5",
-      testDir: "apps/web/src/e2e",
+      testMatch: "apps/web/src/e2e/**/*.spec.ts",
       use: { ...devices["Pixel 5"], baseURL: "http://localhost:3000" },
     },
     {
       name: "web · iPhone 14",
-      testDir: "apps/web/src/e2e",
+      testMatch: "apps/web/src/e2e/**/*.spec.ts",
       use: { ...devices["iPhone 14"], baseURL: "http://localhost:3000" },
     },
 
     // ── Events app ──────────────────────────────────────────────────────────
     {
       name: "events · Desktop Chrome",
-      testDir: "apps/events/src/e2e",
+      testMatch: "apps/events/src/e2e/**/*.spec.ts",
       use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:3001" },
     },
     {
       name: "events · Pixel 5",
-      testDir: "apps/events/src/e2e",
+      testMatch: "apps/events/src/e2e/**/*.spec.ts",
       use: { ...devices["Pixel 5"], baseURL: "http://localhost:3001" },
     },
     {
       name: "events · iPhone 14",
-      testDir: "apps/events/src/e2e",
+      testMatch: "apps/events/src/e2e/**/*.spec.ts",
       use: { ...devices["iPhone 14"], baseURL: "http://localhost:3001" },
     },
 
     // ── News app ────────────────────────────────────────────────────────────
     {
       name: "news · Desktop Chrome",
-      testDir: "apps/news/src/e2e",
+      testMatch: "apps/news/src/e2e/**/*.spec.ts",
       use: { ...devices["Desktop Chrome"], baseURL: "http://localhost:3002" },
     },
     {
       name: "news · Pixel 5",
-      testDir: "apps/news/src/e2e",
+      testMatch: "apps/news/src/e2e/**/*.spec.ts",
       use: { ...devices["Pixel 5"], baseURL: "http://localhost:3002" },
     },
     {
       name: "news · iPhone 14",
-      testDir: "apps/news/src/e2e",
+      testMatch: "apps/news/src/e2e/**/*.spec.ts",
       use: { ...devices["iPhone 14"], baseURL: "http://localhost:3002" },
     },
   ],
