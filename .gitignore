@@ -26,6 +26,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# TypeScript incremental build cache
+*.tsbuildinfo
+
 # Playwright
 playwright-report
 test-results
