@@ -75,11 +75,11 @@ export default function MobileDrawer() {
             Updates <span className="ta">· புதுப்பிப்புகள்</span>
             <span className="arr">→</span>
           </a>
-          <a href="#news">
+          <a href="https://news-tn-info-alwu9zo0q-karuppanthepentesters-projects.vercel.app" target="_blank" rel="noopener">
             News <span className="ta">· செய்திகள்</span>
             <span className="arr">→</span>
           </a>
-          <a href="#events">
+          <a href="https://events-tn-info-jzbezn86z-karuppanthepentesters-projects.vercel.app" target="_blank" rel="noopener">
             Events <span className="ta">· நிகழ்வுகள்</span>
             <span className="arr">→</span>
           </a>

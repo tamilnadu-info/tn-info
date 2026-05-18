@@ -7,6 +7,8 @@ import DevSection from "@/components/DevSection";
 import Footer from "@/components/Footer";
 import DistrictModal from "@/components/DistrictModal";
 import MobileDrawer from "@/components/MobileDrawer";
+import NewsPreview from "@/components/NewsPreview";
+import EventsPreview from "@/components/EventsPreview";
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
         <FocusCards />
         <Atlas />
         <LiveWire />
+        <NewsPreview />
+        <EventsPreview />
         <DevSection />
       </main>
       <Footer />
