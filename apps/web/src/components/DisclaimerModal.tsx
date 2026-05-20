@@ -6,17 +6,15 @@ export default function DisclaimerModal() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem("tn-disc-dismissed");
-    if (!dismissed) {
-      setVisible(true);
-    }
+    const session = sessionStorage.getItem("tn-disc-ok");
+    const permanent = localStorage.getItem("tn-disc-dismissed");
+    if (!session && !permanent) setVisible(true);
   }, []);
 
   const dismiss = useCallback(() => {
+    sessionStorage.setItem("tn-disc-ok", "1");
     const checkbox = document.getElementById("discAck") as HTMLInputElement | null;
-    if (checkbox?.checked) {
-      localStorage.setItem("tn-disc-dismissed", "1");
-    }
+    if (checkbox?.checked) localStorage.setItem("tn-disc-dismissed", "1");
     setVisible(false);
   }, []);
 
