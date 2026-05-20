@@ -8,11 +8,7 @@ export default function JsonLd() {
       url: "https://tn-info.in",
       description:
         "Open-source civic data platform for Tamil Nadu covering elections, government schemes, education, and news.",
-      sameAs: [
-        "https://github.com/tamilnadu-info/tn-info",
-        "https://news.tn-info.in",
-        "https://events.tn-info.in",
-      ],
+      sameAs: ["https://github.com/tamilnadu-info/tn-info"],
     },
     {
       "@type": "WebSite",

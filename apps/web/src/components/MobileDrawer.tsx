@@ -75,11 +75,11 @@ export default function MobileDrawer() {
             Updates <span className="ta">· புதுப்பிப்புகள்</span>
             <span className="arr">→</span>
           </a>
-          <a href="https://news.tn-info.in" target="_blank" rel="noopener">
+          <a href="/news">
             News <span className="ta">· செய்திகள்</span>
             <span className="arr">→</span>
           </a>
-          <a href="https://events.tn-info.in" target="_blank" rel="noopener">
+          <a href="/events">
             Events <span className="ta">· நிகழ்வுகள்</span>
             <span className="arr">→</span>
           </a>

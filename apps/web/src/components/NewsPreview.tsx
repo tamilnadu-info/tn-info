@@ -2,7 +2,7 @@
 
 import { TN_NEWS } from "@/data/news";
 
-const NEWS_URL = "https://news.tn-info.in";
+const NEWS_URL = "/news";
 
 export default function NewsPreview() {
   const hotItems = TN_NEWS.hot.slice(0, 3);

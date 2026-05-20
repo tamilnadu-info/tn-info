@@ -153,7 +153,7 @@ export default function NewsPageClient({ hot: hotAll, hidden: hiddenAll }: Props
             ))}
           </div>
           <div className="see-all">
-            <a href="https://news.tn-info.in">
+            <a href="">
               See all HOT stories <span className="arr">→</span>
               <span className="ct">{hotAll.length} total</span>
             </a>
@@ -179,7 +179,7 @@ export default function NewsPageClient({ hot: hotAll, hidden: hiddenAll }: Props
             ))}
           </div>
           <div className="see-all">
-            <a href="https://news.tn-info.in">
+            <a href="">
               See all HIDDEN stories <span className="arr">→</span>
               <span className="ct">{hiddenAll.length} total</span>
             </a>

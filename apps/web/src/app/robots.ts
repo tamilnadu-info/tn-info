@@ -7,10 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Googlebot", allow: "/" },
       { userAgent: "Bingbot", allow: "/" },
     ],
-    sitemap: [
-      "https://tn-info.in/sitemap.xml",
-      "https://events.tn-info.in/sitemap.xml",
-      "https://news.tn-info.in/sitemap.xml",
-    ],
+    sitemap: ["https://tn-info.in/sitemap.xml"],
   };
 }

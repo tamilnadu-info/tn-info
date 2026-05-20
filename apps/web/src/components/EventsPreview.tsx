@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { TN_EVENTS } from "@/data/events";
 
-const EVENTS_URL = "https://events.tn-info.in";
+const EVENTS_URL = "/events";
 
 type Kind = "all" | "tech" | "political";
 

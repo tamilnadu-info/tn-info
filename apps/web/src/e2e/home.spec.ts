@@ -134,12 +134,12 @@ test.describe("Header", () => {
     await expect(page.locator('[data-testid="header"] nav a[href="#feed"]')).toBeVisible();
   });
 
-  test("News nav link points to news.tn-info.in", async ({ page }) => {
-    await expect(page.locator('[data-testid="header"] nav a[href="https://news.tn-info.in"]')).toBeVisible();
+  test("News nav link points to /news", async ({ page }) => {
+    await expect(page.locator('[data-testid="header"] nav a[href="/news"]')).toBeVisible();
   });
 
-  test("Events nav link points to events.tn-info.in", async ({ page }) => {
-    await expect(page.locator('[data-testid="header"] nav a[href="https://events.tn-info.in"]')).toBeVisible();
+  test("Events nav link points to /events", async ({ page }) => {
+    await expect(page.locator('[data-testid="header"] nav a[href="/events"]')).toBeVisible();
   });
 
   test("API nav link is present", async ({ page }) => {
@@ -538,8 +538,8 @@ test.describe("News Preview Section", () => {
     await expect(section).toBeVisible();
   });
 
-  test("there is a link to news.tn-info.in", async ({ page }) => {
-    const link = page.locator('a[href*="news.tn-info.in"]');
+  test("there is a link to /news", async ({ page }) => {
+    const link = page.locator('a[href="/news"]');
     expect(await link.count()).toBeGreaterThan(0);
   });
 });
@@ -558,8 +558,8 @@ test.describe("Events Preview Section", () => {
     await expect(section).toBeVisible();
   });
 
-  test("there is a link to events.tn-info.in", async ({ page }) => {
-    const link = page.locator('a[href*="events.tn-info.in"]');
+  test("there is a link to /events", async ({ page }) => {
+    const link = page.locator('a[href="/events"]');
     expect(await link.count()).toBeGreaterThan(0);
   });
 });

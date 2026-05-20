@@ -18,11 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const core: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: now, changeFrequency: "daily", priority: 1.0 },
-    { url: `${BASE}/#election`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE}/#education`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${BASE}/#schemes`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${BASE}/#districts`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/#feed`, lastModified: now, changeFrequency: "daily", priority: 0.75 },
+    { url: `${BASE}/news`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE}/events`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE}/education`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${BASE}/#election`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${BASE}/#districts`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/#api`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
