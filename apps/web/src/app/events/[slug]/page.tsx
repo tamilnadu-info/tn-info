@@ -14,9 +14,7 @@ function getMonthKey(dateStr: string): string {
 }
 
 export function generateStaticParams() {
-  return TN_EVENTS.map((ev) => ({
-    slug: ev.id ?? ev.href.replace("/events/", ""),
-  }));
+  return TN_EVENTS.map((ev) => ({ slug: ev.id ?? ev.href.replace("/events/", "") }));
 }
 
 export async function generateMetadata({
@@ -29,12 +27,7 @@ export async function generateMetadata({
   if (!ev) return {};
   return {
     title: ev.title,
-    description: `${ev.dateLabel} · ${ev.city} · ${ev.venue} · ${ev.organiser}. ${ev.note}`,
-    openGraph: {
-      title: ev.title,
-      description: ev.note,
-      url: `https://tn-info.in/events/${slug}`,
-    },
+    description: `${ev.dateLabel} · ${ev.city} · ${ev.venue} · ${ev.organiser}`,
   };
 }
 
@@ -53,151 +46,150 @@ export default async function EventDetailPage({
   const mon = d.toLocaleString("en", { month: "short" }).toUpperCase();
   const yr = d.getFullYear();
 
-  const monthKey = getMonthKey(ev.date);
   const related = TN_EVENTS.filter(
-    (e) => getSlug(e) !== slug && getMonthKey(e.date) === monthKey,
+    (e) => getSlug(e) !== slug && getMonthKey(e.date) === getMonthKey(ev.date),
   ).slice(0, 3);
 
+  const feeLabel = ev.fee === "free" ? "Free" : ev.fee === "paid" ? "Paid" : ev.fee === "invite" ? "Invite only" : "Public";
+
   return (
-    <>
-      <div className="page-hero">
-        <div className="page">
-          <nav className="crumbs">
-            <a href="/">TN-Info.in</a>
-            <span className="sep">/</span>
-            <a href="/events">Events</a>
-            <span className="sep">/</span>
-            <span>{ev.title}</span>
-          </nav>
-          <h1>{ev.title}</h1>
-          <p className="lead">
-            {ev.dateLabel} · <strong>{ev.city}</strong> · {ev.venue} · {ev.organiser}
-          </p>
+    <div className="page" style={{ paddingTop: 40 }}>
+      <nav className="crumbs" aria-label="Breadcrumb" style={{ marginBottom: 28 }}>
+        <a href="/">TN-Info.in</a>
+        <span className="sep">/</span>
+        <a href="/events">Events</a>
+        <span className="sep">/</span>
+        <span>{ev.title}</span>
+      </nav>
+
+      <div className={`ed-hero kind-${ev.kind}`}>
+        <div className="ed-date-block">
+          <div className="day">{day}</div>
+          <div className="mon">{mon}</div>
+          <div className="yr">{yr}</div>
+        </div>
+        <div>
+          <div className="ed-meta">
+            <span className={`ev-kind`}>{ev.kind.toUpperCase()}</span>
+            <span className="ev-cat">{ev.cat}</span>
+            <span className={`ev-fee fee-${ev.fee}`}>{feeLabel}</span>
+          </div>
+          <h1 className="detail-h1">{ev.title}</h1>
+          {ev.titleTa && <div className="detail-h1-ta">{ev.titleTa}</div>}
+          <div style={{ fontSize: 16, color: "var(--ink-2)", lineHeight: 1.5 }}>
+            <strong>{ev.city}</strong> · {ev.venue}<br />
+            <span style={{ fontFamily: "var(--mono)", fontSize: 11.5, color: "var(--muted)", letterSpacing: ".08em", textTransform: "uppercase" }}>
+              Organised by{" "}
+            </span>
+            <span style={{ fontWeight: 600, color: "var(--ink)" }}>{ev.organiser}</span>
+          </div>
         </div>
       </div>
 
-      <div className="page">
-        <div className="ed-layout">
-          <main>
-            {(body?.what ?? []).length > 0 && (
-              <div className="ed-section">
-                <h3>About</h3>
-                {(body?.what ?? []).map((p, i) => (
-                  <p key={i}>{p}</p>
+      <div className="detail-wrap">
+        <article>
+          {(body?.what ?? []).length > 0 && (
+            <>
+              <div className="section-sub">About this event</div>
+              <div className="detail-body">
+                {(body?.what ?? []).map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            </>
+          )}
+
+          {(body?.expect ?? []).length > 0 && (
+            <>
+              <div className="section-sub">What to expect</div>
+              <ul className="expect-list">
+                {(body?.expect ?? []).map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+            </>
+          )}
+
+          {(body?.speakers ?? []).length > 0 && (
+            <>
+              <div className="section-sub">Speakers / participants</div>
+              <ul className="expect-list">
+                {(body?.speakers ?? []).map((s, i) => <li key={i}>{s}</li>)}
+              </ul>
+            </>
+          )}
+
+          {(body?.links ?? []).length > 0 && (
+            <>
+              <div className="section-sub">Official links</div>
+              <div className="ext-links">
+                {(body?.links ?? []).map((lk, i) => (
+                  <a key={i} href={lk.url} target="_blank" rel="noopener noreferrer">
+                    {lk.label} <span className="arr">↗</span>
+                  </a>
                 ))}
               </div>
-            )}
+            </>
+          )}
 
-            {(body?.expect ?? []).length > 0 && (
-              <div className="ed-section">
-                <h3>What to expect</h3>
-                <ul>
-                  {(body?.expect ?? []).map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
+          {related.length > 0 && (
+            <>
+              <div className="section-sub">Other events this month</div>
+              <div className="related-grid">
+                {related.map((rel) => {
+                  const rd = new Date(rel.date);
+                  return (
+                    <a key={rel.href} className={`related-card kind-${rel.kind}`} href={rel.href}>
+                      <span className={`rc-tag ev-kind`} style={{ marginBottom: 10, display: "inline-block" }}>{rel.kind.toUpperCase()}</span>
+                      <div className="rc-head">{rel.title}</div>
+                      <div className="rc-meta">{rd.getDate()} {rd.toLocaleString("en", { month: "short" })} · {rel.city}</div>
+                    </a>
+                  );
+                })}
               </div>
-            )}
+            </>
+          )}
+        </article>
 
-            {(body?.speakers ?? []).length > 0 && (
-              <div className="ed-section">
-                <h3>Speakers / Organiser</h3>
-                <ul>
-                  {(body?.speakers ?? []).map((s, i) => (
-                    <li key={i}>{s}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </main>
-
-          <aside className="ed-rail">
-            <div className="ed-rail-card ed-date-block">
-              <div className="day">{day}</div>
-              <div className="mon">{mon}</div>
-              <div className="yr">{yr}</div>
-            </div>
-
-            <div className="ed-rail-card">
-              <div className="det-meta-item" style={{ marginBottom: 6 }}>Location</div>
-              <div className="ed-city">{ev.city}</div>
-              <div className="ed-venue">{ev.venue}</div>
-            </div>
-
-            <div className="ed-rail-card" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div className="det-meta-item">Fee</div>
-              <span className={`ev-fee fee-${ev.fee}`}>{ev.fee.toUpperCase()}</span>
-            </div>
-
-            <div className="ed-rail-card" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <aside className="detail-side">
+          <div className="side-cta">
+            <h4>Register / RSVP</h4>
+            <p>{ev.rsvp}</p>
+            <div className="cta-row">
               <a
+                className="primary"
                 href={ev.rsvp.startsWith("http") ? ev.rsvp : "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ width: "100%", justifyContent: "center", textDecoration: "none" }}
               >
-                {ev.rsvp}
+                Register ↗
               </a>
               <AddToCalendar ev={ev} />
             </div>
+          </div>
 
-            {(body?.links ?? []).length > 0 && (
-              <div className="ed-rail-card">
-                <div className="kicker" style={{ marginBottom: 10 }}>Official links</div>
-                <div className="ed-links">
-                  {(body?.links ?? []).map((lk, i) => (
-                    <a className="ed-link-item" key={i} href={lk.url} target="_blank" rel="noopener noreferrer">
-                      {lk.label} ↗
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-          </aside>
-        </div>
+          <div className="side-block">
+            <h4>Event facts</h4>
+            <div className="row"><span className="k">Kind</span><span className="v">{ev.kind}</span></div>
+            <div className="row"><span className="k">Date</span><span className="v">{ev.dateLabel}</span></div>
+            <div className="row"><span className="k">City</span><span className="v">{ev.city}</span></div>
+            <div className="row"><span className="k">Venue</span><span className="v">{ev.venue}</span></div>
+            <div className="row"><span className="k">Organiser</span><span className="v">{ev.organiser}</span></div>
+            <div className="row"><span className="k">Fee</span><span className="v">{feeLabel}</span></div>
+          </div>
 
-        {related.length > 0 && (
-          <div style={{ paddingBottom: 80 }}>
-            <div className="ed-related-h">Other events this month</div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 14 }}>
-              {related.map((rel) => {
-                const rd = new Date(rel.date);
-                const rday = rd.getDate();
-                const rmon = rd.toLocaleString("en", { month: "short" }).toUpperCase();
-                return (
-                  <a
-                    key={rel.href}
-                    className={`ev-card kind-${rel.kind}`}
-                    href={rel.href}
-                  >
-                    <div className="ev-date">
-                      <div className="ev-day">{rday}</div>
-                      <div className="ev-mon">{rmon}</div>
-                    </div>
-                    <div className="ev-body">
-                      <div className="ev-meta">
-                        <span className="ev-kind">{rel.kind.toUpperCase()}</span>
-                        <span className="ev-cat">{rel.cat}</span>
-                        <span className={`ev-fee fee-${rel.fee}`}>{rel.fee.toUpperCase()}</span>
-                      </div>
-                      <h4 className="ev-title">{rel.title}</h4>
-                      <div className="ev-where">
-                        <b>{rel.city}</b> · {rel.venue}
-                      </div>
-                      <p className="ev-note">{rel.note}</p>
-                      <div className="ev-foot">
-                        <span className="ev-org">{rel.organiser}</span>
-                        <span className="ev-rsvp">{rel.rsvp} →</span>
-                      </div>
-                    </div>
-                  </a>
-                );
-              })}
+          <div className="side-block">
+            <h4>Submit an event</h4>
+            <p style={{ fontSize: 13.5, lineHeight: 1.55, color: "var(--ink-2)", marginBottom: 12 }}>
+              Hosting something in TN that should be listed here? Open an issue with a public source.
+            </p>
+            <div className="ext-links">
+              <a href="https://github.com/tamilnadu-info/tn-info/issues" target="_blank" rel="noopener">
+                Submit event <span className="arr">↗</span>
+              </a>
+              <a href="/events#rss">
+                Events RSS <span className="arr">↗</span>
+              </a>
             </div>
           </div>
-        )}
+        </aside>
       </div>
-    </>
+    </div>
   );
 }
