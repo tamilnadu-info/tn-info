@@ -1,0 +1,73 @@
+name: Pipeline health check
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ping sources and write status
+        run: |
+          python3 - << 'PYEOF'
+          import json, urllib.request, time
+
+          sources = [
+            ("Election results",  "ECI",                "https://eci.gov.in"),
+            ("TNEA counselling",  "tneaonline.org",     "https://www.tneaonline.org"),
+            ("TANCA",             "tanca.annauniv.edu", "https://tanca.annauniv.edu"),
+            ("Schemes registry",  "tn.gov.in",          "https://tn.gov.in"),
+            ("Cabinet notify.",   "Govt. Gazette",      "https://www.tn.gov.in/tngazette"),
+            ("Events feed",       "FOSS United",        "https://fossunited.org"),
+          ]
+
+          now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+          rows = []
+          for name, source, url in sources:
+            t0 = time.time()
+            try:
+              r = urllib.request.urlopen(
+                urllib.request.Request(url, headers={"User-Agent": "tn-info-pipeline/1.0"}),
+                timeout=10,
+              )
+              ms = int((time.time() - t0) * 1000)
+              status = "ok" if r.status < 400 else "warn"
+            except Exception:
+              ms = 0
+              status = "warn"
+            rows.append({
+              "name": name,
+              "source": source,
+              "status": status,
+              "latencyMs": ms,
+              "checkedAt": now,
+            })
+
+          with open("/tmp/pipeline-status.json", "w") as f:
+            json.dump({"checkedAt": now, "pipelines": rows}, f, indent=2)
+          PYEOF
+
+      - name: Commit status to pipeline-data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code origin pipeline-data; then
+            git fetch origin pipeline-data
+            git checkout -B pipeline-data origin/pipeline-data
+          else
+            git checkout --orphan pipeline-data
+            git rm -rf . --quiet || true
+          fi
+          cp /tmp/pipeline-status.json pipeline-status.json
+          git add pipeline-status.json
+          git diff --staged --quiet && echo "No changes to commit" || (
+            git commit -m "chore: pipeline status check $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push origin pipeline-data
+          )
