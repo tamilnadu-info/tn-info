@@ -30,7 +30,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "DataMeet Chennai",
     note: "Lightning talks on TN civic datasets · open desks for OS contributors.",
     rsvp: "RSVP via Meetup",
-    href: "/cod-2026",
+    href: "/events/cod-2026",
   },
   {
     kind: "tech",
@@ -45,7 +45,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Tamil Wikimedians",
     note: "Focus: TN district stub articles. 200+ stubs in queue.",
     rsvp: "Join · Online",
-    href: "/tamil-wiki",
+    href: "/events/tamil-wiki",
   },
   {
     kind: "tech",
@@ -60,7 +60,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "CIT × IEEE Madras Chapter",
     note: "2nd edition. IEEE / Springer indexed. Industry + academia tracks.",
     rsvp: "₹3,500 academic",
-    href: "/icdsaai-2026",
+    href: "/events/icdsaai-2026",
   },
   {
     kind: "tech",
@@ -75,7 +75,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "TN-Info.in × IITM Incubation Cell",
     note: "Build on TN-Info APIs. ₹1.5L pool · 24h sprint · 200 seats.",
     rsvp: "Apply by 30 Jun",
-    href: "/civic-hack",
+    href: "/events/civic-hack",
   },
   {
     kind: "tech",
@@ -90,7 +90,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Sri Eshwar College",
     note: "AI/ML, sustainable smart cities, quantum + cybersecurity tracks. SCITEPRESS proceedings.",
     rsvp: "₹6,500 academic",
-    href: "/icaccs-2026",
+    href: "/events/icaccs-2026",
   },
   {
     kind: "tech",
@@ -105,7 +105,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "PySangamam",
     note: "Single-track Tamil-language Python conference. ~12 talks.",
     rsvp: "₹400 student",
-    href: "/madurai-pycon",
+    href: "/events/madurai-pycon",
   },
   {
     kind: "tech",
@@ -120,7 +120,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Civic Tech India · TN chapter",
     note: "Short talks on procurement, RTI tooling and civic dashboard ops.",
     rsvp: "Walk-in welcome",
-    href: "/civic-salon",
+    href: "/events/civic-salon",
   },
   {
     kind: "tech",
@@ -135,7 +135,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "ChennaiPy",
     note: "Talks on FastAPI, polars and a hands-on type-hint session.",
     rsvp: "First-come · 80 seats",
-    href: "/chennaipy-jun",
+    href: "/events/chennaipy-jun",
   },
   /* ── Political ────────────────────────────────────────────── */
   {
@@ -151,7 +151,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Assembly Secretariat",
     note: "Live broadcast on Kalaignar Arasiyal Seithigal. Schedule on assembly.tn.gov.in.",
     rsvp: "Live · public",
-    href: "/assembly-mon",
+    href: "/events/assembly-mon",
   },
   {
     kind: "political",
@@ -166,7 +166,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "TN State Election Commission",
     note: "Ward 142 (Chennai), Karur municipality W-19, Sivagangai panchayat, Theni W-7.",
     rsvp: "Per ward office",
-    href: "/bypoll-jun",
+    href: "/events/bypoll-jun",
   },
   {
     kind: "political",
@@ -181,7 +181,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Finance Department",
     note: "Statement scheduled at 11:00 IST; full PDF released after presentation.",
     rsvp: "Live · public",
-    href: "/budget-fy26-supp",
+    href: "/events/budget-fy26-supp",
   },
   {
     kind: "political",
@@ -196,7 +196,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "DMK",
     note: "Listed in party notification dated 14 May. Agenda not public.",
     rsvp: "Members only",
-    href: "/dmk-gc",
+    href: "/events/dmk-gc",
   },
   {
     kind: "political",
@@ -211,7 +211,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "AIADMK",
     note: "Annual rally. Permit pending with Madurai City Police as of 17 May.",
     rsvp: "Public · open",
-    href: "/aiadmk-fd",
+    href: "/events/aiadmk-fd",
   },
   {
     kind: "political",
@@ -226,7 +226,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Election Commission of India",
     note: "Routine pre-roll-revision review with district election officers.",
     rsvp: "Officials only",
-    href: "/eci-tn-review",
+    href: "/events/eci-tn-review",
   },
   {
     kind: "political",
@@ -241,7 +241,7 @@ export const TN_EVENTS: EventItem[] = [
     organiser: "Tamil Nadu Electricity Regulatory Commission",
     note: "Written submissions accepted till 30 May at tnerc.gov.in.",
     rsvp: "Open · register",
-    href: "/tnerc-hearing",
+    href: "/events/tnerc-hearing",
   },
 ];
 

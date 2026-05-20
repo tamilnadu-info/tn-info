@@ -3,6 +3,10 @@ import { Crimson_Pro, Manrope, JetBrains_Mono, Noto_Sans_Tamil } from "next/font
 import "./globals.css";
 import DisclaimerModal from "@/components/DisclaimerModal";
 import JsonLd from "@/components/JsonLd";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import MobileDrawer from "@/components/MobileDrawer";
+import DistrictModal from "@/components/DistrictModal";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -132,7 +136,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body data-lang="en">
         <JsonLd />
         <DisclaimerModal />
+        <MobileDrawer />
+        <DistrictModal />
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -46,15 +46,7 @@ const FIT = {
   GOOD_ENOUGH:      7,
 };
 
-interface GeoDistrict {
-  name: string;
-  displayName?: string;
-  slug: string;
-  d: string;
-  cx: number;
-  cy: number;
-  contains: string[];
-}
+import type { GeoDistrict } from "@/data/tn-geo";
 
 function labelFor(g: GeoDistrict, mode: "long" | "short"): string {
   const name = g.displayName || g.name;
@@ -74,7 +66,7 @@ export default function TNMap() {
     const wrap = wrapRef.current;
     if (!regionsG || !labelsG || !popEl || !wrap) return;
 
-    const geo = TN_GEO.districts as GeoDistrict[];
+    const geo = TN_GEO.districts;
     const dataBySlug = Object.fromEntries(TN_DATA.districts.map((d) => [d.id, d]));
 
     // Draw regions
@@ -85,10 +77,6 @@ export default function TNMap() {
         const ta = d?.ta || "";
         const mlas = d?.mlas || "—";
         const pop = d?.pop || "—";
-        const contains = (g.contains || [])
-          .map((c: string) => dataBySlug[c]?.en)
-          .filter(Boolean)
-          .join(", ");
         const isCap = g.slug === "chennai";
         return `<path
           class="tn-region${isCap ? " cap" : ""}"
@@ -98,7 +86,6 @@ export default function TNMap() {
           data-ta="${ta}"
           data-mlas="${mlas}"
           data-pop="${pop}"
-          data-contains="${contains}"
         ></path>`;
       })
       .join("");
@@ -180,14 +167,7 @@ export default function TNMap() {
       if (hm) hm.textContent = ds.mlas || "";
       if (hp) hp.textContent = ds.pop || "";
 
-      if (hcRow && hc) {
-        if (ds.contains) {
-          hcRow.style.display = "";
-          hc.textContent = ds.contains;
-        } else {
-          hcRow.style.display = "none";
-        }
-      }
+      if (hcRow) hcRow.style.display = "none";
 
       const bb = target.getBoundingClientRect();
       const wbb = wrap.getBoundingClientRect();
@@ -303,7 +283,7 @@ export default function TNMap() {
         </div>
       </div>
       <div className="mc-ft">
-        <span>30 historic districts shown · 8 newer split out</span>
+        <span>All 38 districts · click to explore</span>
         <a href="#districts">View atlas →</a>
       </div>
     </div>

@@ -36,7 +36,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "https://www.tneaonline.org/",
       date: "17 May 2026",
       isoDate: "2026-05-17",
-      href: "/tnea-2026-reg",
+      href: "/news/tnea-2026-reg",
     },
     {
       id: "mut-may",
@@ -53,7 +53,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "16 May 2026",
       isoDate: "2026-05-16",
-      href: "/mut-may",
+      href: "/news/mut-may",
     },
     {
       id: "metro-c4",
@@ -70,7 +70,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "https://chennaimetrorail.org/",
       date: "14 May 2026",
       isoDate: "2026-05-14",
-      href: "/metro-c4",
+      href: "/news/metro-c4",
     },
     {
       id: "cabinet-rejig",
@@ -87,7 +87,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "13 May 2026",
       isoDate: "2026-05-13",
-      href: "/cabinet-rejig",
+      href: "/news/cabinet-rejig",
     },
     {
       id: "heatwave",
@@ -103,7 +103,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "https://mausam.imd.gov.in/",
       date: "15 May 2026",
       isoDate: "2026-05-15",
-      href: "/heatwave",
+      href: "/news/heatwave",
     },
     {
       id: "free-bus",
@@ -119,7 +119,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "12 May 2026",
       isoDate: "2026-05-12",
-      href: "/free-bus",
+      href: "/news/free-bus",
     },
     {
       id: "tneb-tariff",
@@ -135,7 +135,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "https://www.tnerc.gov.in/",
       date: "11 May 2026",
       isoDate: "2026-05-11",
-      href: "/tneb-tariff",
+      href: "/news/tneb-tariff",
     },
     {
       id: "tnpsc-g2",
@@ -151,7 +151,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "https://www.tnpsc.gov.in/",
       date: "10 May 2026",
       isoDate: "2026-05-10",
-      href: "/tnpsc-g2",
+      href: "/news/tnpsc-g2",
     },
   ],
   hidden: [
@@ -171,7 +171,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "Mar 2026",
       isoDate: "2026-03-12",
-      href: "/coast-erosion",
+      href: "/news/coast-erosion",
     },
     {
       id: "scavenging",
@@ -189,7 +189,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "Apr 2026",
       isoDate: "2026-04-08",
-      href: "/scavenging",
+      href: "/news/scavenging",
     },
     {
       id: "cauvery-sand",
@@ -206,7 +206,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "Stuck since 2024",
       isoDate: "2025-03-01",
-      href: "/cauvery-sand",
+      href: "/news/cauvery-sand",
     },
     {
       id: "phc-vacant",
@@ -224,7 +224,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "Apr 2026",
       isoDate: "2026-04-22",
-      href: "/phc-vacant",
+      href: "/news/phc-vacant",
     },
     {
       id: "scert-tamil",
@@ -242,7 +242,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "Jun 2025",
       isoDate: "2025-06-15",
-      href: "/scert-tamil",
+      href: "/news/scert-tamil",
     },
     {
       id: "ulb-waste",
@@ -260,7 +260,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "May 2026",
       isoDate: "2026-05-04",
-      href: "/ulb-waste",
+      href: "/news/ulb-waste",
     },
     {
       id: "forest-encroach",
@@ -278,7 +278,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "Feb 2026",
       isoDate: "2026-02-19",
-      href: "/forest-encroach",
+      href: "/news/forest-encroach",
     },
     {
       id: "tnea-fee-refund",
@@ -296,7 +296,7 @@ export const TN_NEWS: TnNews = {
       sourceUrl: "#",
       date: "May 2026",
       isoDate: "2026-05-01",
-      href: "/tnea-fee-refund",
+      href: "/news/tnea-fee-refund",
     },
   ],
 };
