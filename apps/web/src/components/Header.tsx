@@ -35,13 +35,11 @@ export default async function Header() {
             </a>
           </div>
           <nav className="nav">
-            <a href="#districts">Districts</a>
-            <a href="#feed">Updates</a>
-            <a href="https://news.tn-info.in" target="_blank" rel="noopener">News</a>
-            <a href="https://events.tn-info.in" target="_blank" rel="noopener">Events</a>
-            <a href="#api" className="api">
-              API
-            </a>
+            <a href="/#districts">Districts</a>
+            <a href="/education">Education</a>
+            <a href="/news">News</a>
+            <a href="/events">Events</a>
+            <a href="/#api" className="api">API</a>
           </nav>
           <div className="actions">
             <LanguageToggle />
