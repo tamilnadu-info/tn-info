@@ -85,9 +85,7 @@ export default function EventsPreview() {
               <a
                 key={ev.href}
                 className={`ev-card kind-${ev.kind}${isSoon ? " is-soon" : ""}`}
-                href={`${EVENTS_URL}/${ev.href.replace("event-detail.html?id=", "")}`}
-                target="_blank"
-                rel="noopener"
+                href={ev.href}
               >
                 <div className="ev-date">
                   <div className="ev-day">{day}</div>
@@ -114,7 +112,7 @@ export default function EventsPreview() {
         </div>
 
         <div className="see-all">
-          <a href={EVENTS_URL} target="_blank" rel="noopener">
+          <a href={EVENTS_URL}>
             Open the full calendar <span className="arr">→</span>
             <span className="ct">{totalCount} events</span>
           </a>

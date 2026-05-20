@@ -75,8 +75,10 @@ export default async function LiveWire() {
         </div>
         <div className="wire-grid">
           <div className="wire-list" id="wireList">
-            {ticker.map((t, i) => (
-              <div className="wire-row" key={i}>
+            {ticker.map((t, i) => {
+              const dest = t.tag === "EVENT" ? "/events" : t.tag === "EDUCATION" ? "/education" : "/news";
+              return (
+              <a className="wire-row" href={dest} key={i}>
                 <div className="tm">{timeAgo(t.time)}</div>
                 <div className="bd">
                   <span className={`tag ${t.tag}`}>{t.tag}</span>
@@ -89,9 +91,10 @@ export default async function LiveWire() {
                   </div>
                   <div className="ta eonly">{t.ta}</div>
                 </div>
-                <div className="vf">verified</div>
-              </div>
-            ))}
+                <div className="vf">→</div>
+              </a>
+              );
+            })}
           </div>
           <div className="side">
             <div className="side-card">

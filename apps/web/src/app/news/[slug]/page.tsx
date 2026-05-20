@@ -48,7 +48,7 @@ export default async function NewsDetailPage({ params }: Props) {
 
   return (
     <>
-      <header className="page-hero">
+      <section className="page-hero">
         <div className="page">
           <nav className="crumbs" aria-label="Breadcrumb">
             <a href="/">TN-Info.in</a>
@@ -110,7 +110,7 @@ export default async function NewsDetailPage({ params }: Props) {
             </span>
           </div>
         </div>
-      </header>
+      </section>
 
       <main>
         <div className="page">

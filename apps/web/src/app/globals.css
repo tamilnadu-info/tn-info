@@ -627,8 +627,10 @@ h1.hh sup {
   display: grid; grid-template-columns: 88px 1fr auto; gap: 18px;
   padding: 18px 22px; border-bottom: 1px solid var(--line);
   align-items: start; transition: background .12s;
+  text-decoration: none; color: inherit; cursor: pointer;
 }
 .wire-row:hover { background: var(--bg); }
+.wire-row:hover .vf { color: var(--terra); }
 .wire-row:last-child { border-bottom: none; }
 .wire-row .tm { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding-top: 5px; }
 .wire-row .bd .tag {

@@ -36,7 +36,7 @@ export default function NewsPreview() {
             <p className="news-lane-blurb">Showing this week&apos;s top three. Open the full desk for the rest.</p>
             <div className="feat-grid">
               {hotItems.map((item) => (
-                <a key={item.id} className="feat-card" href={`${NEWS_URL}/${item.id}`} target="_blank" rel="noopener">
+                <a key={item.id} className="feat-card" href={`${NEWS_URL}/${item.id}`}>
                   <div className={`feat-thumb tag-${item.tag}`}>
                     <span className="glyph">{item.glyph}</span>
                     <span className="tag-pill">{item.tag}</span>
@@ -74,7 +74,7 @@ export default function NewsPreview() {
                   </div>
                   <div className="body-col">
                     <p className="head">
-                      <a href={`${NEWS_URL}/${item.id}`} target="_blank" rel="noopener">{item.headline}</a>
+                      <a href={`${NEWS_URL}/${item.id}`}>{item.headline}</a>
                     </p>
                     <div className="why">
                       <span className="why-lbl">Why hidden</span>
@@ -92,7 +92,7 @@ export default function NewsPreview() {
         </div>
 
         <div className="see-all">
-          <a href={NEWS_URL} target="_blank" rel="noopener">
+          <a href={NEWS_URL}>
             Open the full news desk <span className="arr">→</span>
             <span className="ct">{TN_NEWS.hot.length + TN_NEWS.hidden.length} stories</span>
           </a>
