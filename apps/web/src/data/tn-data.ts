@@ -109,37 +109,35 @@ export const TN_DATA = (function () {
   ];
 
   // Cross-category ticker — what 'just changed' on the platform.
+  // time field is an ISO 8601 UTC timestamp; rendered as relative ("X ago") at display time.
   const ticker = [
-    { tag: "ELECTION",  en: "Cabinet expansion: 2 new MoS portfolios notified",         ta: "அமைச்சரவை விரிவாக்கம்: 2 புதிய துணை அமைச்சர் துறைகள்",  time: "12 min ago" },
-    { tag: "SCHEME",    en: "Magalir Urimai eligibility: income proof rule simplified", ta: "மகளிர் உரிமை: வருமான ஆதார விதி எளிமைப்படுத்தப்பட்டது",     time: "1 hr ago"  },
-    { tag: "EDUCATION", en: "TNEA Phase 2 choice filling window opens June 8",          ta: "TNEA இரண்டாம் கட்டம் ஜூன் 8 முதல்",                         time: "3 hr ago"  },
-    { tag: "EVENT",     en: "FOSS United Chennai — registrations live",                  ta: "ஃபாஸ் ஐக்கிய சென்னை — பதிவுகள் தொடங்கின",                  time: "5 hr ago"  },
-    { tag: "ELECTION",  en: "Constituency #143 (Madurai East) — by-poll date notified", ta: "தொகுதி #143 (மதுரை கிழக்கு) — இடைத்தேர்தல் அறிவிப்பு",     time: "8 hr ago"  },
-    { tag: "PIPELINE",  en: "TNEA scraper restored after 22-min outage",                 ta: "TNEA தரவு பைப்லைன் 22 நிமிட இடைவெளிக்குப் பின் இயங்குகிறது",  time: "1 day ago" },
-    { tag: "SCHEME",    en: "Pudhumai Penn — May disbursement complete (₹172 Cr)",       ta: "புதுமை பெண் — மே மாத கொடுப்பனவு முடிந்தது (₹172 கோடி)",     time: "1 day ago" },
+    { tag: "ELECTION",  en: "Cabinet expansion: 2 new MoS portfolios notified",          ta: "அமைச்சரவை விரிவாக்கம்: 2 புதிய துணை அமைச்சர் துறைகள்",           time: "2026-05-19T09:00:00Z" },
+    { tag: "SCHEME",    en: "Magalir Urimai eligibility: income proof rule simplified",   ta: "மகளிர் உரிமை: வருமான ஆதார விதி எளிமைப்படுத்தப்பட்டது",           time: "2026-05-19T07:30:00Z" },
+    { tag: "EDUCATION", en: "TNEA Phase 2 choice filling window opens June 8",            ta: "TNEA இரண்டாம் கட்டம் ஜூன் 8 முதல்",                               time: "2026-05-19T05:00:00Z" },
+    { tag: "EVENT",     en: "FOSS United Chennai — registrations live",                   ta: "ஃபாஸ் ஐக்கிய சென்னை — பதிவுகள் தொடங்கின",                        time: "2026-05-19T03:00:00Z" },
+    { tag: "ELECTION",  en: "Constituency #143 (Madurai East) — by-poll date notified",  ta: "தொகுதி #143 (மதுரை கிழக்கு) — இடைத்தேர்தல் அறிவிப்பு",           time: "2026-05-18T22:00:00Z" },
+    { tag: "PIPELINE",  en: "TNEA scraper restored after 22-min outage",                  ta: "TNEA தரவு பைப்லைன் 22 நிமிட இடைவெளிக்குப் பின் இயங்குகிறது",    time: "2026-05-18T10:00:00Z" },
+    { tag: "SCHEME",    en: "Pudhumai Penn — May disbursement complete (₹172 Cr)",        ta: "புதுமை பெண் — மே மாத கொடுப்பனவு முடிந்தது (₹172 கோடி)",         time: "2026-05-18T08:00:00Z" },
   ];
 
-  // Pipeline health — what the status indicator surfaces.
+  // Pipeline fallback — used only when the live pipeline-data branch is unreachable.
   const pipelines = [
-    { name: "Election results",  source: "ECI",                  freshness: "12 min",  status: "ok"   },
-    { name: "TNEA counselling",  source: "tneaonline.org",       freshness: "2 hr",    status: "ok"   },
-    { name: "TANCA",             source: "tanca.annauniv.edu",    freshness: "6 hr",    status: "ok"   },
-    { name: "Schemes registry",  source: "tn.gov.in",            freshness: "1 day",   status: "warn" },
-    { name: "Cabinet notify.",   source: "Govt. Gazette",        freshness: "4 hr",    status: "ok"   },
-    { name: "Events feed",       source: "Community partners",   freshness: "24 min",  status: "ok"   },
+    { name: "Election results",  source: "ECI",                status: "ok",   latencyMs: 0, checkedAt: "" },
+    { name: "TNEA counselling",  source: "tneaonline.org",    status: "ok",   latencyMs: 0, checkedAt: "" },
+    { name: "TANCA",             source: "tanca.annauniv.edu", status: "ok",   latencyMs: 0, checkedAt: "" },
+    { name: "Schemes registry",  source: "tn.gov.in",         status: "warn", latencyMs: 0, checkedAt: "" },
+    { name: "Cabinet notify.",   source: "Govt. Gazette",     status: "ok",   latencyMs: 0, checkedAt: "" },
+    { name: "Events feed",       source: "FOSS United",       status: "ok",   latencyMs: 0, checkedAt: "" },
   ];
 
-  // Headline platform stats.
+  // Headline platform stats — only values we can verify from the data or official sources.
+  // stars and contributors are fetched live from GitHub; colleges/apiCalls pending data collection.
   const stats = {
     districts: 38,
     constituencies: 234,
     mlas: 234,
-    schemes: 47,
-    colleges: 591,
-    events: 128,
-    apiCalls7d: "1.24 M",
-    contributors: 41,
-    githubStars: 1284,
+    schemes: 6,
+    events: 16,
   };
 
   return { districts, lokSabha2024, constituencies, cabinet, schemes, counselling, events, ticker, pipelines, stats };

@@ -1,9 +1,35 @@
-"use client";
-
 import { TN_DATA } from "@/data/tn-data";
+import { timeAgo } from "@/lib/time";
 
-export default function LiveWire() {
-  const { ticker, pipelines } = TN_DATA;
+interface PipelineEntry {
+  name: string;
+  source: string;
+  status: "ok" | "warn";
+  latencyMs: number;
+  checkedAt: string;
+}
+
+async function getPipelines(): Promise<PipelineEntry[]> {
+  try {
+    const res = await fetch(
+      "https://raw.githubusercontent.com/tamilnadu-info/tn-info/pipeline-data/pipeline-status.json",
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    return data.pipelines ?? [];
+  } catch {
+    return TN_DATA.pipelines as unknown as PipelineEntry[];
+  }
+}
+
+export default async function LiveWire() {
+  const { ticker } = TN_DATA;
+  const pipelines = await getPipelines();
+
+  const okCount = pipelines.filter((p) => p.status === "ok").length;
+  const warnCount = pipelines.filter((p) => p.status === "warn").length;
+  const healthLabel = `${okCount} ok${warnCount > 0 ? ` · ${warnCount} lag` : ""}`;
 
   return (
     <section
@@ -51,7 +77,7 @@ export default function LiveWire() {
           <div className="wire-list" id="wireList">
             {ticker.map((t, i) => (
               <div className="wire-row" key={i}>
-                <div className="tm">{t.time}</div>
+                <div className="tm">{timeAgo(t.time)}</div>
                 <div className="bd">
                   <span className={`tag ${t.tag}`}>{t.tag}</span>
                   <div className="h eonly">{t.en}</div>
@@ -78,7 +104,7 @@ export default function LiveWire() {
                     தரவு <em>நிலை</em>
                   </h4>
                 </div>
-                <span className="ok">5 ok · 1 lag</span>
+                <span className="ok">{healthLabel}</span>
               </div>
               <div className="pipe-list" id="pipeList">
                 {pipelines.map((p, i) => (
@@ -88,7 +114,9 @@ export default function LiveWire() {
                       {p.name}
                       <small>{p.source}</small>
                     </div>
-                    <div className="fr">{p.freshness}</div>
+                    <div className="fr">
+                      {p.latencyMs > 0 ? `${p.latencyMs}ms` : "—"}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -111,8 +139,7 @@ export default function LiveWire() {
               }}
             >
               <h5 style={{ color: "var(--ink)", display: "flex", gap: "8px", alignItems: "center" }}>
-                <span style={{ color: "var(--terra)" }}>♥</span> Contributors · 41 · keep it
-                running
+                <span style={{ color: "var(--terra)" }}>♥</span> keep it running
               </h5>
               <p>
                 This site runs on donations and volunteer effort. ₹400/mo covers infra for ~1000

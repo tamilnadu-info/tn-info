@@ -1,4 +1,12 @@
-export default function Footer() {
+import { fetchGitHubData } from "@/lib/github";
+import { formatBuildDate } from "@/lib/time";
+
+export default async function Footer() {
+  const gh = await fetchGitHubData();
+  const commitHash = gh.commit !== "unknown" ? gh.commit : "—";
+  const buildDate = formatBuildDate(gh.commitDate);
+  const contributorCount = gh.contributors > 0 ? gh.contributors : 1;
+
   return (
     <footer className="foot">
       <div className="page">
@@ -29,7 +37,7 @@ export default function Footer() {
                   Destrosec
                 </a>
               </strong>{" "}
-              and 41 contributors. <strong>Not affiliated</strong> with any government body or
+              and {contributorCount} contributor{contributorCount !== 1 ? "s" : ""}. <strong>Not affiliated</strong> with any government body or
               political party.
             </p>
             <div className="foot-cta">
@@ -110,7 +118,7 @@ export default function Footer() {
                 <a href="#mission">Mission</a>
               </li>
               <li>
-                <a href="#contributors">Contributors · 41</a>
+                <a href="#contributors">Contributors · {contributorCount}</a>
               </li>
               <li>
                 <a href="#sources">Data sources</a>
@@ -153,8 +161,8 @@ export default function Footer() {
             · MIT licensed · <span className="lt">♥</span> from Tamil Nadu
           </span>
           <span>
-            Last build · 17 May 2026, 04:21 IST · commit{" "}
-            <span className="commit">e4a2c8f</span>
+            Last build · {buildDate} · commit{" "}
+            <span className="commit">{commitHash}</span>
           </span>
         </div>
       </div>

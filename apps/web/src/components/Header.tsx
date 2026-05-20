@@ -2,8 +2,14 @@ import GHStars from "./GHStars";
 import LanguageToggle from "./LanguageToggle";
 import StatRotator from "./StatRotator";
 import HamburgerBtn from "./HamburgerBtn";
+import { fetchGitHubData } from "@/lib/github";
+import { formatBuildDate } from "@/lib/time";
 
-export default function Header() {
+export default async function Header() {
+  const gh = await fetchGitHubData();
+  const commitHash = gh.commit !== "unknown" ? gh.commit : "—";
+  const buildDate = formatBuildDate(gh.commitDate);
+
   return (
     <header className="hdr" data-testid="header">
       <div className="page">
@@ -49,13 +55,13 @@ export default function Header() {
           <div className="status-row">
             <span>
               <span className="pulse">All systems operational</span>{" "}
-              <span className="sep">·</span> 6 pipelines · last sync 12 min ago
+              <span className="sep">·</span> 6 pipelines
             </span>
-            <StatRotator />
+            <StatRotator stars={gh.stars} contributors={gh.contributors} />
             <span>
               Build{" "}
-              <span style={{ color: "var(--terra)", fontWeight: 600 }}>e4a2c8f</span> ·{" "}
-              2026-05-17 04:21 IST
+              <span style={{ color: "var(--terra)", fontWeight: 600 }}>{commitHash}</span> ·{" "}
+              {buildDate}
             </span>
           </div>
         </div>

@@ -2,18 +2,18 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const STATS = [
-  { v: "38",   en: "Districts",      ta: "மாவட்டங்கள்" },
-  { v: "234",  en: "Constituencies", ta: "தொகுதிகள்" },
-  { v: "234",  en: "MLAs",           ta: "சட்டமன்ற உறுப்பினர்கள்" },
-  { v: "47",   en: "Schemes",        ta: "திட்டங்கள்" },
-  { v: "591",  en: "Colleges",       ta: "கல்லூரிகள்" },
-  { v: "128",  en: "Events",         ta: "நிகழ்வுகள்" },
-  { v: "1.24M", en: "API calls / 7d", ta: "API அழைப்புகள் / 7 நாட்கள்" },
-  { v: "41",   en: "Contributors",   ta: "பங்களிப்பாளர்கள்" },
-];
+type Props = { stars: number; contributors: number };
 
-export default function StatRotator() {
+export default function StatRotator({ stars, contributors }: Props) {
+  const STATS = [
+    { v: "38",                                              en: "Districts",       ta: "மாவட்டங்கள்" },
+    { v: "234",                                             en: "Constituencies",  ta: "தொகுதிகள்" },
+    { v: "6",                                               en: "Schemes",         ta: "திட்டங்கள்" },
+    { v: "16",                                              en: "Events",          ta: "நிகழ்வுகள்" },
+    { v: stars > 0 ? stars.toLocaleString("en-IN") : "—",  en: "GitHub stars",    ta: "கிட்ஹப் நட்சத்திரங்கள்" },
+    { v: String(contributors),                              en: "Contributors",    ta: "பங்களிப்பாளர்கள்" },
+  ];
+
   const [idx, setIdx] = useState(0);
   const itemRef = useRef<HTMLSpanElement>(null);
 
@@ -37,7 +37,7 @@ export default function StatRotator() {
       }, 350);
     }, 2200);
     return () => clearInterval(interval);
-  }, []);
+  }, [STATS.length]);
 
   const stat = STATS[idx];
 

@@ -1,10 +1,10 @@
 "use client";
 
 import { TN_DATA } from "@/data/tn-data";
+import { timeAgo } from "@/lib/time";
 
 export default function HeroTicker() {
   const items = TN_DATA.ticker;
-  // Duplicate for seamless CSS loop
   const doubled = [...items, ...items];
 
   return (
@@ -13,7 +13,7 @@ export default function HeroTicker() {
         <span key={i}>
           <span className="tag">{t.tag}</span>
           {t.en}
-          <em>{t.time}</em>
+          <em>{timeAgo(t.time)}</em>
         </span>
       ))}
     </div>
