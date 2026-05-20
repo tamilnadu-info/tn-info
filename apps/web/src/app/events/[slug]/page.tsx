@@ -119,17 +119,13 @@ export default async function EventDetailPage({
             </div>
 
             <div className="ed-rail-card">
-              <div style={{ fontFamily: "var(--mono)", fontSize: 11, textTransform: "uppercase", letterSpacing: ".1em", color: "var(--muted)", marginBottom: 6 }}>
-                Location
-              </div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--ink)" }}>{ev.city}</div>
-              <div style={{ fontSize: 13, color: "var(--ink-2)", marginTop: 4 }}>{ev.venue}</div>
+              <div className="det-meta-item" style={{ marginBottom: 6 }}>Location</div>
+              <div className="ed-city">{ev.city}</div>
+              <div className="ed-venue">{ev.venue}</div>
             </div>
 
             <div className="ed-rail-card" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ fontFamily: "var(--mono)", fontSize: 11, textTransform: "uppercase", letterSpacing: ".1em", color: "var(--muted)" }}>
-                Fee
-              </div>
+              <div className="det-meta-item">Fee</div>
               <span className={`ev-fee fee-${ev.fee}`}>{ev.fee.toUpperCase()}</span>
             </div>
 
@@ -148,12 +144,10 @@ export default async function EventDetailPage({
 
             {(body?.links ?? []).length > 0 && (
               <div className="ed-rail-card">
-                <div style={{ fontFamily: "var(--mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".14em", color: "var(--muted)", marginBottom: 10, fontWeight: 700 }}>
-                  Official links
-                </div>
+                <div className="kicker" style={{ marginBottom: 10 }}>Official links</div>
                 <div className="ed-links">
                   {(body?.links ?? []).map((lk, i) => (
-                    <a key={i} href={lk.url} target="_blank" rel="noopener noreferrer">
+                    <a className="ed-link-item" key={i} href={lk.url} target="_blank" rel="noopener noreferrer">
                       {lk.label} ↗
                     </a>
                   ))}
@@ -165,9 +159,7 @@ export default async function EventDetailPage({
 
         {related.length > 0 && (
           <div style={{ paddingBottom: 80 }}>
-            <div style={{ fontFamily: "var(--mono)", fontSize: 11, textTransform: "uppercase", letterSpacing: ".14em", color: "var(--muted)", fontWeight: 700, marginBottom: 18, paddingTop: 8, borderTop: "1px solid var(--line)" }}>
-              Other events this month
-            </div>
+            <div className="ed-related-h">Other events this month</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 14 }}>
               {related.map((rel) => {
                 const rd = new Date(rel.date);

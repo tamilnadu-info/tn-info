@@ -34,38 +34,15 @@ function UpdRow({ item, featured }: { item: EduUpdate; featured?: boolean }) {
     >
       <div>
         <div className="meta">
-          <span className={`nc-tag tag-EDUCATION`} style={{ background: "rgba(226,160,63,.18)", color: "var(--warn)" }}>
-            {item.tag}
-          </span>
-          <span
-            style={{
-              fontFamily: "var(--mono)",
-              fontSize: "10px",
-              color: statusColor,
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-            }}
-          >
-            {item.status}
-          </span>
+              <span className="nc-tag tag-EDUCATION">{item.tag}</span>
+          <span className="det-meta-item" style={{ color: statusColor }}>{item.status}</span>
           <span className="src">{item.source}</span>
         </div>
         <p className="head">{item.headline}</p>
         <p className="sub">{item.summary}</p>
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "6px" }}>
-        <span
-          style={{
-            fontFamily: "var(--mono)",
-            fontSize: "10px",
-            color: "var(--muted)",
-            letterSpacing: ".06em",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {item.date}
-        </span>
+        <span className="det-meta-item" style={{ whiteSpace: "nowrap" }}>{item.date}</span>
         <span className="arr">→</span>
       </div>
     </a>
@@ -90,14 +67,7 @@ function HiddenRow({ item }: { item: NewsItem }) {
         )}
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "6px" }}>
-        <span
-          style={{
-            fontFamily: "var(--mono)",
-            fontSize: "10px",
-            color: "var(--muted)",
-            letterSpacing: ".06em",
-            whiteSpace: "nowrap",
-          }}
+        <span className="det-meta-item" style={{ whiteSpace: "nowrap" }}
         >
           {item.date}
         </span>
@@ -164,55 +134,10 @@ export default function EduInteractive({
   return (
     <>
       <section aria-labelledby="edu-updates-hd" style={{ marginBottom: "48px" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            gap: "12px",
-            marginBottom: "20px",
-            flexWrap: "wrap",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--mono)",
-              fontSize: "11px",
-              fontWeight: 700,
-              letterSpacing: ".16em",
-              textTransform: "uppercase",
-              padding: "5px 9px",
-              borderRadius: "var(--r-sm)",
-              background: "rgba(226,160,63,.18)",
-              color: "var(--warn)",
-            }}
-          >
-            UPDATES
-          </span>
-          <h2
-            id="edu-updates-hd"
-            style={{
-              margin: 0,
-              fontFamily: "var(--serif)",
-              fontSize: "22px",
-              fontWeight: 500,
-              letterSpacing: "-.01em",
-            }}
-          >
-            All education <em style={{ fontStyle: "italic", color: "var(--terra)" }}>notifications</em>
-          </h2>
-          <span
-            style={{
-              marginLeft: "auto",
-              fontFamily: "var(--mono)",
-              fontSize: "11px",
-              color: "var(--muted)",
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-            }}
-          >
-            {filteredUpdates.length} / {updates.length}
-          </span>
+        <div className="news-lane-hd" style={{ marginBottom: "20px" }}>
+          <span className="badge" style={{ background: "rgba(226,160,63,.18)", color: "var(--warn)" }}>UPDATES</span>
+          <h3 id="edu-updates-hd">All education <em>notifications</em></h3>
+          <span className="lane-cnt">{filteredUpdates.length} / {updates.length}</span>
         </div>
 
         <div className="edu-tools">

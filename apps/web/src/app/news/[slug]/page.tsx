@@ -60,53 +60,11 @@ export default async function NewsDetailPage({ params }: Props) {
           <h1>
             <em>{firstWord}</em>{rest ? ` ${rest}` : ""}
           </h1>
-          <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
-            <span
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: "11px",
-                color: "var(--muted)",
-                letterSpacing: ".08em",
-                textTransform: "uppercase",
-              }}
-            >
-              {item.date}
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: "9.5px",
-                fontWeight: 700,
-                letterSpacing: ".14em",
-                textTransform: "uppercase",
-                padding: "3px 8px",
-                borderRadius: "4px",
-              }}
-              className={`nc-tag tag-${item.tag}`}
-            >
-              {item.tag}
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: "10px",
-                color: "var(--muted)",
-                letterSpacing: ".08em",
-                textTransform: "uppercase",
-                fontWeight: 600,
-              }}
-            >
-              {item.district}
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: "10.5px",
-                color: "var(--ink-2)",
-                letterSpacing: ".06em",
-              }}
-            >
-              {item.source}
+          <div className="det-meta">
+            <span className="det-meta-item">{item.date}</span>
+            <span className={`nc-tag tag-${item.tag}`}>{item.tag}</span>
+            <span className="det-meta-item">{item.district}</span>
+            <span className="det-meta-item src">{item.source}
             </span>
           </div>
         </div>
