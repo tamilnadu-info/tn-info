@@ -53,7 +53,7 @@ export default function Hero() {
               <a className="btn btn-secondary" href="#api">
                 Use the API
               </a>
-              <a className="btn btn-ghost" href="#feed">
+              <a className="btn btn-ghost" href="/news">
                 See what&apos;s new
               </a>
             </div>

@@ -51,7 +51,7 @@ export default function FocusCards() {
             </div>
             <span className="arr">→</span>
           </a>
-          <a className="focus f-edu" href="#education">
+          <a className="focus f-edu" href="/education">
             <div className="hd">
               <div className="ico-wrap">e</div>
               <span className="live">Live</span>
@@ -105,7 +105,7 @@ export default function FocusCards() {
             </div>
             <span className="arr">→</span>
           </a>
-          <a className="focus f-ev" href="#events">
+          <a className="focus f-ev" href="/events">
             <div className="hd">
               <div className="ico-wrap">t</div>
               <span className="live">Live</span>
