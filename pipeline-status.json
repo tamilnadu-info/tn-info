@@ -1,47 +1,47 @@
 {
-  "checkedAt": "2026-05-21T13:58:00Z",
+  "checkedAt": "2026-05-21T16:39:02Z",
   "pipelines": [
     {
       "name": "Election results",
       "source": "ECI",
       "status": "warn",
       "latencyMs": 0,
-      "checkedAt": "2026-05-21T13:58:00Z"
+      "checkedAt": "2026-05-21T16:39:02Z"
     },
     {
       "name": "TNEA counselling",
       "source": "tneaonline.org",
-      "status": "ok",
-      "latencyMs": 920,
-      "checkedAt": "2026-05-21T13:58:00Z"
+      "status": "warn",
+      "latencyMs": 0,
+      "checkedAt": "2026-05-21T16:39:02Z"
     },
     {
       "name": "TANCA",
       "source": "tanca.annauniv.edu",
       "status": "warn",
       "latencyMs": 0,
-      "checkedAt": "2026-05-21T13:58:00Z"
+      "checkedAt": "2026-05-21T16:39:02Z"
     },
     {
       "name": "Schemes registry",
       "source": "tn.gov.in",
       "status": "warn",
       "latencyMs": 0,
-      "checkedAt": "2026-05-21T13:58:00Z"
+      "checkedAt": "2026-05-21T16:39:02Z"
     },
     {
       "name": "Cabinet notify.",
       "source": "Govt. Gazette",
       "status": "warn",
       "latencyMs": 0,
-      "checkedAt": "2026-05-21T13:58:00Z"
+      "checkedAt": "2026-05-21T16:39:02Z"
     },
     {
       "name": "Events feed",
       "source": "FOSS United",
       "status": "ok",
-      "latencyMs": 929,
-      "checkedAt": "2026-05-21T13:58:00Z"
+      "latencyMs": 4583,
+      "checkedAt": "2026-05-21T16:39:02Z"
     }
   ]
 }
