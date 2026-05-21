@@ -71,8 +71,8 @@ export default function MobileDrawer() {
             Districts <span className="ta">· மாவட்டங்கள்</span>
             <span className="arr">→</span>
           </a>
-          <a href="#feed">
-            Updates <span className="ta">· புதுப்பிப்புகள்</span>
+          <a href="#mission">
+            About Us <span className="ta">· எங்களைப் பற்றி</span>
             <span className="arr">→</span>
           </a>
           <a href="/news">

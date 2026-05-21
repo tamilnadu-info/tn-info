@@ -36,7 +36,7 @@ export default async function Header() {
           </div>
           <nav className="nav">
             <a href="/#districts">Districts</a>
-            <a href="/education">Education</a>
+            <a href="#mission">About Us</a>
             <a href="/news">News</a>
             <a href="/events">Events</a>
             <a href="/#api" className="api">API</a>

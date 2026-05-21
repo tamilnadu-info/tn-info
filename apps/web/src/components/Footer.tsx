@@ -66,7 +66,7 @@ export default async function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#education">
+                <a href="/education">
                   Education<span className="ta tonly">கல்வி</span>
                 </a>
               </li>
@@ -76,12 +76,12 @@ export default async function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#events">
+                <a href="/events">
                   Tech events<span className="ta tonly">நிகழ்வுகள்</span>
                 </a>
               </li>
               <li>
-                <a href="#districts">All 38 districts</a>
+                <a href="/#districts">All 38 districts</a>
               </li>
             </ul>
           </div>

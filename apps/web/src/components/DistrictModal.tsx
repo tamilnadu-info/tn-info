@@ -134,7 +134,7 @@ export default function DistrictModal() {
 
   if (!slug || !district || !detail) return null;
 
-  const kicker = `District · ${district.capital ? "Capital · " : ""}${detail.isFallback ? "WIP detail" : "Curated"}`;
+  const kicker = `District${district.capital ? " · Capital" : ""}`;
 
   return (
     <div
