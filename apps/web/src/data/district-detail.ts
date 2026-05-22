@@ -19,8 +19,267 @@ export interface DistrictDetail {
   constituencies: string[];
   colleges: string[];
   news: NewsItem[];
+  rulingParty?: string;
   isFallback?: boolean;
 }
+
+const districtMeta: Record<string, { constituencies: string[]; rulingParty: string }> = {
+  tiruvallur: {
+    constituencies: [
+      "Gummidipoondi", "Ponneri", "Tiruttani", "Thiruvallur",
+      "Poonamallee", "Avadi", "Madhuravoyal", "Ambattur",
+      "Madhavaram", "Thiruvottiyur",
+    ],
+    rulingParty: "DMK",
+  },
+  chennai: {
+    constituencies: [
+      "Dr. Radhakrishnan Nagar", "Perambur", "Kolathur", "Villivakkam",
+      "Thiru-Vi-Ka-Nagar", "Egmore", "Royapuram", "Harbour",
+      "Chepauk-Thiruvallikeni", "Thousand Lights", "Anna Nagar", "Virugampakkam",
+      "Saidapet", "Thiyagarayanagar", "Mylapore", "Velachery",
+    ],
+    rulingParty: "DMK",
+  },
+  chengalpattu: {
+    constituencies: [
+      "Pallavaram", "Tambaram", "Chengalpattu", "Thiruporur",
+      "Cheyyur", "Madurantakam", "Uthiramerur",
+    ],
+    rulingParty: "DMK",
+  },
+  kanchipuram: {
+    constituencies: [
+      "Alandur", "Sriperumbudur", "Kancheepuram", "Uthiramerur",
+    ],
+    rulingParty: "DMK",
+  },
+  vellore: {
+    constituencies: [
+      "Vellore", "Anaikattu", "Kilvaithinankuppam", "Gudiyattam", "Katpadi",
+    ],
+    rulingParty: "DMK",
+  },
+  ranipet: {
+    constituencies: [
+      "Arakkonam", "Sholinghur", "Katpadi", "Ranipet", "Arcot",
+    ],
+    rulingParty: "DMK",
+  },
+  tirupathur: {
+    constituencies: [
+      "Vaniyambadi", "Ambur", "Jolarpet", "Tirupattur",
+    ],
+    rulingParty: "DMK",
+  },
+  krishnagiri: {
+    constituencies: [
+      "Uthangarai", "Bargur", "Krishnagiri", "Veppanahalli", "Hosur", "Thally",
+    ],
+    rulingParty: "AIADMK",
+  },
+  dharmapuri: {
+    constituencies: [
+      "Palacode", "Pennagaram", "Dharmapuri", "Pappireddipatti", "Harur",
+    ],
+    rulingParty: "AIADMK",
+  },
+  tiruvannamalai: {
+    constituencies: [
+      "Chengam", "Tiruvannamalai", "Kilpennathur", "Kalasapakkam",
+      "Polur", "Arani", "Cheyyar", "Vandavasi",
+    ],
+    rulingParty: "DMK",
+  },
+  villupuram: {
+    constituencies: [
+      "Gingee", "Mailam", "Tindivanam", "Vanur",
+      "Villupuram", "Vikravandi", "Tirukkoyilur",
+    ],
+    rulingParty: "DMK",
+  },
+  kallakurichi: {
+    constituencies: [
+      "Tirukkoyilur", "Ulundurpettai", "Rishivandiyam", "Sankarapuram", "Kallakurichi",
+    ],
+    rulingParty: "DMK",
+  },
+  cuddalore: {
+    constituencies: [
+      "Tittakudi", "Vridhachalam", "Neyveli", "Panruti",
+      "Cuddalore", "Kurinjipadi", "Bhuvanagiri", "Chidambaram", "Kattumannarkoil",
+    ],
+    rulingParty: "DMK",
+  },
+  salem: {
+    constituencies: [
+      "Edappadi", "Sankari", "Salem West", "Salem North", "Salem South",
+      "Veerapandi", "Yercaud", "Omalur", "Mettur", "Attur", "Gangavalli",
+    ],
+    rulingParty: "AIADMK",
+  },
+  namakkal: {
+    constituencies: [
+      "Rasipuram", "Senthamangalam", "Namakkal", "Paramathivelur",
+      "Tiruchengodu", "Kumarapalayam",
+    ],
+    rulingParty: "DMK",
+  },
+  erode: {
+    constituencies: [
+      "Anthiyur", "Bhavani", "Bhavanisagar", "Erode East",
+      "Erode West", "Gobichettipalayam", "Modakkurichi", "Perundurai",
+    ],
+    rulingParty: "DMK",
+  },
+  nilgiris: {
+    constituencies: [
+      "Udhagamandalam", "Gudalur", "Coonoor",
+    ],
+    rulingParty: "DMK",
+  },
+  tiruppur: {
+    constituencies: [
+      "Dharapuram", "Kangayam", "Palladam", "Avanashi",
+      "Tiruppur North", "Tiruppur South", "Madathukulam", "Udumalaipettai",
+    ],
+    rulingParty: "AIADMK",
+  },
+  coimbatore: {
+    constituencies: [
+      "Mettupalayam", "Sulur", "Kavundampalayam", "Coimbatore North",
+      "Thondamuthur", "Coimbatore South", "Singanallur", "Kinathukadavu",
+      "Pollachi", "Valparai",
+    ],
+    rulingParty: "AIADMK",
+  },
+  karur: {
+    constituencies: [
+      "Aravakurichi", "Karur", "Krishnarayapuram", "Kulithalai",
+    ],
+    rulingParty: "DMK",
+  },
+  trichy: {
+    constituencies: [
+      "Manapparai", "Srirangam", "Tiruchirappalli West", "Tiruchirappalli East",
+      "Thiruverumbur", "Lalgudi", "Manachanallur", "Musiri",
+      "Thuraiyur",
+    ],
+    rulingParty: "DMK",
+  },
+  perambalur: {
+    constituencies: [
+      "Kunnam", "Perambalur",
+    ],
+    rulingParty: "DMK",
+  },
+  ariyalur: {
+    constituencies: [
+      "Ariyalur", "Jayankondam",
+    ],
+    rulingParty: "DMK",
+  },
+  thanjavur: {
+    constituencies: [
+      "Thiruvidaimarudur", "Kumbakonam", "Papanasam", "Thiruvaiyaru",
+      "Thanjavur", "Orathanadu", "Pattukkottai", "Peravurani",
+    ],
+    rulingParty: "DMK",
+  },
+  tiruvarur: {
+    constituencies: [
+      "Thiruthuraipoondi", "Mannargudi", "Thiruvarur", "Nannilam",
+    ],
+    rulingParty: "DMK",
+  },
+  nagapattinam: {
+    constituencies: [
+      "Nagapattinam", "Kilvelur", "Vedaranyam",
+    ],
+    rulingParty: "DMK",
+  },
+  mayiladuthurai: {
+    constituencies: [
+      "Sirkazhi", "Mayiladuthurai", "Poompuhar",
+    ],
+    rulingParty: "DMK",
+  },
+  pudukkottai: {
+    constituencies: [
+      "Gandarvakottai", "Viralimalai", "Pudukkottai",
+      "Thirumayam", "Alangudi", "Aranthangi",
+    ],
+    rulingParty: "DMK",
+  },
+  sivaganga: {
+    constituencies: [
+      "Karaikudi", "Manamadurai", "Sivaganga", "Tiruppathur",
+    ],
+    rulingParty: "DMK",
+  },
+  ramanathapuram: {
+    constituencies: [
+      "Tiruchuli", "Paramakudi", "Tiruvadanai",
+      "Ramanathapuram", "Mudukulathur",
+    ],
+    rulingParty: "DMK",
+  },
+  dindigul: {
+    constituencies: [
+      "Palani", "Oddanchatram", "Athoor", "Nilakkottai",
+      "Natham", "Dindigul", "Vedasandur",
+    ],
+    rulingParty: "DMK",
+  },
+  theni: {
+    constituencies: [
+      "Andipatti", "Periyakulam", "Bodinayakkanur", "Cumbum",
+    ],
+    rulingParty: "DMK",
+  },
+  madurai: {
+    constituencies: [
+      "Melur", "Madurai East", "Sholavandan", "Madurai North",
+      "Madurai South", "Madurai Central", "Madurai West",
+      "Thiruparankundram", "Thirumangalam", "Usilampatti",
+    ],
+    rulingParty: "DMK",
+  },
+  virudhunagar: {
+    constituencies: [
+      "Rajapalayam", "Srivilliputhur", "Sattur", "Sivakasi",
+      "Virudhunagar", "Aruppukottai", "Tiruchuli",
+    ],
+    rulingParty: "DMK",
+  },
+  thoothukudi: {
+    constituencies: [
+      "Vilathikulam", "Thoothukudi", "Tiruchendur",
+      "Srivaikuntam", "Ottapidaram", "Kovilpatti",
+    ],
+    rulingParty: "DMK",
+  },
+  tenkasi: {
+    constituencies: [
+      "Alangulam", "Kadayanallur", "Sankarankovil", "Tenkasi", "Vasudevanallur",
+    ],
+    rulingParty: "AIADMK",
+  },
+  tirunelveli: {
+    constituencies: [
+      "Tirunelveli", "Ambasamudram", "Palayamkottai", "Nanguneri",
+      "Radhapuram",
+    ],
+    rulingParty: "DMK",
+  },
+  kanyakumari: {
+    constituencies: [
+      "Killiyoor", "Kanniyakumari", "Nagercoil", "Colachel",
+      "Padmanabhapuram", "Vilavancode",
+    ],
+    rulingParty: "INC",
+  },
+};
 
 const detail: Record<string, DistrictDetail> = {
   chennai: {
@@ -32,12 +291,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "T. Nagar Bazaar",        ta: "டி. நகர் சந்தை",   mood: "urban"    },
       { caption: "Chennai Central",        ta: "சென்னை சென்ட்ரல்", mood: "heritage" },
     ],
-    constituencies: [
-      "Dr. Radhakrishnan Nagar","Perambur","Kolathur","Villivakkam",
-      "Thiru-Vi-Ka-Nagar","Egmore","Royapuram","Harbour",
-      "Chepauk-Thiruvallikeni","Thousand Lights","Anna Nagar","Virugambakkam",
-      "Saidapet","T. Nagar","Mylapore","Velachery",
-    ],
+    constituencies: districtMeta.chennai.constituencies,
+    rulingParty: districtMeta.chennai.rulingParty,
     colleges: [
       "IIT Madras","Anna University","Madras Christian College",
       "Loyola College","Stella Maris","Presidency College",
@@ -61,11 +316,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Thirumalai Nayakkar Mahal", ta: "திருமலை நாயக்கர்",   mood: "heritage" },
       { caption: "Madurai Pudhumandapam",     ta: "புதுமண்டபம்",         mood: "urban"    },
     ],
-    constituencies: [
-      "Melur","Madurai East","Sholavandan","Madurai North",
-      "Madurai South","Madurai Central","Madurai West","Thirupparankundram",
-      "Thiruamangalam","Usilampatti",
-    ],
+    constituencies: districtMeta.madurai.constituencies,
+    rulingParty: districtMeta.madurai.rulingParty,
     colleges: [
       "Madurai Kamaraj University","American College","Thiagarajar College",
       "Thiagarajar College of Engineering","Lady Doak College",
@@ -87,11 +339,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Siruvani Hills",       ta: "சிறுவாணி",        mood: "sunrise"  },
       { caption: "Coimbatore Junction",  ta: "கோவை சந்திப்பு", mood: "heritage" },
     ],
-    constituencies: [
-      "Mettupalayam","Sulur","Kavundampalayam","Coimbatore North",
-      "Thondamuthur","Coimbatore South","Singanallur","Kinathukadavu",
-      "Pollachi","Valparai",
-    ],
+    constituencies: districtMeta.coimbatore.constituencies,
+    rulingParty: districtMeta.coimbatore.rulingParty,
     colleges: [
       "PSG College of Technology","Coimbatore Institute of Technology","Amrita Vishwa Vidyapeetham",
       "Government Arts College","GCT Coimbatore","PSGR Krishnammal",
@@ -113,10 +362,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Kaveri River",          ta: "காவிரி ஆறு",           mood: "sunrise"  },
       { caption: "NIT Trichy Campus",     ta: "என்.ஐ.டி. திருச்சி", mood: "urban"    },
     ],
-    constituencies: [
-      "Manapparai","Srirangam","Tiruchirappalli West","Tiruchirappalli East",
-      "Thiruverumbur","Lalgudi","Manachanallur","Musiri","Thottiyam",
-    ],
+    constituencies: districtMeta.trichy.constituencies,
+    rulingParty: districtMeta.trichy.rulingParty,
     colleges: [
       "NIT Trichy","Bishop Heber College","SASTRA University",
       "Jamal Mohamed College","Holy Cross","Government Medical College",
@@ -138,10 +385,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Tamirabarani River",  ta: "தாமிரபரணி",       mood: "heritage" },
       { caption: "Iruttu Kadai Halwa",  ta: "இருட்டுக் கடை",   mood: "urban"    },
     ],
-    constituencies: [
-      "Tirunelveli","Ambasamudram","Palayamkottai","Nanguneri",
-      "Radhapuram","Alangulam",
-    ],
+    constituencies: districtMeta.tirunelveli.constituencies,
+    rulingParty: districtMeta.tirunelveli.rulingParty,
     colleges: [
       "Manonmaniam Sundaranar University","St. Xavier's College","Sarah Tucker",
       "Tirunelveli Medical College","Government Engineering College","M.D.T. Hindu College",
@@ -161,10 +406,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Kottai Mariamman",   ta: "கோட்டை மாரியம்மன்",   mood: "gopuram"  },
       { caption: "Mango Orchards",     ta: "மா தோட்டம்",           mood: "heritage" },
     ],
-    constituencies: [
-      "Edappadi","Sankari","Salem West","Salem North","Salem South",
-      "Veerapandi","Yercaud","Omalur","Mettur","Vazhapadi","Gangavalli",
-    ],
+    constituencies: districtMeta.salem.constituencies,
+    rulingParty: districtMeta.salem.rulingParty,
     colleges: [
       "Government Mohan Kumaramangalam Medical College","Periyar University",
       "Government Arts College","Vinayaka Mission Engineering",
@@ -184,10 +427,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Saraswathi Mahal",       ta: "சரசுவதி மகால்", mood: "heritage" },
       { caption: "Tanjore Painting",       ta: "தஞ்சை ஓவியம்",  mood: "urban"    },
     ],
-    constituencies: [
-      "Thiruvidaimarudur","Kumbakonam","Papanasam","Thiruvaiyaru",
-      "Thanjavur","Orathanadu","Pattukkottai","Peravurani",
-    ],
+    constituencies: districtMeta.thanjavur.constituencies,
+    rulingParty: districtMeta.thanjavur.rulingParty,
     colleges: [
       "TN Agricultural University (Thanjavur)","SASTRA","Government Medical College",
       "Periyar EVR College","Bharathidasan University Constituent College",
@@ -206,9 +447,8 @@ const detail: Record<string, DistrictDetail> = {
       { caption: "Sunset Point",         ta: "சூரிய அஸ்தமன மேடை", mood: "gopuram"  },
       { caption: "Padmanabhapuram",      ta: "பத்மநாபபுரம்",         mood: "urban"    },
     ],
-    constituencies: [
-      "Killiyoor","Kanniyakumari","Nagercoil","Colachel","Padmanabhapuram","Vilavancode",
-    ],
+    constituencies: districtMeta.kanyakumari.constituencies,
+    rulingParty: districtMeta.kanyakumari.rulingParty,
     colleges: [
       "Scott Christian College","Nesamony Memorial Christian","S.T. Hindu College",
       "Government Medical College, Asaripallam",
@@ -233,22 +473,19 @@ const FALLBACK_COLLEGE_SEEDS = [
 export function defaultFor(slug: string): DistrictDetail {
   const d = TN_DATA.districts.find((x) => x.id === slug);
   const en = d?.en || slug;
-  const ta = d?.ta || "";
-  const mlas = d?.mlas || 0;
-  const pop = d?.pop || "—";
+  const meta = districtMeta[slug] || { constituencies: [], rulingParty: "DMK" };
   return {
-    introEn: `${en} — ${pop} residents across ${mlas} assembly constituencies. Detailed drill-page is in progress.`,
-    introTa: `${en} — ${pop} மக்கள், ${mlas} சட்டமன்ற தொகுதிகள். விரிவான பக்கம் வரவிருக்கிறது.`,
+    introEn: `Data for this district is being compiled.`,
+    introTa: "",
     slides: [
-      { caption: `${en} Town Centre`, ta: `${ta} நகரம்`,  mood: "urban"    },
-      { caption: `${en} Heritage`,    ta: `${ta} மரபு`,    mood: "heritage" },
-      { caption: `${en} Outskirts`,   ta: `${ta} புறநகர்`, mood: "sunrise"  },
+      { caption: slug.charAt(0).toUpperCase() + slug.slice(1), ta: "", mood: "urban" as const },
     ],
-    constituencies: Array.from({ length: Math.min(mlas, 12) }, (_, i) => `${en} Constituency #${i + 1}`),
+    constituencies: meta.constituencies,
     colleges: FALLBACK_COLLEGE_SEEDS.slice(0, 6).map((s) => `${s}, ${en}`),
     news: [
       { tag: "INFO", en: `Drill-page for ${en} coming soon — file an issue on GitHub to vote it up.`, time: "soon" },
     ],
+    rulingParty: meta.rulingParty,
     isFallback: true,
   };
 }

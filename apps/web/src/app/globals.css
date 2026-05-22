@@ -1025,6 +1025,21 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
   text-transform: uppercase; letter-spacing: .12em;
   color: var(--muted); margin-top: 4px;
 }
+.dm-party-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  margin-left: 6px;
+}
+.dm-party-badge[data-party="DMK"]     { background: #C8472B; color: #fff; }
+.dm-party-badge[data-party="AIADMK"] { background: #2E7D32; color: #fff; }
+.dm-party-badge[data-party="INC"]    { background: #1565C0; color: #fff; }
+.dm-party-badge[data-party="BJP"]    { background: #E65100; color: #fff; }
 
 /* ── Right column ── */
 .dm-right {

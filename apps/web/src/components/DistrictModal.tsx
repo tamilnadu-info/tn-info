@@ -153,6 +153,11 @@ export default function DistrictModal() {
           <Slideshow slides={detail.slides} idx={slideIdx} onGo={goToSlide} />
           <div className="dm-meta">
             <span className="dm-kicker">{kicker}</span>
+            {detail.rulingParty && (
+              <span className="dm-party-badge" data-party={detail.rulingParty}>
+                {detail.rulingParty}
+              </span>
+            )}
             <h2 className="dm-name" id="dmName">{district.en}</h2>
             <div className="dm-name-ta">{district.ta}</div>
             <p className="dm-intro eonly">{detail.introEn}</p>
