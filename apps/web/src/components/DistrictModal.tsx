@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { TN_DATA } from "@/data/tn-data";
 import { DISTRICT_DETAIL, type DistrictDetail, type Slide } from "@/data/district-detail";
+import { CONSTITUENCY_PARTY_2026 } from "@/data/constituency-party-2026";
 
 const MOOD_PALETTES: Record<string, { from: string; to: string; glyph: string }> = {
   sunrise:  { from: "#E2A03F", to: "#C8472B", glyph: "☼" },
@@ -186,9 +187,15 @@ export default function DistrictModal() {
             </h3>
             <div className="chip-grid">
               {detail.constituencies.length > 0
-                ? detail.constituencies.map((c) => (
-                    <span key={c} className="chip chip-const">{c}</span>
-                  ))
+                ? detail.constituencies.map((c) => {
+                    const party = CONSTITUENCY_PARTY_2026[c];
+                    return (
+                      <span key={c} className="chip chip-const">
+                        {c}
+                        {party && <span className="chip-party" data-party={party}>{party}</span>}
+                      </span>
+                    );
+                  })
                 : <span className="chip chip-muted">No data yet</span>
               }
             </div>

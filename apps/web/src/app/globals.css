@@ -1087,8 +1087,34 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
   background: rgba(200,71,43,.06);
   border-color: rgba(200,71,43,.22);
   color: var(--terra-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 .chip-const:hover { background: var(--terra); color: #fff; border-color: var(--terra-deep); }
+.chip-const:hover .chip-party { opacity: .85; }
+.chip-party {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 2px;
+  letter-spacing: .04em;
+  line-height: 1.4;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.chip-party[data-party="TVK"]     { background: #F9A825; color: #1a1a1a; }
+.chip-party[data-party="DMK"]     { background: #C8472B; color: #fff; }
+.chip-party[data-party="AIADMK"]  { background: #2E7D32; color: #fff; }
+.chip-party[data-party="INC"]     { background: #1565C0; color: #fff; }
+.chip-party[data-party="BJP"]     { background: #E65100; color: #fff; }
+.chip-party[data-party="VCK"]     { background: #6A1B9A; color: #fff; }
+.chip-party[data-party="PMK"]     { background: #AD1457; color: #fff; }
+.chip-party[data-party="CPI"]     { background: #B71C1C; color: #fff; }
+.chip-party[data-party="CPI(M)"]  { background: #880E4F; color: #fff; }
+.chip-party[data-party="IUML"]    { background: #1B5E20; color: #fff; }
+.chip-party[data-party="AMMK"]    { background: #4A148C; color: #fff; }
+.chip-party[data-party="DMDK"]    { background: #37474F; color: #fff; }
 .chip-coll {
   background: rgba(63,91,58,.06);
   border-color: rgba(63,91,58,.22);
