@@ -30,7 +30,7 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Poonamallee", "Avadi", "Madhuravoyal", "Ambattur",
       "Madhavaram", "Thiruvottiyur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   chennai: {
     constituencies: [
@@ -39,44 +39,44 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Chepauk-Thiruvallikeni", "Thousand Lights", "Anna Nagar", "Virugampakkam",
       "Saidapet", "Thiyagarayanagar", "Mylapore", "Velachery",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   chengalpattu: {
     constituencies: [
       "Pallavaram", "Tambaram", "Chengalpattu", "Thiruporur",
       "Cheyyur", "Madurantakam", "Uthiramerur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   kanchipuram: {
     constituencies: [
       "Alandur", "Sriperumbudur", "Kancheepuram", "Uthiramerur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   vellore: {
     constituencies: [
       "Vellore", "Anaikattu", "Kilvaithinankuppam", "Gudiyattam", "Katpadi",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   ranipet: {
     constituencies: [
       "Arakkonam", "Sholinghur", "Katpadi", "Ranipet", "Arcot",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   tirupathur: {
     constituencies: [
       "Vaniyambadi", "Ambur", "Jolarpet", "Tirupattur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   krishnagiri: {
     constituencies: [
       "Uthangarai", "Bargur", "Krishnagiri", "Veppanahalli", "Hosur", "Thally",
     ],
-    rulingParty: "AIADMK",
+    rulingParty: "Mixed",
   },
   dharmapuri: {
     constituencies: [
@@ -89,14 +89,14 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Chengam", "Tiruvannamalai", "Kilpennathur", "Kalasapakkam",
       "Polur", "Arani", "Cheyyar", "Vandavasi",
     ],
-    rulingParty: "DMK",
+    rulingParty: "AIADMK",
   },
   villupuram: {
     constituencies: [
       "Gingee", "Mailam", "Tindivanam", "Vanur",
       "Villupuram", "Vikravandi", "Tirukkoyilur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   kallakurichi: {
     constituencies: [
@@ -109,7 +109,7 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Tittakudi", "Vridhachalam", "Neyveli", "Panruti",
       "Cuddalore", "Kurinjipadi", "Bhuvanagiri", "Chidambaram", "Kattumannarkoil",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   salem: {
     constituencies: [
@@ -123,14 +123,14 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Rasipuram", "Senthamangalam", "Namakkal", "Paramathivelur",
       "Tiruchengodu", "Kumarapalayam",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   erode: {
     constituencies: [
       "Anthiyur", "Bhavani", "Bhavanisagar", "Erode East",
       "Erode West", "Gobichettipalayam", "Modakkurichi", "Perundurai",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   nilgiris: {
     constituencies: [
@@ -143,7 +143,7 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Dharapuram", "Kangayam", "Palladam", "Avanashi",
       "Tiruppur North", "Tiruppur South", "Madathukulam", "Udumalaipettai",
     ],
-    rulingParty: "AIADMK",
+    rulingParty: "TVK",
   },
   coimbatore: {
     constituencies: [
@@ -151,7 +151,7 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Thondamuthur", "Coimbatore South", "Singanallur", "Kinathukadavu",
       "Pollachi", "Valparai",
     ],
-    rulingParty: "AIADMK",
+    rulingParty: "TVK",
   },
   karur: {
     constituencies: [
@@ -165,19 +165,19 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Thiruverumbur", "Lalgudi", "Manachanallur", "Musiri",
       "Thuraiyur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   perambalur: {
     constituencies: [
       "Kunnam", "Perambalur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   ariyalur: {
     constituencies: [
       "Ariyalur", "Jayankondam",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   thanjavur: {
     constituencies: [
@@ -190,13 +190,13 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
     constituencies: [
       "Thiruthuraipoondi", "Mannargudi", "Thiruvarur", "Nannilam",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   nagapattinam: {
     constituencies: [
       "Nagapattinam", "Kilvelur", "Vedaranyam",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   mayiladuthurai: {
     constituencies: [
@@ -215,7 +215,7 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
     constituencies: [
       "Karaikudi", "Manamadurai", "Sivaganga", "Tiruppathur",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   ramanathapuram: {
     constituencies: [
@@ -235,7 +235,7 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
     constituencies: [
       "Andipatti", "Periyakulam", "Bodinayakkanur", "Cumbum",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   madurai: {
     constituencies: [
@@ -243,34 +243,34 @@ const districtMeta: Record<string, { constituencies: string[]; rulingParty: stri
       "Madurai South", "Madurai Central", "Madurai West",
       "Thiruparankundram", "Thirumangalam", "Usilampatti",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   virudhunagar: {
     constituencies: [
       "Rajapalayam", "Srivilliputhur", "Sattur", "Sivakasi",
       "Virudhunagar", "Aruppukottai", "Tiruchuli",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   thoothukudi: {
     constituencies: [
       "Vilathikulam", "Thoothukudi", "Tiruchendur",
       "Srivaikuntam", "Ottapidaram", "Kovilpatti",
     ],
-    rulingParty: "DMK",
+    rulingParty: "Mixed",
   },
   tenkasi: {
     constituencies: [
       "Alangulam", "Kadayanallur", "Sankarankovil", "Tenkasi", "Vasudevanallur",
     ],
-    rulingParty: "AIADMK",
+    rulingParty: "DMK",
   },
   tirunelveli: {
     constituencies: [
       "Tirunelveli", "Ambasamudram", "Palayamkottai", "Nanguneri",
       "Radhapuram",
     ],
-    rulingParty: "DMK",
+    rulingParty: "TVK",
   },
   kanyakumari: {
     constituencies: [

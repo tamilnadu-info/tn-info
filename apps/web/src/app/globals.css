@@ -1036,10 +1036,12 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
   margin-top: 4px;
   margin-left: 6px;
 }
-.dm-party-badge[data-party="DMK"]     { background: #C8472B; color: #fff; }
-.dm-party-badge[data-party="AIADMK"] { background: #2E7D32; color: #fff; }
-.dm-party-badge[data-party="INC"]    { background: #1565C0; color: #fff; }
-.dm-party-badge[data-party="BJP"]    { background: #E65100; color: #fff; }
+.dm-party-badge[data-party="TVK"]    { background: #F9A825; color: #1a1a1a; }
+.dm-party-badge[data-party="DMK"]    { background: #C8472B; color: #fff; }
+.dm-party-badge[data-party="AIADMK"]{ background: #2E7D32; color: #fff; }
+.dm-party-badge[data-party="INC"]   { background: #1565C0; color: #fff; }
+.dm-party-badge[data-party="BJP"]   { background: #E65100; color: #fff; }
+.dm-party-badge[data-party="Mixed"] { background: #78909C; color: #fff; }
 
 /* ── Right column ── */
 .dm-right {
