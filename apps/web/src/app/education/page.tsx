@@ -92,6 +92,8 @@ export interface College {
   name: string;
   dist: string;
   type: string;
+  branches: string[];
+  category: string;
 }
 
 function loadColleges(): College[] {

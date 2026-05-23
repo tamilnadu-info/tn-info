@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import type { NewsItem } from "@/data/news";
 import type { EduUpdate, College } from "./page";
+import CollegeModal from "./CollegeModal";
 
 const TYPE_LABELS: Record<string, string> = {
   "CEG DEPTS": "Govt (CEG)",
@@ -31,6 +32,11 @@ const SECTOR_PILLS = [
 ] as const;
 
 const STATUS_PILLS = ["All", "Active", "Upcoming", "Closed"] as const;
+
+const COL_CATS = ["Engineering", "Arts & Science", "Medical", "Polytechnic"] as const;
+type ColCat = (typeof COL_CATS)[number];
+
+const PAGE_SIZE = 25;
 
 type SectorPill = (typeof SECTOR_PILLS)[number];
 type StatusPill = (typeof STATUS_PILLS)[number];
@@ -113,6 +119,11 @@ export default function EduInteractive({
   const [colQuery, setColQuery] = useState("");
   const [colDist, setColDist] = useState("All");
   const [colType, setColType] = useState("All");
+  const [colCat, setColCat] = useState<ColCat>("Engineering");
+  const [colPage, setColPage] = useState(1);
+  const [selectedCollege, setSelectedCollege] = useState<College | null>(null);
+
+  useEffect(() => { setColPage(1); }, [colQuery, colDist, colType, colCat]);
 
   const filteredUpdates = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -130,7 +141,8 @@ export default function EduInteractive({
     });
   }, [updates, sector, statusFilter, query]);
 
-  const filteredColleges = useMemo(() => {
+  const allFilteredColleges = useMemo(() => {
+    if (colCat !== "Engineering") return [];
     const q = colQuery.trim().toLowerCase();
     return colleges.filter((c) => {
       const matchDist = colDist === "All" || c.dist === colDist;
@@ -142,7 +154,14 @@ export default function EduInteractive({
         c.dist.toLowerCase().includes(q);
       return matchDist && matchType && matchQ;
     });
-  }, [colleges, colQuery, colDist, colType]);
+  }, [colleges, colQuery, colDist, colType, colCat]);
+
+  const filteredColleges = useMemo(
+    () => allFilteredColleges.slice((colPage - 1) * PAGE_SIZE, colPage * PAGE_SIZE),
+    [allFilteredColleges, colPage]
+  );
+
+  const totalPages = Math.ceil(allFilteredColleges.length / PAGE_SIZE);
 
   const uniqueTypes = Array.from(new Set(colleges.map((c) => c.type)));
   const uniqueDists = Array.from(new Set(colleges.map((c) => c.dist))).sort();
@@ -314,83 +333,161 @@ export default function EduInteractive({
             </a>
           </div>
 
-          <div className="col-search">
-            <input
-              type="search"
-              placeholder="Search by name, code or district…"
-              value={colQuery}
-              onChange={(e) => setColQuery(e.target.value)}
-              aria-label="Search colleges"
-            />
-            <select
-              value={colDist}
-              onChange={(e) => setColDist(e.target.value)}
-              aria-label="Filter by district"
-            >
-              <option value="All">All districts</option>
-              {uniqueDists.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-            <select
-              value={colType}
-              onChange={(e) => setColType(e.target.value)}
-              aria-label="Filter by type"
-            >
-              <option value="All">All types</option>
-              {uniqueTypes.map((t) => (
-                <option key={t} value={t}>
-                  {typeLabel(t)}
-                </option>
-              ))}
-            </select>
+          <div className="col-cat-tabs" role="tablist" aria-label="College category">
+            {COL_CATS.map((cat) => (
+              <button
+                key={cat}
+                role="tab"
+                aria-selected={colCat === cat}
+                className={`col-cat-tab${colCat === cat ? " on" : ""}`}
+                onClick={() => setColCat(cat)}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
-          <p
-            style={{
-              fontFamily: "var(--mono)",
-              fontSize: "10px",
-              color: "var(--muted)",
-              letterSpacing: ".08em",
-              textTransform: "uppercase",
-              marginBottom: "10px",
-            }}
-          >
-            {filteredColleges.length} of {colleges.length} colleges · TNEA 2025 data
-          </p>
+          {colCat === "Engineering" ? (
+            <>
+              <div className="col-search">
+                <input
+                  type="search"
+                  placeholder="Search by name, code or district…"
+                  value={colQuery}
+                  onChange={(e) => setColQuery(e.target.value)}
+                  aria-label="Search colleges"
+                />
+                <select
+                  value={colDist}
+                  onChange={(e) => setColDist(e.target.value)}
+                  aria-label="Filter by district"
+                >
+                  <option value="All">All districts</option>
+                  {uniqueDists.map((d) => (
+                    <option key={d} value={d}>{d}</option>
+                  ))}
+                </select>
+                <select
+                  value={colType}
+                  onChange={(e) => setColType(e.target.value)}
+                  aria-label="Filter by type"
+                >
+                  <option value="All">All types</option>
+                  {uniqueTypes.map((t) => (
+                    <option key={t} value={t}>{typeLabel(t)}</option>
+                  ))}
+                </select>
+              </div>
 
-          {filteredColleges.length === 0 ? (
-            <div
-              style={{
-                padding: "32px",
-                textAlign: "center",
-                fontFamily: "var(--mono)",
-                fontSize: "12px",
-                color: "var(--muted)",
-                letterSpacing: ".08em",
-                textTransform: "uppercase",
-                border: "1px dashed var(--line)",
-                borderRadius: "var(--r-md)",
-              }}
-            >
-              No colleges match your search.
-            </div>
-          ) : (
-            <div className="col-table">
-              {filteredColleges.map((c) => (
-                <div className="col-row" key={c.code}>
-                  <span className="code">{c.code}</span>
-                  <span className="name">{c.name}</span>
-                  <span className="dist">{c.dist}</span>
-                  <span className="type">{typeLabel(c.type)}</span>
+              <p
+                style={{
+                  fontFamily: "var(--mono)",
+                  fontSize: "10px",
+                  color: "var(--muted)",
+                  letterSpacing: ".08em",
+                  textTransform: "uppercase",
+                  marginBottom: "10px",
+                }}
+              >
+                {allFilteredColleges.length} of {colleges.length} colleges · TNEA 2025 · click row for cutoffs
+              </p>
+
+              {allFilteredColleges.length === 0 ? (
+                <div className="col-coming-soon">
+                  <div className="cs-icon">○</div>
+                  <p>No colleges match your search.</p>
                 </div>
-              ))}
+              ) : (
+                <>
+                  <div className="col-table">
+                    {filteredColleges.map((c) => (
+                      <button
+                        className="col-row col-row-btn"
+                        key={c.code}
+                        onClick={() => setSelectedCollege(c)}
+                        title="Click for cutoffs and branches"
+                      >
+                        <span className="code">{c.code}</span>
+                        <span className="name">{c.name}</span>
+                        <span className="dist">{c.dist}</span>
+                        <span className="type">{typeLabel(c.type)}</span>
+                        <span className="arr">→</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  {totalPages > 1 && (
+                    <div className="col-pager">
+                      <button
+                        className="col-pg-btn"
+                        onClick={() => setColPage((p) => Math.max(1, p - 1))}
+                        disabled={colPage === 1}
+                        aria-label="Previous page"
+                      >
+                        ←
+                      </button>
+                      {Array.from({ length: totalPages }, (_, i) => i + 1)
+                        .filter(
+                          (p) =>
+                            p === 1 ||
+                            p === totalPages ||
+                            Math.abs(p - colPage) <= 2
+                        )
+                        .reduce<(number | "…")[]>((acc, p, idx, arr) => {
+                          if (idx > 0 && typeof arr[idx - 1] === "number" && (p as number) - (arr[idx - 1] as number) > 1) {
+                            acc.push("…");
+                          }
+                          acc.push(p);
+                          return acc;
+                        }, [])
+                        .map((p, i) =>
+                          p === "…" ? (
+                            <span
+                              key={`ellipsis-${i}`}
+                              style={{
+                                fontFamily: "var(--mono)",
+                                fontSize: "11px",
+                                color: "var(--muted)",
+                                padding: "0 4px",
+                              }}
+                            >
+                              …
+                            </span>
+                          ) : (
+                            <button
+                              key={p}
+                              className={`col-pg-btn${colPage === p ? " on" : ""}`}
+                              onClick={() => setColPage(p as number)}
+                              aria-label={`Page ${p}`}
+                              aria-current={colPage === p ? "page" : undefined}
+                            >
+                              {p}
+                            </button>
+                          )
+                        )}
+                      <button
+                        className="col-pg-btn"
+                        onClick={() => setColPage((p) => Math.min(totalPages, p + 1))}
+                        disabled={colPage === totalPages}
+                        aria-label="Next page"
+                      >
+                        →
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
+          ) : (
+            <div className="col-coming-soon">
+              <div className="cs-icon">◌</div>
+              <p>{colCat} college data — coming soon</p>
             </div>
           )}
         </div>
       </section>
+
+      <CollegeModal college={selectedCollege} onClose={() => setSelectedCollege(null)} />
 
       <section aria-labelledby="quick-tools-hd" style={{ marginBottom: "32px" }}>
         <div
