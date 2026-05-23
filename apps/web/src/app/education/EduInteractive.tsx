@@ -36,7 +36,7 @@ const STATUS_PILLS = ["All", "Active", "Upcoming", "Closed"] as const;
 const COL_CATS = ["Engineering", "Arts & Science", "Medical", "Polytechnic"] as const;
 type ColCat = (typeof COL_CATS)[number];
 
-const PAGE_SIZE = 25;
+const PAGE_SIZE = 10;
 
 type SectorPill = (typeof SECTOR_PILLS)[number];
 type StatusPill = (typeof STATUS_PILLS)[number];
@@ -145,13 +145,13 @@ export default function EduInteractive({
     if (colCat !== "Engineering") return [];
     const q = colQuery.trim().toLowerCase();
     return colleges.filter((c) => {
-      const matchDist = colDist === "All" || c.dist === colDist;
+      const matchDist = colDist === "All" || c.district === colDist;
       const matchType = colType === "All" || c.type === colType;
       const matchQ =
         !q ||
         c.name.toLowerCase().includes(q) ||
         String(c.code).includes(q) ||
-        c.dist.toLowerCase().includes(q);
+        c.district.toLowerCase().includes(q);
       return matchDist && matchType && matchQ;
     });
   }, [colleges, colQuery, colDist, colType, colCat]);
@@ -164,7 +164,7 @@ export default function EduInteractive({
   const totalPages = Math.ceil(allFilteredColleges.length / PAGE_SIZE);
 
   const uniqueTypes = Array.from(new Set(colleges.map((c) => c.type)));
-  const uniqueDists = Array.from(new Set(colleges.map((c) => c.dist))).sort();
+  const uniqueDists = Array.from(new Set(colleges.map((c) => c.district))).sort();
 
   return (
     <>
@@ -409,7 +409,7 @@ export default function EduInteractive({
                       >
                         <span className="code">{c.code}</span>
                         <span className="name">{c.name}</span>
-                        <span className="dist">{c.dist}</span>
+                        <span className="dist">{c.city || c.district}</span>
                         <span className="type">{typeLabel(c.type)}</span>
                         <span className="arr">→</span>
                       </button>

@@ -90,8 +90,13 @@ export type EduUpdate = (typeof EDU_UPDATES)[number];
 export interface College {
   code: number;
   name: string;
-  dist: string;
   type: string;
+  city: string;
+  constituency: string;
+  district: string;
+  pincode: string;
+  college_url: string;
+  gmaps_url: string;
   branches: string[];
   category: string;
 }
