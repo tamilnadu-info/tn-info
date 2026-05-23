@@ -123,12 +123,12 @@ export default function Atlas() {
                 style={{ display: isVisible ? "" : "none" }}
                 onClick={() => window.dispatchEvent(new CustomEvent("tn-open-district", { detail: { slug: d.id } }))}
               >
+                {d.rto && <span className="dist-rto-bg" aria-hidden="true">{d.rto}</span>}
                 <div className="top">
                   <div>
                     <div className="en">{d.en}</div>
                     <div className="ta">{d.ta}</div>
                   </div>
-                  <div className="code">{d.en.slice(0, 3).toUpperCase()}</div>
                 </div>
                 <div className="row">
                   <span>

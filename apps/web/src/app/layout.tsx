@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { Crimson_Pro, Manrope, JetBrains_Mono, Noto_Sans_Tamil } from "next/font/google";
 import { SITE_URL } from "@/config/site";
 import "./globals.css";
@@ -7,7 +9,18 @@ import JsonLd from "@/components/JsonLd";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileDrawer from "@/components/MobileDrawer";
-import DistrictModal from "@/components/DistrictModal";
+import DistrictModal, { type CollegeSummary } from "@/components/DistrictModal";
+
+function loadCollegeSummaries(): CollegeSummary[] {
+  try {
+    const raw: Array<{ code: number; name: string; type: string; district: string }> = JSON.parse(
+      readFileSync(join(process.cwd(), "src", "data", "tnea", "colleges.json"), "utf8")
+    );
+    return raw.map((c) => ({ code: c.code, name: c.name, type: c.type, district: c.district }));
+  } catch {
+    return [];
+  }
+}
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -129,6 +142,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const colleges = loadCollegeSummaries();
   return (
     <html
       lang="en"
@@ -138,7 +152,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd />
         <DisclaimerModal />
         <MobileDrawer />
-        <DistrictModal />
+        <DistrictModal colleges={colleges} />
         <Header />
         {children}
         <Footer />

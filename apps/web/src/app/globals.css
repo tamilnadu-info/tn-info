@@ -629,6 +629,12 @@ h1.hh sup {
   background: linear-gradient(135deg, var(--card) 0%, rgba(226,160,63,.15) 100%);
   border-color: rgba(226,160,63,.4);
 }
+.dist-rto-bg {
+  position: absolute; top: 6px; right: 10px;
+  font-family: var(--mono); font-size: 28px; font-weight: 900; line-height: 1;
+  color: var(--ink); opacity: .14;
+  pointer-events: none; user-select: none; letter-spacing: -.06em;
+}
 
 /* ── Live wire feed + sidebar ── */
 .wire-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 36px; }

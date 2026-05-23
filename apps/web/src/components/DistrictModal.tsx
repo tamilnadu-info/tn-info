@@ -1,10 +1,36 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { TN_DATA } from "@/data/tn-data";
 import { DISTRICT_DETAIL, type DistrictDetail, type Slide } from "@/data/district-detail";
 import { CONSTITUENCY_PARTY_2026 } from "@/data/constituency-party-2026";
 import { CONSTITUENCY_WINNER_2026 } from "@/data/constituency-winner-2026";
+
+export interface CollegeSummary { code: number; name: string; type: string; district: string; }
+
+const DIST_ALIAS: Record<string, string[]> = {
+  "Tiruvallur":      ["Thiruvallur"],
+  "Chengalpattu":    ["Chengalpet"],
+  "Kanchipuram":     ["Kancheepuram"],
+  "Tirupathur":      ["Thirupathur"],
+  "Tiruvannamalai":  ["Thiruvannamalai"],
+  "Tiruchirappalli": ["Tiruchirapalli", "Trichirappalli"],
+  "Tiruvarur":       ["Thiruvarur"],
+  "Sivaganga":       ["Sivagangai"],
+  "Thoothukudi":     ["Tuticorin"],
+};
+
+const TYPE_SHORT: Record<string, string> = {
+  "CEG DEPTS":                                    "CEG",
+  "GOVERNMENT ENGG COLLEGES":                     "Govt",
+  "GOVERNMENT AIDED COLLEGES":                    "Aided",
+  "SELF FINANCING COLLEGES TIER 1":               "Pvt·T1",
+  "SELF FINANCING COLLEGES TIER 2":               "Pvt·T2",
+  "SELF FINANCING COLLEGES TIER 3":               "Pvt·T3",
+  "ANNAMALAI UNIV":                               "Annamalai",
+  "UNIV CONSTITUENT COLLEGES":                    "Univ",
+  "CENTRAL GOVERNMENT ENGG COLLEGES COLLEGES":    "Central",
+};
 
 const MOOD_PALETTES: Record<string, { from: string; to: string; glyph: string }> = {
   sunrise:  { from: "#E2A03F", to: "#C8472B", glyph: "☼" },
@@ -73,7 +99,7 @@ function Slideshow({ slides, idx, onGo }: { slides: Slide[]; idx: number; onGo: 
   );
 }
 
-export default function DistrictModal() {
+export default function DistrictModal({ colleges = [] }: { colleges?: CollegeSummary[] }) {
   const [slug, setSlug] = useState<string | null>(null);
   const [slideIdx, setSlideIdx] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -82,6 +108,12 @@ export default function DistrictModal() {
   const detail: DistrictDetail | null = slug
     ? (DISTRICT_DETAIL.detail[slug] ?? DISTRICT_DETAIL.defaultFor(slug))
     : null;
+
+  const distColleges = useMemo(() => {
+    if (!district) return [];
+    const aliases = new Set([district.en, ...(DIST_ALIAS[district.en] ?? [])]);
+    return colleges.filter((c) => aliases.has(c.district));
+  }, [district, colleges]);
 
   const openModal = useCallback((e: Event) => {
     const s = (e as CustomEvent<{ slug: string }>).detail?.slug;
@@ -230,15 +262,28 @@ export default function DistrictModal() {
           <section className="dm-section">
             <h3>
               Colleges <span className="ta">· கல்லூரிகள்</span>
-              <span className="cnt"><span>{detail.colleges.length}</span> listed</span>
+              <span className="cnt"><span>{distColleges.length}</span> engineering</span>
             </h3>
             <div className="chip-grid">
-              {detail.colleges.length > 0
-                ? detail.colleges.map((c) => (
-                    <span key={c} className="chip chip-coll">{c}</span>
-                  ))
-                : <span className="chip chip-muted">No data yet</span>
-              }
+              {distColleges.length > 0 ? (
+                <>
+                  {distColleges.slice(0, 10).map((c) => (
+                    <span key={c.code} className="chip chip-coll">
+                      {c.name}
+                      {TYPE_SHORT[c.type] && (
+                        <span className="chip-party">{TYPE_SHORT[c.type]}</span>
+                      )}
+                    </span>
+                  ))}
+                  {distColleges.length > 10 && (
+                    <a href="/education" className="chip chip-muted" style={{ textDecoration: "none" }}>
+                      +{distColleges.length - 10} more · View all →
+                    </a>
+                  )}
+                </>
+              ) : (
+                <span className="chip chip-muted">No data yet</span>
+              )}
             </div>
           </section>
 
