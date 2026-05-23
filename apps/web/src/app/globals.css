@@ -1093,6 +1093,16 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
 }
 .chip-const:hover { background: var(--terra); color: #fff; border-color: var(--terra-deep); }
 .chip-const:hover .chip-party { opacity: .85; }
+.chip-const:hover .chip-winner { opacity: .8; }
+.chip-winner {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--ink-3);
+  opacity: 0.7;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 2px;
+}
 .chip-party {
   font-size: 9px;
   font-weight: 800;
@@ -1115,6 +1125,16 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
 .chip-party[data-party="IUML"]    { background: #1B5E20; color: #fff; }
 .chip-party[data-party="AMMK"]    { background: #4A148C; color: #fff; }
 .chip-party[data-party="DMDK"]    { background: #37474F; color: #fff; }
+.chip-minister {
+  flex-direction: column; align-items: flex-start; gap: 2px;
+  padding: 8px 12px;
+  background: rgba(21,101,192,.05);
+  border-color: rgba(21,101,192,.2);
+  color: var(--ink);
+}
+.chip-minister:hover { background: rgba(21,101,192,.12); border-color: rgba(21,101,192,.4); }
+.chip-min-name { font-size: 12.5px; font-weight: 600; }
+.chip-min-post { font-size: 10px; font-weight: 400; color: var(--muted); line-height: 1.3; }
 .chip-coll {
   background: rgba(63,91,58,.06);
   border-color: rgba(63,91,58,.22);
@@ -1144,7 +1164,7 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
   letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
   padding: 3px 7px; border-radius: 4px;
 }
-.news-tag.tag-ELECTION  { background: rgba(200,71,43,.12);  color: var(--terra-deep); }
+.news-tag.tag-POLITICS  { background: rgba(200,71,43,.12);  color: var(--terra-deep); }
 .news-tag.tag-SCHEME    { background: rgba(63,91,58,.12);   color: var(--forest); }
 .news-tag.tag-EDUCATION { background: rgba(226,160,63,.18); color: var(--warn); }
 .news-tag.tag-EVENT     { background: rgba(31,22,17,.08);   color: var(--ink); }
@@ -1503,7 +1523,7 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
 .feat-thumb.tag-EDUCATION { background: linear-gradient(135deg, #E2A03F 0%, #8C5B0E 100%); }
 .feat-thumb.tag-SCHEME    { background: linear-gradient(135deg, #3F5B3A 0%, #2A4528 100%); }
 .feat-thumb.tag-INFRA     { background: linear-gradient(135deg, #3F2F23 0%, #1F1611 100%); }
-.feat-thumb.tag-ELECTION  { background: linear-gradient(135deg, #C8472B 0%, #8B2F1F 100%); }
+.feat-thumb.tag-POLITICS  { background: linear-gradient(135deg, #C8472B 0%, #8B2F1F 100%); }
 .feat-thumb.tag-ENVIRO    { background: linear-gradient(135deg, #4F7A3A 0%, #2A4528 100%); }
 .feat-thumb.tag-HEALTH    { background: linear-gradient(135deg, #A82323 0%, #5C1010 100%); }
 .feat-body { padding: 16px 18px 14px; display: flex; flex-direction: column; flex: 1; }
@@ -1530,7 +1550,7 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
 .hid-row .src-col { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; padding-top: 4px; font-family: var(--mono); font-size: 10.5px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
 .hid-row .src-col .src { color: var(--ink-2); font-weight: 600; }
 .hid-row .src-col .arr { color: var(--terra); font-weight: 700; }
-.nc-tag.tag-ELECTION  { background: rgba(200,71,43,.12);  color: var(--terra-deep); }
+.nc-tag.tag-POLITICS  { background: rgba(200,71,43,.12);  color: var(--terra-deep); }
 .nc-tag.tag-SCHEME    { background: rgba(63,91,58,.12);   color: var(--forest); }
 .nc-tag.tag-EDUCATION { background: rgba(226,160,63,.18); color: var(--warn); }
 .nc-tag.tag-EVENT     { background: rgba(31,22,17,.08);   color: var(--ink); }
@@ -1798,7 +1818,7 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
 .nd-hero.tag-EDUCATION { background: linear-gradient(135deg,#E2A03F 0%,#8C5B0E 100%); }
 .nd-hero.tag-SCHEME    { background: linear-gradient(135deg,#3F5B3A 0%,#2A4528 100%); }
 .nd-hero.tag-INFRA     { background: linear-gradient(135deg,#3F2F23 0%,#1F1611 100%); }
-.nd-hero.tag-ELECTION  { background: linear-gradient(135deg,#C8472B 0%,#8B2F1F 100%); }
+.nd-hero.tag-POLITICS  { background: linear-gradient(135deg,#C8472B 0%,#8B2F1F 100%); }
 .nd-hero.tag-ENVIRO    { background: linear-gradient(135deg,#4F7A3A 0%,#2A4528 100%); }
 .nd-hero.tag-HEALTH    { background: linear-gradient(135deg,#A82323 0%,#5C1010 100%); }
 

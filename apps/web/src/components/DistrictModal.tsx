@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { TN_DATA } from "@/data/tn-data";
 import { DISTRICT_DETAIL, type DistrictDetail, type Slide } from "@/data/district-detail";
 import { CONSTITUENCY_PARTY_2026 } from "@/data/constituency-party-2026";
+import { CONSTITUENCY_WINNER_2026 } from "@/data/constituency-winner-2026";
 
 const MOOD_PALETTES: Record<string, { from: string; to: string; glyph: string }> = {
   sunrise:  { from: "#E2A03F", to: "#C8472B", glyph: "☼" },
@@ -189,9 +190,11 @@ export default function DistrictModal() {
               {detail.constituencies.length > 0
                 ? detail.constituencies.map((c) => {
                     const party = CONSTITUENCY_PARTY_2026[c];
+                    const winner = CONSTITUENCY_WINNER_2026[c];
                     return (
                       <span key={c} className="chip chip-const">
                         {c}
+                        {winner && <span className="chip-winner">{winner}</span>}
                         {party && <span className="chip-party" data-party={party}>{party}</span>}
                       </span>
                     );
@@ -200,6 +203,29 @@ export default function DistrictModal() {
               }
             </div>
           </section>
+
+          {(() => {
+            const ministers = TN_DATA.cabinet.filter((m) =>
+              detail.constituencies.includes(m.constituency)
+            );
+            if (ministers.length === 0) return null;
+            return (
+              <section className="dm-section">
+                <h3>
+                  Ministers <span className="ta">· அமைச்சர்கள்</span>
+                  <span className="cnt"><span>{ministers.length}</span> from this district</span>
+                </h3>
+                <div className="chip-grid">
+                  {ministers.map((m) => (
+                    <span key={m.name} className="chip chip-minister">
+                      <span className="chip-min-name">{m.name}</span>
+                      <span className="chip-min-post">{m.post}</span>
+                    </span>
+                  ))}
+                </div>
+              </section>
+            );
+          })()}
 
           <section className="dm-section">
             <h3>
