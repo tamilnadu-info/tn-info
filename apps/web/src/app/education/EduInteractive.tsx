@@ -4,6 +4,22 @@ import { useState, useMemo } from "react";
 import type { NewsItem } from "@/data/news";
 import type { EduUpdate, College } from "./page";
 
+const TYPE_LABELS: Record<string, string> = {
+  "CEG DEPTS": "Govt (CEG)",
+  "GOVERNMENT ENGG COLLEGES": "Govt Engineering",
+  "GOVERNMENT AIDED COLLEGES": "Govt Aided",
+  "SELF FINANCING COLLEGES TIER 1": "Private Tier 1",
+  "SELF FINANCING COLLEGES TIER 2": "Private Tier 2",
+  "SELF FINANCING COLLEGES TIER 3": "Private Tier 3",
+  "ANNAMALAI UNIV": "Annamalai Univ",
+  "UNIV CONSTITUENT COLLEGES": "Univ Constituent",
+  "CENTRAL GOVERNMENT ENGG COLLEGES COLLEGES": "Central Govt",
+};
+
+function typeLabel(t: string) {
+  return TYPE_LABELS[t] ?? t;
+}
+
 const SECTOR_PILLS = [
   "All",
   "TNEA",
@@ -122,7 +138,7 @@ export default function EduInteractive({
       const matchQ =
         !q ||
         c.name.toLowerCase().includes(q) ||
-        c.code.includes(q) ||
+        String(c.code).includes(q) ||
         c.dist.toLowerCase().includes(q);
       return matchDist && matchType && matchQ;
     });
@@ -284,9 +300,9 @@ export default function EduInteractive({
           <div className="cp-hd">
             <div>
               <h3 id="college-search-hd">
-                All <em>591</em> engineering colleges · searchable
+                All <em>{colleges.length}</em> engineering colleges · searchable
               </h3>
-              <div className="ta">அனைத்து 591 பொறியியல் கல்லூரிகள் — தேடக்கூடியது</div>
+              <div className="ta">அனைத்து {colleges.length} பொறியியல் கல்லூரிகள் — தேடக்கூடியது</div>
             </div>
             <a
               className="lk"
@@ -326,7 +342,7 @@ export default function EduInteractive({
               <option value="All">All types</option>
               {uniqueTypes.map((t) => (
                 <option key={t} value={t}>
-                  {t}
+                  {typeLabel(t)}
                 </option>
               ))}
             </select>
@@ -342,7 +358,7 @@ export default function EduInteractive({
               marginBottom: "10px",
             }}
           >
-            Showing sample of indexed colleges · {filteredColleges.length} results
+            {filteredColleges.length} of {colleges.length} colleges · TNEA 2025 data
           </p>
 
           {filteredColleges.length === 0 ? (
@@ -368,7 +384,7 @@ export default function EduInteractive({
                   <span className="code">{c.code}</span>
                   <span className="name">{c.name}</span>
                   <span className="dist">{c.dist}</span>
-                  <span className="type">{c.type}</span>
+                  <span className="type">{typeLabel(c.type)}</span>
                 </div>
               ))}
             </div>
@@ -416,7 +432,7 @@ export default function EduInteractive({
                 Check last-year closing ranks for any college and branch.
                 Compare across counselling rounds.
               </p>
-              <span className="ap-stat">591 colleges · all branches</span>
+              <span className="ap-stat">423 colleges · 116 branches</span>
             </div>
             <span className="ap-cta">Try →</span>
           </div>
@@ -428,7 +444,7 @@ export default function EduInteractive({
               <p className="ap-name">College Atlas</p>
               <p className="ap-ta">கல்லூரி வரைபடம்</p>
               <p className="ap-blurb">
-                Browse all 591 colleges on an interactive district map.
+                Browse all 423 colleges on an interactive district map.
                 Filter by type, management, and intake.
               </p>
               <span className="ap-stat">38 districts covered</span>

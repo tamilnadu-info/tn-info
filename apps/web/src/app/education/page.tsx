@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { TN_NEWS, type NewsItem } from "@/data/news";
 import { TN_DATA } from "@/data/tn-data";
 import EduInteractive from "./EduInteractive";
@@ -85,53 +87,22 @@ const EDU_UPDATES = [
 
 export type EduUpdate = (typeof EDU_UPDATES)[number];
 
-const SAMPLE_COLLEGES = [
-  { code: "1101", name: "Anna University", dist: "Chennai", type: "Government" },
-  {
-    code: "1201",
-    name: "College of Engineering Guindy",
-    dist: "Chennai",
-    type: "Government",
-  },
-  {
-    code: "2301",
-    name: "PSG College of Technology",
-    dist: "Coimbatore",
-    type: "Private Aided",
-  },
-  {
-    code: "2302",
-    name: "Coimbatore Institute of Technology",
-    dist: "Coimbatore",
-    type: "Private Aided",
-  },
-  {
-    code: "3501",
-    name: "Madurai Kamaraj University",
-    dist: "Madurai",
-    type: "Government",
-  },
-  {
-    code: "4201",
-    name: "NIT Trichy",
-    dist: "Tiruchirapalli",
-    type: "Government",
-  },
-  {
-    code: "1502",
-    name: "SRM Institute of Science and Technology",
-    dist: "Kancheepuram",
-    type: "Private Self-Financed",
-  },
-  {
-    code: "1503",
-    name: "Saveetha Engineering College",
-    dist: "Kancheepuram",
-    type: "Private Self-Financed",
-  },
-];
+export interface College {
+  code: number;
+  name: string;
+  dist: string;
+  type: string;
+}
 
-export type College = (typeof SAMPLE_COLLEGES)[number];
+function loadColleges(): College[] {
+  try {
+    return JSON.parse(
+      readFileSync(join(process.cwd(), "src", "data", "tnea", "colleges.json"), "utf8")
+    ) as College[];
+  } catch {
+    return [];
+  }
+}
 
 const TOP_3_HOT = TN_NEWS.hot.filter((n) => n.tag === "EDUCATION").slice(0, 3);
 const TOP_3_HIDDEN = TN_NEWS.hidden.filter((n) => n.tag === "EDUCATION");
@@ -179,6 +150,7 @@ function TopCard({ item }: { item: NewsItem }) {
 
 export default function EducationPage() {
   const districts = TN_DATA.districts.map((d) => d.en);
+  const colleges = loadColleges();
 
   return (
     <>
@@ -219,7 +191,7 @@ export default function EducationPage() {
               <div className="edu-numbers">
                 <div className="edu-num">
                   <b>
-                    591<em>+</em>
+                    {colleges.length || 423}
                   </b>
                   <span>Engineering Colleges</span>
                 </div>
@@ -280,7 +252,7 @@ export default function EducationPage() {
           <EduInteractive
             updates={EDU_UPDATES}
             hiddenEdu={HIDDEN_EDU}
-            colleges={SAMPLE_COLLEGES}
+            colleges={colleges}
             districts={districts}
           />
         </div>
