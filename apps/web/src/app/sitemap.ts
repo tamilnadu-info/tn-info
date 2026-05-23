@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/config/site";
 
-const BASE = "https://tn-info.in";
+const BASE = SITE_URL;
 
 const DISTRICT_IDS = [
   "tiruvallur", "chennai", "chengalpattu", "kanchipuram", "vellore",
@@ -21,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/news`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${BASE}/events`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${BASE}/education`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${BASE}/#election`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${BASE}/#politics`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${BASE}/#districts`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/#api`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];

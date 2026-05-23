@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Crimson_Pro, Manrope, JetBrains_Mono, Noto_Sans_Tamil } from "next/font/google";
+import { SITE_URL } from "@/config/site";
 import "./globals.css";
 import DisclaimerModal from "@/components/DisclaimerModal";
 import JsonLd from "@/components/JsonLd";
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     "tamilnadu",
   ],
   authors: [{ name: "Destrosec", url: "https://destrosec.com" }],
-  metadataBase: new URL("https://tn-info.in"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
     languages: {
@@ -85,7 +86,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     alternateLocale: ["ta_IN"],
-    url: "https://tn-info.in",
+    url: SITE_URL,
     siteName: "TN-Info.in",
     title: "TN Info | Tamil Nadu Open Data — Districts, Elections, Schemes",
     description:
