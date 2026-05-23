@@ -550,6 +550,16 @@ h1.hh sup {
   padding: 4px 9px; border-radius: var(--r-pill);
 }
 .focus .live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--forest); }
+.focus .wip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase; font-weight: 600;
+  color: var(--warn); background: rgba(226,160,63,.15);
+  padding: 4px 9px; border-radius: var(--r-pill);
+}
+.focus .wip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--warn); }
+.focus.focus-dev { opacity: .65; cursor: default; }
+.focus.focus-dev:hover { transform: none; box-shadow: none; }
 .focus h3 { font-family: var(--serif); font-size: 32px; font-weight: 400; letter-spacing: -.01em; margin: 0 0 2px; line-height: 1; }
 .focus h3 em { font-style: italic; }
 .focus .t-ta { font-family: var(--ta); color: var(--muted); font-size: 14px; font-weight: 500; }
@@ -622,7 +632,7 @@ h1.hh sup {
 
 /* ── Live wire feed + sidebar ── */
 .wire-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 36px; }
-.wire-list { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; }
+.wire-list { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl); overflow-y: auto; max-height: 690px; }
 .wire-row {
   display: grid; grid-template-columns: 88px 1fr auto; gap: 18px;
   padding: 18px 22px; border-bottom: 1px solid var(--line);
@@ -640,6 +650,7 @@ h1.hh sup {
   border-radius: 5px; margin-bottom: 8px;
 }
 .wire-row .bd .tag.ELECTION  { background: rgba(200,71,43,.12); color: var(--terra-deep); }
+.wire-row .bd .tag.POLITICS  { background: rgba(200,71,43,.12); color: var(--terra-deep); }
 .wire-row .bd .tag.SCHEME    { background: rgba(63,91,58,.12);  color: var(--forest); }
 .wire-row .bd .tag.EDUCATION { background: rgba(226,160,63,.18);color: var(--warn); }
 .wire-row .bd .tag.EVENT     { background: rgba(31,22,17,.08);  color: var(--ink); }
@@ -673,7 +684,9 @@ h1.hh sup {
   content: ""; width: 6px; height: 6px; border-radius: 50%;
   background: var(--forest); box-shadow: 0 0 0 3px rgba(63,91,58,.18);
 }
-.pipe-list { padding: 6px 0; }
+.pipe-list { padding: 6px 0; max-height: 320px; overflow-y: auto; }
+.wire-list::-webkit-scrollbar, .pipe-list::-webkit-scrollbar { width: 4px; }
+.wire-list::-webkit-scrollbar-thumb, .pipe-list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
 .pipe-row {
   display: grid; grid-template-columns: 8px 1fr auto;
   align-items: center; padding: 11px 18px; gap: 14px;

@@ -17,16 +17,16 @@ export default function FocusCards() {
             </p>
           </div>
           <div className="rhs">
-            4 launched
+            2 live · 2 in dev
             <br />
             more shipping monthly →
           </div>
         </div>
         <div className="focus-grid">
-          <a className="focus f-elect" href="#politics">
+          <div className="focus f-elect focus-dev">
             <div className="hd">
               <div className="ico-wrap">p</div>
-              <span className="live">Live</span>
+              <span className="wip">Dev</span>
             </div>
             <h3 className="eonly">
               <em>Politics</em>
@@ -49,8 +49,7 @@ export default function FocusCards() {
                 <span>2024 sweep</span>
               </div>
             </div>
-            <span className="arr">→</span>
-          </a>
+          </div>
           <a className="focus f-edu" href="/education">
             <div className="hd">
               <div className="ico-wrap">e</div>
@@ -78,10 +77,10 @@ export default function FocusCards() {
             </div>
             <span className="arr">→</span>
           </a>
-          <a className="focus f-ben" href="#schemes">
+          <div className="focus f-ben focus-dev">
             <div className="hd">
               <div className="ico-wrap">b</div>
-              <span className="live">Live</span>
+              <span className="wip">Dev</span>
             </div>
             <h3 className="eonly">
               <em>Benefits</em>
@@ -95,7 +94,7 @@ export default function FocusCards() {
             </p>
             <div className="stats">
               <div className="s">
-                <b>47</b>
+                <b>28</b>
                 <span>Schemes</span>
               </div>
               <div className="s">
@@ -103,8 +102,7 @@ export default function FocusCards() {
                 <span>Beneficiaries</span>
               </div>
             </div>
-            <span className="arr">→</span>
-          </a>
+          </div>
           <a className="focus f-ev" href="/events">
             <div className="hd">
               <div className="ico-wrap">t</div>
