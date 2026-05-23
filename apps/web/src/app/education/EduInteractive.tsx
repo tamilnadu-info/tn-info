@@ -2,8 +2,10 @@
 
 import { useState, useMemo, useEffect } from "react";
 import type { NewsItem } from "@/data/news";
-import type { EduUpdate, College } from "./page";
+import type { EduUpdate, College, ArtsCollege, PolyCollege } from "./page";
 import CollegeModal from "./CollegeModal";
+import ArtsModal from "./ArtsModal";
+import PolyModal from "./PolyModal";
 
 const TYPE_LABELS: Record<string, string> = {
   "CEG DEPTS": "Govt (CEG)",
@@ -99,10 +101,17 @@ function HiddenRow({ item }: { item: NewsItem }) {
   );
 }
 
+const NAAC_COLOR: Record<string, string> = {
+  "A++": "#4caf50", "A+": "#66bb6a", "A": "#4fc3f7",
+  "B++": "#5c8ee0", "B+": "#7986cb", "B": "#9575cd", "C": "#78909c",
+};
+
 interface Props {
   updates: EduUpdate[];
   hiddenEdu: NewsItem[];
   colleges: College[];
+  artsColleges: ArtsCollege[];
+  polyColleges: PolyCollege[];
   districts: string[];
 }
 
@@ -110,6 +119,8 @@ export default function EduInteractive({
   updates,
   hiddenEdu,
   colleges,
+  artsColleges,
+  polyColleges,
   districts,
 }: Props) {
   const [sector, setSector] = useState<SectorPill>("All");
@@ -123,7 +134,19 @@ export default function EduInteractive({
   const [colPage, setColPage] = useState(1);
   const [selectedCollege, setSelectedCollege] = useState<College | null>(null);
 
+  const [artsQuery, setArtsQuery] = useState("");
+  const [artsDist, setArtsDist] = useState("All");
+  const [artsPage, setArtsPage] = useState(1);
+  const [selectedArts, setSelectedArts] = useState<ArtsCollege | null>(null);
+
+  const [polyQuery, setPolyQuery] = useState("");
+  const [polyDist, setPolyDist] = useState("All");
+  const [polyPage, setPolyPage] = useState(1);
+  const [selectedPoly, setSelectedPoly] = useState<PolyCollege | null>(null);
+
   useEffect(() => { setColPage(1); }, [colQuery, colDist, colType, colCat]);
+  useEffect(() => { setArtsPage(1); }, [artsQuery, artsDist]);
+  useEffect(() => { setPolyPage(1); }, [polyQuery, polyDist]);
 
   const filteredUpdates = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -165,6 +188,36 @@ export default function EduInteractive({
 
   const uniqueTypes = Array.from(new Set(colleges.map((c) => c.type)));
   const uniqueDists = Array.from(new Set(colleges.map((c) => c.district))).sort();
+
+  const allFilteredArts = useMemo(() => {
+    const q = artsQuery.trim().toLowerCase();
+    return artsColleges.filter((c) => {
+      const matchDist = artsDist === "All" || c.district === artsDist;
+      const matchQ = !q || c.college_name.toLowerCase().includes(q) || c.district.toLowerCase().includes(q);
+      return matchDist && matchQ;
+    });
+  }, [artsColleges, artsQuery, artsDist]);
+  const filteredArts = useMemo(
+    () => allFilteredArts.slice((artsPage - 1) * PAGE_SIZE, artsPage * PAGE_SIZE),
+    [allFilteredArts, artsPage]
+  );
+  const artsTotalPages = Math.ceil(allFilteredArts.length / PAGE_SIZE);
+  const artsUniqueDists = Array.from(new Set(artsColleges.map((c) => c.district))).sort();
+
+  const allFilteredPoly = useMemo(() => {
+    const q = polyQuery.trim().toLowerCase();
+    return polyColleges.filter((c) => {
+      const matchDist = polyDist === "All" || c.district === polyDist;
+      const matchQ = !q || c.college_name.toLowerCase().includes(q) || c.city.toLowerCase().includes(q);
+      return matchDist && matchQ;
+    });
+  }, [polyColleges, polyQuery, polyDist]);
+  const filteredPoly = useMemo(
+    () => allFilteredPoly.slice((polyPage - 1) * PAGE_SIZE, polyPage * PAGE_SIZE),
+    [allFilteredPoly, polyPage]
+  );
+  const polyTotalPages = Math.ceil(allFilteredPoly.length / PAGE_SIZE);
+  const polyUniqueDists = Array.from(new Set(polyColleges.map((c) => c.district))).sort();
 
   return (
     <>
@@ -334,17 +387,23 @@ export default function EduInteractive({
           </div>
 
           <div className="col-cat-tabs" role="tablist" aria-label="College category">
-            {COL_CATS.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={colCat === cat}
-                className={`col-cat-tab${colCat === cat ? " on" : ""}`}
-                onClick={() => setColCat(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+            {COL_CATS.map((cat) => {
+              const count = cat === "Engineering" ? colleges.length
+                : cat === "Arts & Science" ? artsColleges.length
+                : cat === "Polytechnic" ? polyColleges.length
+                : null;
+              return (
+                <button
+                  key={cat}
+                  role="tab"
+                  aria-selected={colCat === cat}
+                  className={`col-cat-tab${colCat === cat ? " on" : ""}`}
+                  onClick={() => setColCat(cat)}
+                >
+                  {cat}{count != null ? <span className="col-cat-cnt">{count}</span> : null}
+                </button>
+              );
+            })}
           </div>
 
           {colCat === "Engineering" ? (
@@ -478,6 +537,116 @@ export default function EduInteractive({
                 </>
               )}
             </>
+          ) : colCat === "Arts & Science" ? (
+            <>
+              <div className="col-search">
+                <input
+                  type="search"
+                  placeholder="Search by name or district…"
+                  value={artsQuery}
+                  onChange={(e) => setArtsQuery(e.target.value)}
+                  aria-label="Search arts colleges"
+                />
+                <select value={artsDist} onChange={(e) => setArtsDist(e.target.value)} aria-label="Filter by district">
+                  <option value="All">All districts</option>
+                  {artsUniqueDists.map((d) => <option key={d} value={d}>{d}</option>)}
+                </select>
+              </div>
+              <p style={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: "10px" }}>
+                {allFilteredArts.length} of {artsColleges.length} govt colleges · TNGASA 2026 · click row for details
+              </p>
+              {allFilteredArts.length === 0 ? (
+                <div className="col-coming-soon"><div className="cs-icon">○</div><p>No colleges match.</p></div>
+              ) : (
+                <>
+                  <div className="col-table">
+                    {filteredArts.map((c) => (
+                      <button key={c.college_code} className="col-row col-row-btn arts-row" onClick={() => setSelectedArts(c)}>
+                        <span className="code">{c.college_code}</span>
+                        <span className="name">{c.college_name}</span>
+                        <span className="dist">{c.district}</span>
+                        {c.naac_grade ? (
+                          <span className="arts-naac" style={{ color: NAAC_COLOR[c.naac_grade] ?? "#aaa" }}>{c.naac_grade}</span>
+                        ) : (
+                          <span className="arts-naac" style={{ color: "var(--muted)" }}>—</span>
+                        )}
+                        <span className="arr">→</span>
+                      </button>
+                    ))}
+                  </div>
+                  {artsTotalPages > 1 && (
+                    <div className="col-pager">
+                      <button className="col-pg-btn" onClick={() => setArtsPage((p) => Math.max(1, p - 1))} disabled={artsPage === 1}>←</button>
+                      {Array.from({ length: artsTotalPages }, (_, i) => i + 1)
+                        .filter((p) => p === 1 || p === artsTotalPages || Math.abs(p - artsPage) <= 2)
+                        .reduce<(number | "…")[]>((acc, p, idx, arr) => {
+                          if (idx > 0 && typeof arr[idx - 1] === "number" && (p as number) - (arr[idx - 1] as number) > 1) acc.push("…");
+                          acc.push(p); return acc;
+                        }, [])
+                        .map((p, i) => p === "…" ? (
+                          <span key={`e-${i}`} style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--muted)", padding: "0 4px" }}>…</span>
+                        ) : (
+                          <button key={p} className={`col-pg-btn${artsPage === p ? " on" : ""}`} onClick={() => setArtsPage(p as number)}>{p}</button>
+                        ))}
+                      <button className="col-pg-btn" onClick={() => setArtsPage((p) => Math.min(artsTotalPages, p + 1))} disabled={artsPage === artsTotalPages}>→</button>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
+          ) : colCat === "Polytechnic" ? (
+            <>
+              <div className="col-search">
+                <input
+                  type="search"
+                  placeholder="Search by name or city…"
+                  value={polyQuery}
+                  onChange={(e) => setPolyQuery(e.target.value)}
+                  aria-label="Search polytechnic colleges"
+                />
+                <select value={polyDist} onChange={(e) => setPolyDist(e.target.value)} aria-label="Filter by district">
+                  <option value="All">All districts</option>
+                  {polyUniqueDists.map((d) => <option key={d} value={d}>{d}</option>)}
+                </select>
+              </div>
+              <p style={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: "10px" }}>
+                {allFilteredPoly.length} of {polyColleges.length} govt polytechnics · TNPOLY · click row for details
+              </p>
+              {allFilteredPoly.length === 0 ? (
+                <div className="col-coming-soon"><div className="cs-icon">○</div><p>No colleges match.</p></div>
+              ) : (
+                <>
+                  <div className="col-table">
+                    {filteredPoly.map((c) => (
+                      <button key={c.college_code} className="col-row col-row-btn" onClick={() => setSelectedPoly(c)}>
+                        <span className="code">{c.college_code}</span>
+                        <span className="name">{c.college_name}</span>
+                        <span className="dist">{c.city || c.district}</span>
+                        <span className="type">{c.category}</span>
+                        <span className="arr">→</span>
+                      </button>
+                    ))}
+                  </div>
+                  {polyTotalPages > 1 && (
+                    <div className="col-pager">
+                      <button className="col-pg-btn" onClick={() => setPolyPage((p) => Math.max(1, p - 1))} disabled={polyPage === 1}>←</button>
+                      {Array.from({ length: polyTotalPages }, (_, i) => i + 1)
+                        .filter((p) => p === 1 || p === polyTotalPages || Math.abs(p - polyPage) <= 2)
+                        .reduce<(number | "…")[]>((acc, p, idx, arr) => {
+                          if (idx > 0 && typeof arr[idx - 1] === "number" && (p as number) - (arr[idx - 1] as number) > 1) acc.push("…");
+                          acc.push(p); return acc;
+                        }, [])
+                        .map((p, i) => p === "…" ? (
+                          <span key={`e-${i}`} style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--muted)", padding: "0 4px" }}>…</span>
+                        ) : (
+                          <button key={p} className={`col-pg-btn${polyPage === p ? " on" : ""}`} onClick={() => setPolyPage(p as number)}>{p}</button>
+                        ))}
+                      <button className="col-pg-btn" onClick={() => setPolyPage((p) => Math.min(polyTotalPages, p + 1))} disabled={polyPage === polyTotalPages}>→</button>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
           ) : (
             <div className="col-coming-soon">
               <div className="cs-icon">◌</div>
@@ -488,6 +657,8 @@ export default function EduInteractive({
       </section>
 
       <CollegeModal college={selectedCollege} onClose={() => setSelectedCollege(null)} />
+      <ArtsModal college={selectedArts} onClose={() => setSelectedArts(null)} />
+      <PolyModal college={selectedPoly} onClose={() => setSelectedPoly(null)} />
 
       <section aria-labelledby="quick-tools-hd" style={{ marginBottom: "32px" }}>
         <div

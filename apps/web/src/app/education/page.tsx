@@ -101,11 +101,64 @@ export interface College {
   category: string;
 }
 
+export interface ArtsCollege {
+  college_code: string;
+  sno: number | null;
+  region: string;
+  district: string;
+  taluk: string | null;
+  college_name: string;
+  sanctioned_seats: number | null;
+  admit_pct_2025: number | null;
+  naac_grade: string | null;
+  nirf_rank: string | null;
+  male_seats: number;
+  female_seats: number;
+  hostel: string | null;
+  nodal_officer_name: string | null;
+  nodal_mobile: string | null;
+  nodal_email: string | null;
+  addl_nodal_name: string | null;
+  addl_mobile: string | null;
+  addl_email: string | null;
+}
+
+export interface PolyCollege {
+  college_code: string;
+  college_name: string;
+  city: string;
+  district: string;
+  college_type: string;
+  category: string;
+  male_hostel: string;
+  female_hostel: string;
+}
+
 function loadColleges(): College[] {
   try {
     return JSON.parse(
       readFileSync(join(process.cwd(), "src", "data", "tnea", "colleges.json"), "utf8")
     ) as College[];
+  } catch {
+    return [];
+  }
+}
+
+function loadArtsColleges(): ArtsCollege[] {
+  try {
+    return JSON.parse(
+      readFileSync(join(process.cwd(), "src", "data", "tnea", "arts_colleges_2026.json"), "utf8")
+    ) as ArtsCollege[];
+  } catch {
+    return [];
+  }
+}
+
+function loadPolyColleges(): PolyCollege[] {
+  try {
+    return JSON.parse(
+      readFileSync(join(process.cwd(), "src", "data", "tnea", "polytechnic_colleges.json"), "utf8")
+    ) as PolyCollege[];
   } catch {
     return [];
   }
@@ -158,6 +211,8 @@ function TopCard({ item }: { item: NewsItem }) {
 export default function EducationPage() {
   const districts = TN_DATA.districts.map((d) => d.en);
   const colleges = loadColleges();
+  const artsColleges = loadArtsColleges();
+  const polyColleges = loadPolyColleges();
 
   return (
     <>
@@ -260,6 +315,8 @@ export default function EducationPage() {
             updates={EDU_UPDATES}
             hiddenEdu={HIDDEN_EDU}
             colleges={colleges}
+            artsColleges={artsColleges}
+            polyColleges={polyColleges}
             districts={districts}
           />
         </div>

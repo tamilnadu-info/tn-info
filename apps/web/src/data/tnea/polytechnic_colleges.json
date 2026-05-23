@@ -1,0 +1,582 @@
+[
+  {
+    "college_code": "101",
+    "college_name": "CENTRAL POLYTECHNIC COLLEGE",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "102",
+    "college_name": "INSTITUTE OF PRINTING TECHNOLOGY",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "103",
+    "college_name": "INSTITUTE OF CHEMICAL TECHNOLOGY",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "104",
+    "college_name": "INSTITUTE OF LEATHER TECHNOLOGY",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "105",
+    "college_name": "INSTITUTE OF TEXTILE TECHNOLOGY",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "106",
+    "college_name": "STATE INSTITUTE OF COMMERCE EDUCATION",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "109",
+    "college_name": "TPEVR GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "VELLORE",
+    "district": "VELLORE",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "110",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "KRISHNAGIRI",
+    "district": "KRISHNAGIRI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "111",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "COIMBATORE",
+    "district": "COIMBATORE",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "112",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "THE NILGIRIS",
+    "district": "THE NILGIRIS",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "113",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "PUDUKOTTAI",
+    "district": "PUDUKKOTTAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "115",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "TRICHY",
+    "district": "TRICHY",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "116",
+    "college_name": "TAMILNADU POLYTECHNIC COLLEGE ",
+    "city": "MADURAI",
+    "district": "MADURAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "117",
+    "college_name": "ALAGAPPA POLYTECHNIC COLLEGE",
+    "city": "SIVAGANGAI",
+    "district": "SIVAGANGAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "118",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "THOOTHUKUDI",
+    "district": "THOOTHUKUDI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "119",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "KANYAKUMARI",
+    "district": "KANYAKUMARI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "120",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, PURASAWALKAM",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "121",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, MELUR",
+    "city": "MADURAI",
+    "district": "MADURAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "122",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "DHARMAPURI",
+    "district": "DHARMAPURI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "123",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "KARUR",
+    "district": "KARUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "124",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "PERAMBALUR",
+    "district": "PERAMBALUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "125",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "THIRUVARUR",
+    "district": "THIRUVARUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "126",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "THENI",
+    "district": "THENI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "127",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "THIRUVANNAMALAI",
+    "district": "THIRUVANNAMALAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "128",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "VILLUPURAM",
+    "district": "VILLUPURAM",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "129",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, ANDIPATTI",
+    "city": "THENI",
+    "district": "THENI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "130",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, JOLARPETTAI",
+    "city": "VELLORE",
+    "district": "VELLORE",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "131",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, KILAPALURE",
+    "city": "ARIYALUR",
+    "district": "ARIYALUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "132",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, PERUNDURAI",
+    "city": "ERODE",
+    "district": "ERODE",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "133",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, THIRUMANGALAM",
+    "city": " MADURAI",
+    "district": " MADURAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "134",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, SANKARAPURAM",
+    "city": "KALLAKURICHI",
+    "district": "KALLAKURICHI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "135",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, CHEYYAR",
+    "city": "THIRUVANNAMALAI",
+    "district": "THIRUVANNAMALAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "136",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, SRIRANGAM",
+    "city": "TRICHY",
+    "district": "TRICHY",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "137",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "PUDUKKOTTAI",
+    "district": "PUDUKKOTTAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "138",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, USILAMPATTI",
+    "city": "MADURAI",
+    "district": "MADURAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "139",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, UTHANGARAI",
+    "city": "KRISHNAGIRI",
+    "district": "KRISHNAGIRI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "140",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, R K NAGAR",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "141",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, BOSHINAYAKANHALLI, KADATHUR, DHARMAPURI- 635 303",
+    "city": "DHARMAPURI",
+    "district": "DHARMAPURI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "142",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, KELAMANGALAM",
+    "city": "KRISHNAGIRI",
+    "district": "KRISHNAGIRI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "143",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, REGHUNATHAPURAM ",
+    "city": "THANJAVUR",
+    "district": "THANJAVUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "144",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, THOZHUVOOR",
+    "city": "THIRUVARUR",
+    "district": "THIRUVARUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "145",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "DHARMAPURI",
+    "district": "DHARMAPURI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "146",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "NAMAKKAL",
+    "district": "NAMAKKAL",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "147",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "CUDDALORE",
+    "district": "CUDDALORE",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "148",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "THIRUVALLUR",
+    "district": "THIRUVALLUR",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "149",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "SALEM",
+    "district": "SALEM",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "150",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, CHROMEPE",
+    "city": "CHENGALPATTU",
+    "district": "CHENGALPATTU",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "151",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE, BARGUR",
+    "city": "KRISHNAGIRI",
+    "district": "KRISHNAGIRI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "152",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE",
+    "city": "TIRUNELVELI",
+    "district": "TIRUNELVELI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "153",
+    "college_name": "GOVERNMENT  POLYTECHNIC COLLEGE,  THIRUVOTTRIYUR",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "No",
+    "female_hostel": "No"
+  },
+  {
+    "college_code": "175",
+    "college_name": "DR DHARMAMBAL GOVT POLYTECHNIC COLLEGE FOR WOMEN ",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Women",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "176",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE (WOMEN)",
+    "city": "COIMBATORE",
+    "district": "COIMBATORE",
+    "college_type": "Government",
+    "category": "Women",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "177",
+    "college_name": "GOVERNMENT POLYTECHNIC COLLEGE FOR WOMEN",
+    "city": "MADURAI",
+    "district": "MADURAI",
+    "college_type": "Government",
+    "category": "Women",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "178",
+    "college_name": "BCM GOVT. POLYTECHNIC COLLEGE FOR WOMEN",
+    "city": "TUTICORIN",
+    "district": "TUTICORIN",
+    "college_type": "Government",
+    "category": "Women",
+    "male_hostel": "No",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "218",
+    "college_name": "SRINIVASA SUBBARAYA POLYTECHNIC COLLEGE",
+    "city": "MAYILADUTHURAI",
+    "district": "MAYILADUTHURAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "404",
+    "college_name": "GOVERNMENT TECHNICAL TRAINING CENTRE",
+    "city": "CHENNAI",
+    "district": "CHENNAI",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "405",
+    "college_name": "INSTITUTE OF CERAMIC TECHNOLOGY",
+    "city": "CUDDALORE",
+    "district": "CUDDALORE",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  },
+  {
+    "college_code": "413",
+    "college_name": "INSTITUTE OF TOOL ENGINEERING",
+    "city": "DINDIGUL",
+    "district": "DINDIGUL",
+    "college_type": "Government",
+    "category": "Co-education",
+    "male_hostel": "Yes",
+    "female_hostel": "Yes"
+  }
+]
