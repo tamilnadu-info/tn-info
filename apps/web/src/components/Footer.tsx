@@ -61,8 +61,8 @@ export default async function Footer() {
             <h4>Coverage</h4>
             <ul>
               <li>
-                <a href="#election">
-                  Election<span className="ta tonly">தேர்தல்</span>
+                <a href="#politics">
+                  Politics<span className="ta tonly">அரசியல்</span>
                 </a>
               </li>
               <li>

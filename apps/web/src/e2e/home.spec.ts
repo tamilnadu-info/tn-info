@@ -356,8 +356,8 @@ test.describe("Focus Cards", () => {
     await expect(cards).toHaveCount(4);
   });
 
-  test("Election card is visible with live badge", async ({ page }) => {
-    const card = page.locator('[data-testid="focus-cards"] .focus').filter({ hasText: /Election/i });
+  test("Politics card is visible with live badge", async ({ page }) => {
+    const card = page.locator('[data-testid="focus-cards"] .focus').filter({ hasText: /Politics/i });
     await expect(card).toBeVisible();
   });
 
@@ -373,7 +373,7 @@ test.describe("Focus Cards", () => {
     await expect(page.locator('[data-testid="focus-cards"]')).toContainText(/Tech|Event/i);
   });
 
-  test("election card shows 39/39 result", async ({ page }) => {
+  test("politics card shows 39/39 result", async ({ page }) => {
     await expect(page.locator('[data-testid="focus-cards"]')).toContainText(/39/);
   });
 
@@ -627,8 +627,8 @@ test.describe("Footer", () => {
     await expect(page.locator("footer a[href*='github.com']").first()).toBeVisible();
   });
 
-  test("footer contains Election coverage link", async ({ page }) => {
-    await expect(page.locator("footer")).toContainText(/Election/i);
+  test("footer contains Politics coverage link", async ({ page }) => {
+    await expect(page.locator("footer")).toContainText(/Politics/i);
   });
 
   test("footer contains Education coverage link", async ({ page }) => {

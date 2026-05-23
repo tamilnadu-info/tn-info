@@ -23,20 +23,20 @@ export default function FocusCards() {
           </div>
         </div>
         <div className="focus-grid">
-          <a className="focus f-elect" href="#election">
+          <a className="focus f-elect" href="#politics">
             <div className="hd">
-              <div className="ico-wrap">e</div>
+              <div className="ico-wrap">p</div>
               <span className="live">Live</span>
             </div>
             <h3 className="eonly">
-              <em>Election</em>
+              <em>Politics</em>
             </h3>
             <h3 className="tonly" style={{ fontFamily: "var(--ta)" }}>
-              <em>தேர்தல்</em>
+              <em>அரசியல்</em>
             </h3>
-            <div className="t-ta eonly">தேர்தல்</div>
+            <div className="t-ta eonly">அரசியல்</div>
             <p className="blurb">
-              2024 Lok Sabha results, all 234 constituencies, MLA profiles, cabinet ministers, vote
+              2026 Assembly results, all 234 constituencies, MLA profiles, cabinet ministers, vote
               counts.
             </p>
             <div className="stats">
