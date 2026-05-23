@@ -300,7 +300,7 @@ const detail: Record<string, DistrictDetail> = {
       "Hindustan University","Sathyabama","SSN College of Engineering",
     ],
     news: [
-      { tag: "ELECTION",  en: "Cabinet expansion: 2 new MoS portfolios notified",       time: "12 min ago" },
+      { tag: "POLITICS",  en: "Cabinet expansion: 2 new MoS portfolios notified",       time: "12 min ago" },
       { tag: "EVENT",     en: "FOSS United Chennai — registrations live",                time: "5 hr ago"   },
       { tag: "SCHEME",    en: "Magalir Urimai disbursement: ₹47 Cr in Chennai",          time: "1 day ago"  },
       { tag: "EDUCATION", en: "IIT-M opens summer fellowship applications",              time: "2 days ago" },
@@ -324,7 +324,7 @@ const detail: Record<string, DistrictDetail> = {
       "Madurai Medical College","Fatima College","SBOA",
     ],
     news: [
-      { tag: "ELECTION",  en: "Madurai Lok Sabha MP Su. Venkatesan inaugurates new library", time: "3 hr ago"   },
+      { tag: "POLITICS",  en: "Madurai Lok Sabha MP Su. Venkatesan inaugurates new library", time: "3 hr ago"   },
       { tag: "EDUCATION", en: "Madurai Kamaraj University releases UG counselling schedule", time: "1 day ago"  },
       { tag: "EVENT",     en: "Madurai Devs Hack — registrations open (Jun 14)",             time: "2 days ago" },
     ],
@@ -347,7 +347,7 @@ const detail: Record<string, DistrictDetail> = {
       "Kumaraguru College of Technology","Avinashilingam University",
     ],
     news: [
-      { tag: "ELECTION", en: "Coimbatore South MLA reviews ward-level Magalir Urimai rollout", time: "6 hr ago"   },
+      { tag: "POLITICS", en: "Coimbatore South MLA reviews ward-level Magalir Urimai rollout", time: "6 hr ago"   },
       { tag: "EVENT",    en: "Coimbatore AI Summit — 21 Jun, Codissia Trade Fair Complex",      time: "1 day ago"  },
       { tag: "SCHEME",   en: "Pump-set energy subsidy revised for Pollachi farmers",            time: "3 days ago" },
     ],

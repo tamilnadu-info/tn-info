@@ -108,7 +108,7 @@ export const TN_DATA = (function () {
     { post: "Revenue & Disaster Management",                     name: "K.A. Sengottaiyan",             constituency: "Gobichettipalayam",  ta: "" },
     { post: "Rural Development & Water Resources",               name: "N. Anand",                      constituency: "Thiyagarayanagar",    ta: "" },
     { post: "Food & Civil Supplies",                             name: "P. Venkataramanan",             constituency: "Mylapore",            ta: "" },
-    { post: "Energy Resources & Law",                            name: "C.T.R. Nirmal Kumar",           constituency: "Thirupparankundram", ta: "" },
+    { post: "Energy Resources & Law",                            name: "C.T.R. Nirmal Kumar",           constituency: "Thiruparankundram",  ta: "" },
     { post: "Health, Medical Education & Family Welfare",        name: "K.G. Arunraj",                  constituency: "Tiruchengode",        ta: "" },
     { post: "Public Works & Sports Development",                 name: "Aadhav Arjuna",                 constituency: "Villivakkam",         ta: "" },
     { post: "SC & ST Welfare",                                   name: "A. Rajmohan",                   constituency: "Egmore",              ta: "" },
@@ -131,9 +131,9 @@ export const TN_DATA = (function () {
     { post: "AI, Information Technology & Digital Services",     name: "R. Kumar",                      constituency: "Velachery",           ta: "" },
     { post: "Non-Resident Tamils Welfare",                       name: "K. Thennarasu",                 constituency: "Sriperumbudur",       ta: "" },
     { post: "Backward Classes Welfare",                          name: "V. Sampathkumar",               constituency: "Coimbatore North",    ta: "" },
-    { post: "Labour Welfare & Skill Development",                name: "J. Mohamed Farvas",             constituency: "Arantangi",           ta: "" },
+    { post: "Labour Welfare & Skill Development",                name: "J. Mohamed Farvas",             constituency: "Aranthangi",          ta: "" },
     { post: "Human Resources Management",                        name: "D. Sarathkumar",                constituency: "Tambaram",            ta: "" },
-    { post: "Finance, Planning & Development",                   name: "N. Marie Wilson",               constituency: "R.K. Nagar",          ta: "" },
+    { post: "Finance, Planning & Development",                   name: "N. Marie Wilson",               constituency: "Dr. Radhakrishnan Nagar", ta: "" },
     { post: "Prohibition & Excise",                              name: "K. Vignesh",                    constituency: "Kinathukadavu",       ta: "" },
     { post: "Tourism",                                           name: "S. Rajeshkumar",                constituency: "Killiyoor",           ta: "" },
     { post: "Higher Education",                                  name: "P. Viswanathan",                constituency: "Melur",               ta: "" },
@@ -193,11 +193,11 @@ export const TN_DATA = (function () {
   // Cross-category ticker — what 'just changed' on the platform.
   // time field is an ISO 8601 UTC timestamp; rendered as relative ("X ago") at display time.
   const ticker = [
-    { tag: "ELECTION",  en: "TVK Cabinet expanded to 35 — coalition of TVK, INC, IUML, VCK sworn in",           ta: "TVK அமைச்சரவை 35 ஆக விரிவாக்கம் — கூட்டணி அமைச்சர்கள் பதவியேற்பு",     time: "2026-05-21T10:00:00Z" },
+    { tag: "POLITICS",  en: "TVK Cabinet expanded to 35 — coalition of TVK, INC, IUML, VCK sworn in",           ta: "TVK அமைச்சரவை 35 ஆக விரிவாக்கம் — கூட்டணி அமைச்சர்கள் பதவியேற்பு",     time: "2026-05-21T10:00:00Z" },
     { tag: "SCHEME",    en: "Magalir Urimai ₹1,000 transfer: TVK govt confirms scheme continues",                ta: "மகளிர் உரிமை தொகை: TVK அரசு திட்டம் தொடரும் என உறுதி",                   time: "2026-05-20T08:00:00Z" },
     { tag: "EDUCATION", en: "TNEA 2026 registration closes June 2 — 1.34 lakh seats, 455 institutes",           ta: "TNEA 2026 பதிவு ஜூன் 2 முடிவு — 1.34 லட்சம் இடங்கள்",                   time: "2026-05-19T05:00:00Z" },
     { tag: "EVENT",     en: "FOSS United Chennai — registrations live",                                          ta: "ஃபாஸ் ஐக்கிய சென்னை — பதிவுகள் தொடங்கின",                               time: "2026-05-19T03:00:00Z" },
-    { tag: "ELECTION",  en: "CM Vijay vacates Tiruchirappalli East, retains Perambur constituency",               ta: "CM விஜய் திருச்சி கிழக்கை விட்டு, பெரம்பூர் தொகுதியை தக்கவைத்தார்",    time: "2026-05-18T12:00:00Z" },
+    { tag: "POLITICS",  en: "CM Vijay vacates Tiruchirappalli East, retains Perambur constituency",               ta: "CM விஜய் திருச்சி கிழக்கை விட்டு, பெரம்பூர் தொகுதியை தக்கவைத்தார்",    time: "2026-05-18T12:00:00Z" },
     { tag: "PIPELINE",  en: "TNEA scraper restored after 22-min outage",                                         ta: "TNEA தரவு பைப்லைன் 22 நிமிட இடைவெளிக்குப் பின் இயங்குகிறது",           time: "2026-05-18T10:00:00Z" },
     { tag: "SCHEME",    en: "Pudhumai Penn — May disbursement complete (₹172 Cr)",                               ta: "புதுமை பெண் — மே மாத கொடுப்பனவு முடிந்தது (₹172 கோடி)",                 time: "2026-05-18T08:00:00Z" },
   ];

@@ -187,7 +187,7 @@ export default function EducationPage() {
           <nav className="crumbs" aria-label="Breadcrumb">
             <a href="/">TN-Info.in</a>
             <span className="sep">/</span>
-            <a href="/updates">Updates</a>
+            <a href="/news">News</a>
             <span className="sep">/</span>
             <span>Education</span>
           </nav>

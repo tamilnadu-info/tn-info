@@ -74,7 +74,7 @@ export const TN_NEWS: TnNews = {
     },
     {
       id: "cabinet-rejig",
-      tag: "ELECTION",
+      tag: "POLITICS",
       district: "TN-WIDE",
       glyph: "CAB",
       headline:

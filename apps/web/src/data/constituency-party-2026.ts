@@ -328,4 +328,22 @@ export const CONSTITUENCY_PARTY_2026: Record<string, string> = {
   "Padmanabhapuram":       "CPI(M)",
   "Vilavancode":           "INC",
   "Killiyoor":             "INC",
+
+  // ── ALTERNATE SPELLINGS (match district-detail.ts exactly) ──────
+  "Madhuravoyal":          "TVK",   // Maduravoyal
+  "Madhavaram":            "TVK",   // Madavaram
+  "Sholinghur":            "TVK",   // Sholingur
+  "Tirupattur":            "TVK",   // Tiruppattur (Tirupathur district)
+  "Thally":                "CPI",   // Thalli
+  "Palacode":              "AIADMK",// Palacodu
+  "Pappireddipatti":       "AIADMK",// Pappireddippatti
+  "Villupuram":            "DMK",   // Viluppuram
+  "Vridhachalam":          "DMDK",  // Vriddhachalam
+  "Paramathivelur":        "AIADMK",// Paramathi-Velur
+  "Mettupalayam":          "TVK",   // Mettuppalayam
+  "Gandarvakottai":        "TVK",   // Gandharvakottai
+  "Tiruppathur":           "TVK",   // Tiruppattur (Sivaganga)
+  "Mudukulathur":          "DMK",   // Mudhukulathur
+  "Bodinayakkanur":        "DMK",   // Bodinayakanur
+  "Aruppukottai":          "DMK",   // Aruppukkottai
 };
