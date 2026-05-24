@@ -1792,8 +1792,6 @@ footer.foot { padding: 72px 0 32px; background: var(--bg-2); border-top: 1px sol
 .arts-contact-link { font-family: var(--mono); font-size: 11px; color: var(--terra); text-decoration: none; letter-spacing: .02em; }
 .arts-contact-link:hover { text-decoration: underline; }
 .cm-pill-muted { opacity: .45; }
-.poly-modal { max-width: 680px; }
-.poly-modal .cm-left { min-height: 260px; }
 
 /* ── Pagination ── */
 .col-pager { display: flex; align-items: center; gap: 6px; justify-content: center; padding: 16px 0 0; flex-wrap: wrap; }

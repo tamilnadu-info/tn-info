@@ -29,7 +29,7 @@ export default function PolyModal({ college, onClose }: Props) {
 
   return (
     <div className="cm-shade show" onClick={onClose}>
-      <div className="cm-modal poly-modal" onClick={(e) => e.stopPropagation()}>
+      <div className="cm-modal" onClick={(e) => e.stopPropagation()}>
         <button className="cm-close" onClick={onClose} aria-label="Close">×</button>
 
         {/* ── Left panel ── */}
