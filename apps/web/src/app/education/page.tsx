@@ -124,15 +124,24 @@ export interface ArtsCollege {
   addl_email?: string | null;
 }
 
+export interface PolyBranch {
+  name: string;
+  intake: number;
+}
+
 export interface PolyCollege {
-  college_code: string;
+  college_code: string | null;
+  aicte_id: string | null;
   college_name: string;
-  city: string;
+  address: string | null;
+  city: string | null;
   district: string;
   college_type: string;
   category: string;
-  male_hostel: string;
-  female_hostel: string;
+  male_hostel: string | null;
+  female_hostel: string | null;
+  branches: PolyBranch[];
+  total_intake: number | null;
 }
 
 function loadColleges(): College[] {

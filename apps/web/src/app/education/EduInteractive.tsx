@@ -142,12 +142,13 @@ export default function EduInteractive({
 
   const [polyQuery, setPolyQuery] = useState("");
   const [polyDist, setPolyDist] = useState("All");
+  const [polyType, setPolyType] = useState("All");
   const [polyPage, setPolyPage] = useState(1);
   const [selectedPoly, setSelectedPoly] = useState<PolyCollege | null>(null);
 
   useEffect(() => { setColPage(1); }, [colQuery, colDist, colType, colCat]);
   useEffect(() => { setArtsPage(1); }, [artsQuery, artsDist, artsMgmt]);
-  useEffect(() => { setPolyPage(1); }, [polyQuery, polyDist]);
+  useEffect(() => { setPolyPage(1); }, [polyQuery, polyDist, polyType]);
 
   const filteredUpdates = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -210,10 +211,11 @@ export default function EduInteractive({
     const q = polyQuery.trim().toLowerCase();
     return polyColleges.filter((c) => {
       const matchDist = polyDist === "All" || c.district === polyDist;
-      const matchQ = !q || c.college_name.toLowerCase().includes(q) || c.city.toLowerCase().includes(q);
-      return matchDist && matchQ;
+      const matchType = polyType === "All" || c.college_type === polyType;
+      const matchQ = !q || c.college_name.toLowerCase().includes(q) || (c.city ?? "").toLowerCase().includes(q) || c.district.toLowerCase().includes(q);
+      return matchDist && matchType && matchQ;
     });
-  }, [polyColleges, polyQuery, polyDist]);
+  }, [polyColleges, polyQuery, polyDist, polyType]);
   const filteredPoly = useMemo(
     () => allFilteredPoly.slice((polyPage - 1) * PAGE_SIZE, polyPage * PAGE_SIZE),
     [allFilteredPoly, polyPage]
@@ -615,7 +617,7 @@ export default function EduInteractive({
               <div className="col-search">
                 <input
                   type="search"
-                  placeholder="Search by name or city…"
+                  placeholder="Search by name or district…"
                   value={polyQuery}
                   onChange={(e) => setPolyQuery(e.target.value)}
                   aria-label="Search polytechnic colleges"
@@ -624,9 +626,15 @@ export default function EduInteractive({
                   <option value="All">All districts</option>
                   {polyUniqueDists.map((d) => <option key={d} value={d}>{d}</option>)}
                 </select>
+                <select value={polyType} onChange={(e) => setPolyType(e.target.value)} aria-label="Filter by type">
+                  <option value="All">All types</option>
+                  <option value="Government">Government</option>
+                  <option value="Government Aided">Government Aided</option>
+                  <option value="Self Financing">Self Financing</option>
+                </select>
               </div>
               <p style={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: "10px" }}>
-                {allFilteredPoly.length} of {polyColleges.length} govt polytechnics · TNPOLY · click row for details
+                {allFilteredPoly.length} of {polyColleges.length} polytechnics · Govt + Aided + Private · click row for details
               </p>
               {allFilteredPoly.length === 0 ? (
                 <div className="col-coming-soon"><div className="cs-icon">○</div><p>No colleges match.</p></div>
@@ -634,14 +642,14 @@ export default function EduInteractive({
                 <>
                   <div className="col-table">
                     <div className="col-table-hd col-table-hd-poly">
-                      <span>Code</span><span>College Name</span><span className="col-dist">City</span><span>Category</span><span />
+                      <span>Code</span><span>College Name</span><span className="col-dist">District</span><span>Type</span><span />
                     </div>
                     {filteredPoly.map((c) => (
-                      <button key={c.college_code} className="col-row col-row-poly col-row-btn" onClick={() => setSelectedPoly(c)}>
-                        <span className="code">{c.college_code}</span>
+                      <button key={c.college_code ?? c.aicte_id ?? c.college_name} className="col-row col-row-poly col-row-btn" onClick={() => setSelectedPoly(c)}>
+                        <span className="code">{c.college_code ?? "—"}</span>
                         <span className="name">{c.college_name}</span>
-                        <span className="dist">{c.city || c.district}</span>
-                        <span className="type">{c.category}</span>
+                        <span className="dist">{c.district}</span>
+                        <span className="type">{c.college_type === "Government" ? "Govt" : c.college_type === "Government Aided" ? "Aided" : "SF"}</span>
                         <span className="arr">→</span>
                       </button>
                     ))}
