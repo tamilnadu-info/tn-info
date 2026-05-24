@@ -102,25 +102,26 @@ export interface College {
 }
 
 export interface ArtsCollege {
-  college_code: string;
-  sno: number | null;
+  college_code: string | null;
+  sno?: number | null;
   region: string;
   district: string;
   taluk: string | null;
   college_name: string;
+  management: string; // "Government" | "Government Aided" | "Self Financing"
   sanctioned_seats: number | null;
-  admit_pct_2025: number | null;
+  admit_pct_2025?: number | null;
   naac_grade: string | null;
   nirf_rank: string | null;
-  male_seats: number;
-  female_seats: number;
+  male_seats?: number;
+  female_seats?: number;
   hostel: string | null;
-  nodal_officer_name: string | null;
-  nodal_mobile: string | null;
-  nodal_email: string | null;
-  addl_nodal_name: string | null;
-  addl_mobile: string | null;
-  addl_email: string | null;
+  nodal_officer_name?: string | null;
+  nodal_mobile?: string | null;
+  nodal_email?: string | null;
+  addl_nodal_name?: string | null;
+  addl_mobile?: string | null;
+  addl_email?: string | null;
 }
 
 export interface PolyCollege {
@@ -146,9 +147,13 @@ function loadColleges(): College[] {
 
 function loadArtsColleges(): ArtsCollege[] {
   try {
-    return JSON.parse(
+    const govt = JSON.parse(
       readFileSync(join(process.cwd(), "src", "data", "tnea", "arts_colleges_2026.json"), "utf8")
     ) as ArtsCollege[];
+    const pvt = JSON.parse(
+      readFileSync(join(process.cwd(), "src", "data", "tnea", "arts_colleges_private.json"), "utf8")
+    ) as ArtsCollege[];
+    return [...govt, ...pvt];
   } catch {
     return [];
   }

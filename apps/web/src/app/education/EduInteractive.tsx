@@ -136,6 +136,7 @@ export default function EduInteractive({
 
   const [artsQuery, setArtsQuery] = useState("");
   const [artsDist, setArtsDist] = useState("All");
+  const [artsMgmt, setArtsMgmt] = useState("All");
   const [artsPage, setArtsPage] = useState(1);
   const [selectedArts, setSelectedArts] = useState<ArtsCollege | null>(null);
 
@@ -145,7 +146,7 @@ export default function EduInteractive({
   const [selectedPoly, setSelectedPoly] = useState<PolyCollege | null>(null);
 
   useEffect(() => { setColPage(1); }, [colQuery, colDist, colType, colCat]);
-  useEffect(() => { setArtsPage(1); }, [artsQuery, artsDist]);
+  useEffect(() => { setArtsPage(1); }, [artsQuery, artsDist, artsMgmt]);
   useEffect(() => { setPolyPage(1); }, [polyQuery, polyDist]);
 
   const filteredUpdates = useMemo(() => {
@@ -193,10 +194,11 @@ export default function EduInteractive({
     const q = artsQuery.trim().toLowerCase();
     return artsColleges.filter((c) => {
       const matchDist = artsDist === "All" || c.district === artsDist;
+      const matchMgmt = artsMgmt === "All" || c.management === artsMgmt;
       const matchQ = !q || c.college_name.toLowerCase().includes(q) || c.district.toLowerCase().includes(q);
-      return matchDist && matchQ;
+      return matchDist && matchMgmt && matchQ;
     });
-  }, [artsColleges, artsQuery, artsDist]);
+  }, [artsColleges, artsQuery, artsDist, artsMgmt]);
   const filteredArts = useMemo(
     () => allFilteredArts.slice((artsPage - 1) * PAGE_SIZE, artsPage * PAGE_SIZE),
     [allFilteredArts, artsPage]
@@ -551,20 +553,29 @@ export default function EduInteractive({
                   <option value="All">All districts</option>
                   {artsUniqueDists.map((d) => <option key={d} value={d}>{d}</option>)}
                 </select>
+                <select value={artsMgmt} onChange={(e) => setArtsMgmt(e.target.value)} aria-label="Filter by management type">
+                  <option value="All">All types</option>
+                  <option value="Government">Government</option>
+                  <option value="Government Aided">Government Aided</option>
+                  <option value="Self Financing">Self Financing</option>
+                </select>
               </div>
               <p style={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: "10px" }}>
-                {allFilteredArts.length} of {artsColleges.length} govt colleges · TNGASA 2026 · click row for details
+                {allFilteredArts.length} of {artsColleges.length} colleges · Govt + Aided + Private · TNDCE 2025 · click row for details
               </p>
               {allFilteredArts.length === 0 ? (
                 <div className="col-coming-soon"><div className="cs-icon">○</div><p>No colleges match.</p></div>
               ) : (
                 <>
                   <div className="col-table">
-                    {filteredArts.map((c) => (
-                      <button key={c.college_code} className="col-row col-row-btn arts-row" onClick={() => setSelectedArts(c)}>
-                        <span className="code">{c.college_code}</span>
+                    {filteredArts.map((c, i) => (
+                      <button key={c.college_code ?? `arts-${i}`} className="col-row col-row-btn arts-row" onClick={() => setSelectedArts(c)}>
+                        <span className="code">{c.college_code ?? "—"}</span>
                         <span className="name">{c.college_name}</span>
                         <span className="dist">{c.district}</span>
+                        <span className="type" style={{ fontSize: "10px", opacity: 0.7 }}>
+                          {c.management === "Government" ? "Govt" : c.management === "Government Aided" ? "Aided" : "Private"}
+                        </span>
                         {c.naac_grade ? (
                           <span className="arts-naac" style={{ color: NAAC_COLOR[c.naac_grade] ?? "#aaa" }}>{c.naac_grade}</span>
                         ) : (

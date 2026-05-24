@@ -43,9 +43,9 @@ export default function ArtsModal({ college, onClose }: Props) {
 
   const gradeColor = college.naac_grade ? (NAAC_COLORS[college.naac_grade] ?? "#aaa") : "#888";
 
-  const shortCode = college.college_code.slice(0, 4);
+  const shortCode = college.college_code ? college.college_code.slice(0, 4) : college.management.slice(0, 4).toUpperCase();
 
-  const hasHostel = college.male_seats > 0 || college.female_seats > 0;
+  const hasHostel = (college.male_seats ?? 0) > 0 || (college.female_seats ?? 0) > 0;
 
   return (
     <div className="cm-shade show" onClick={onClose}>
@@ -56,7 +56,9 @@ export default function ArtsModal({ college, onClose }: Props) {
         <div className="cm-left" style={{ background: gradient }}>
           <div className="cm-left-glyph">{shortCode}</div>
           <div className="cm-left-body">
-            <div className="cm-type-badge">{college.region} Region</div>
+            <div className="cm-type-badge">
+              {college.management} · {college.region} Region
+            </div>
             <h2 className="cm-college-name">{college.college_name}</h2>
             <div className="cm-college-meta">
               <span>{college.taluk || college.district}</span>
@@ -70,7 +72,7 @@ export default function ArtsModal({ college, onClose }: Props) {
                 <span>Seats</span>
               </div>
               <div className="cm-stat">
-                <b>{college.admit_pct_2025 != null ? `${college.admit_pct_2025}%` : "—"}</b>
+                <b>{(college.admit_pct_2025 ?? null) != null ? `${college.admit_pct_2025}%` : "—"}</b>
                 <span>Filled 2025</span>
               </div>
               <div className="cm-stat">
@@ -98,6 +100,10 @@ export default function ArtsModal({ college, onClose }: Props) {
           <div className="cm-tab-body">
             <div className="cm-overview">
               <div className="cm-ov-section">
+                <div className="cm-ov-lbl">Type</div>
+                <div className="cm-ov-val">{college.management}</div>
+              </div>
+              <div className="cm-ov-section">
                 <div className="cm-ov-lbl">Region</div>
                 <div className="cm-ov-val">{college.region}</div>
               </div>
@@ -111,10 +117,12 @@ export default function ArtsModal({ college, onClose }: Props) {
                   <div className="cm-ov-val">{college.taluk}</div>
                 </div>
               )}
-              <div className="cm-ov-section">
-                <div className="cm-ov-lbl">College Code</div>
-                <div className="cm-ov-val cm-ov-mono">{college.college_code}</div>
-              </div>
+              {college.college_code && (
+                <div className="cm-ov-section">
+                  <div className="cm-ov-lbl">College Code</div>
+                  <div className="cm-ov-val cm-ov-mono">{college.college_code}</div>
+                </div>
+              )}
               {college.sanctioned_seats != null && (
                 <div className="cm-ov-section">
                   <div className="cm-ov-lbl">Sanctioned Seats</div>
@@ -145,10 +153,10 @@ export default function ArtsModal({ college, onClose }: Props) {
                 <div className="cm-ov-section cm-ov-full">
                   <div className="cm-ov-lbl">Hostel seats</div>
                   <div className="cm-branch-grid">
-                    {college.male_seats > 0 && (
+                    {(college.male_seats ?? 0) > 0 && (
                       <span className="cm-branch-pill">Male · {college.male_seats}</span>
                     )}
-                    {college.female_seats > 0 && (
+                    {(college.female_seats ?? 0) > 0 && (
                       <span className="cm-branch-pill">Female · {college.female_seats}</span>
                     )}
                   </div>
