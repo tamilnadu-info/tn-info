@@ -63,7 +63,7 @@ export default function PolyModal({ college, onClose }: Props) {
 
         {/* ── Right panel ── */}
         <div className="cm-right">
-          <div className="cm-tab-body" style={{ paddingTop: "8px" }}>
+          <div className="cm-tab-body">
             <div className="cm-overview">
               <div className="cm-ov-section">
                 <div className="cm-ov-lbl">College Code</div>
