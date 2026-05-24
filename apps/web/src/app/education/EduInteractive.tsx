@@ -568,12 +568,11 @@ export default function EduInteractive({
               ) : (
                 <>
                   <div className="col-table">
-                    {filteredArts.map((c, i) => (
-                      <button key={c.college_code ?? `arts-${i}`} className="col-row col-row-btn arts-row" onClick={() => setSelectedArts(c)}>
-                        <span className="code">{c.college_code ?? "—"}</span>
+                    {filteredArts.map((c) => (
+                      <button key={c.college_code ?? c.college_name} className="col-row col-row-btn arts-row" onClick={() => setSelectedArts(c)}>
                         <span className="name">{c.college_name}</span>
                         <span className="dist">{c.district}</span>
-                        <span className="type" style={{ fontSize: "10px", opacity: 0.7 }}>
+                        <span className="type">
                           {c.management === "Government" ? "Govt" : c.management === "Government Aided" ? "Aided" : "Private"}
                         </span>
                         {c.naac_grade ? (
