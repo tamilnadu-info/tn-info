@@ -1,0 +1,782 @@
+[
+  {
+    "college_code": "gmcariy",
+    "college_name": "Government Medical College,Ariyalur",
+    "college_type": "Government",
+    "district": "Ariyalur",
+    "city": "Ariyalur",
+    "pincode": "621713",
+    "address": "1, COLLEGE ROAD, ARIYALUR",
+    "website": "https://www.gmcariyalur.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "cmcche",
+    "college_name": "Chengalpattu Medical College, Chengalpattu",
+    "college_type": "Government",
+    "district": "Chengalpattu",
+    "city": "Chengalpattu",
+    "pincode": "603001",
+    "address": "chengalpattu Medical College, GST Road, Chengalpattu",
+    "website": "https://www.cmccpt.ac.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "esicmckkngr",
+    "college_name": "ESIC Medical College & Hospital, K.K.Nagar, Chennai",
+    "college_type": "Government",
+    "district": "Chennai",
+    "city": "Chennai",
+    "pincode": "600078",
+    "address": "ASHOK PILLAR ROAD, K.K. NAGAR",
+    "website": "https://mcchennai.esic.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "kmcche",
+    "college_name": "Kilpauk Medical College, Chennai",
+    "college_type": "Government",
+    "district": "Chennai",
+    "city": "Chennai",
+    "pincode": "600010",
+    "address": "822, Poonamallee High Road, kilpauk",
+    "website": "https://gkmc.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "mmcche",
+    "college_name": "Madras Medical College, Chennai",
+    "college_type": "Government",
+    "district": "Chennai",
+    "city": "Chennai",
+    "pincode": "600003",
+    "address": "No.1, EVR Periyar Salai, Park Town, Chennai-600003",
+    "website": "http://150.230.143.29:8080/ords/r/wsmmc/madras-medical-college/home?session=11380674444728",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "smcche",
+    "college_name": "Stanley Medical College, Chennai",
+    "college_type": "Government",
+    "district": "Chennai",
+    "city": "Chennai",
+    "pincode": "600001",
+    "address": "1, Old Jail road, George town, Chennai, Tamilnadu",
+    "website": "https:/www.stanleymedicalcollege.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "cmccoi",
+    "college_name": "Coimbatore Medical College, Coimbatore",
+    "college_type": "Government",
+    "district": "Coimbatore",
+    "city": "Coimbatore",
+    "pincode": "641014",
+    "address": "No.1, Civil Aerodrome Post, Avinashi Road, Coimbatore - 641014",
+    "website": "http://www.cmccbe.tn.gov.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmccoi",
+    "college_name": "Government Medical College & ESIC Hospital, Coimbatore, TamilNadu",
+    "college_type": "Government",
+    "district": "Coimbatore",
+    "city": "Coimbatore",
+    "pincode": "641015",
+    "address": "UPPILIPALAYAM SINGANALLUR",
+    "website": "https://www.gmcesi.co.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gdmcdha",
+    "college_name": "Government Dharmapuri Medical College, Dharmapuri",
+    "college_type": "Government",
+    "district": "Dharmapuri",
+    "city": "Dharmapuri",
+    "pincode": "636701",
+    "address": "Government Dharmapuri Medical College And Hospital, Nethaji Byepass Road, Dharmapuri - 636701",
+    "website": "https://www.dmcdpi.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcind",
+    "college_name": "Government Medical College,Dindigul",
+    "college_type": "Government",
+    "district": "Dindigul",
+    "city": "Dindigul",
+    "pincode": "624003",
+    "address": "No-1,NALLAMPATTI ROAD ADIYANOOTHU VILLAGE",
+    "website": "https://www.gmcdindigul.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gemchper",
+    "college_name": "Government Erode Medical College & Hospital, Perundurai (Formerly IRT Perundurai Medical College)",
+    "college_type": "Government",
+    "district": "Erode",
+    "city": "Perundurai",
+    "pincode": "638053",
+    "address": "KUNNATHUR ROAD, PERUNDURAI SANATORIUM,",
+    "website": "https://gemch.ac.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmckal",
+    "college_name": "Government Medical College Kallakurichi",
+    "college_type": "Government",
+    "district": "Kallakurichi",
+    "city": "Kallakurichi",
+    "pincode": "606213",
+    "address": "251, AGARAGOTTAVALAM ROAD, SIRUVANGUR VILLAGE &amp; POST",
+    "website": "https://www.gmckallakurichi.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "kgmcasa",
+    "college_name": "KanyaKumari Government Medical College, Asaripallam",
+    "college_type": "Government",
+    "district": "Kanniyakumari",
+    "city": "Nagercoil",
+    "pincode": "629201",
+    "address": "Kanyakumari Government Medical College, Asaripallam",
+    "website": "http://kkmc.tn.gov.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmckar",
+    "college_name": "Government Medical College, Karur",
+    "college_type": "Government",
+    "district": "Karur",
+    "city": "Karur",
+    "pincode": "639004",
+    "address": "Government Karur Medical College,Sanapiratti village,Gandhigramam, Karur",
+    "website": "https://www.karurgmc.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmckri",
+    "college_name": "Government Medical College Krishnagiri",
+    "college_type": "Government",
+    "district": "Krishnagiri",
+    "city": "Krishnagiri",
+    "pincode": "635115",
+    "address": "Block1,Pollupali, Krishnagiri",
+    "website": "http://www.gmckrishnagiri.tn.gov.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "mmcmadu",
+    "college_name": "Madurai Medical College, Madurai",
+    "college_type": "Government",
+    "district": "Madurai",
+    "city": "Madurai",
+    "pincode": "625020",
+    "address": "PANAGAL ROAD, MADURAI",
+    "website": "https://www.mdmc.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcnag",
+    "college_name": "Government Medical College Nagapattinam",
+    "college_type": "Government",
+    "district": "Nagapattinam",
+    "city": "Nagapattinam",
+    "pincode": "611108",
+    "address": "NO.1, MANALMEDU, ORATHUR VILLAGE, NAGAPATTINAM",
+    "website": "https://www.gmcnagai.ac.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcnam",
+    "college_name": "Government Medical College, Namakkal",
+    "college_type": "Government",
+    "district": "Namakkal",
+    "city": "Namakkal",
+    "pincode": "637003",
+    "address": "GOVERNMENT MEDICAL COLLEGE NAMAKKAL, 353, MASTER PLAN COMPLEX, SILUVAMPATTI, NAMAKKAL",
+    "website": "https://www.gmcnkl.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcpud",
+    "college_name": "Government Medical College, Pudukottai, Tamil Nadu",
+    "college_type": "Government",
+    "district": "Pudukkottai",
+    "city": "Pudukkottai",
+    "pincode": "622004",
+    "address": "GOVERNMENT MEDICAL COLLEGE, MULLUR VILLAGE, PUDUKKOTTAI",
+    "website": "https://gmcpdkt.com/aboutus.php",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcram",
+    "college_name": "Government Medical College Ramanathapuram",
+    "college_type": "Government",
+    "district": "Ramanathapuram",
+    "city": "Ramanathapuram",
+    "pincode": "623503",
+    "address": "1,Collectore Office back side",
+    "website": "https://www.gmcramnad.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmkmcsal",
+    "college_name": "Govt. Mohan Kumaramangalam Medical College, Salem- 30",
+    "college_type": "Government",
+    "district": "Salem",
+    "city": "Salem",
+    "pincode": "636030",
+    "address": "STEEL PLANT ROAD, SALEM",
+    "website": "http://gmkmc.com/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gsmcsiv",
+    "college_name": "Government Sivagangai Medical College, Sivaganga",
+    "college_type": "Government",
+    "district": "Sivaganga",
+    "city": "Sivagangai",
+    "pincode": "630561",
+    "address": "MELAVANIYANKUDI POST, MANAMADURAI ROAD, SIVAGANGAI",
+    "website": "https://www.sgmcsg.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "tmchan",
+    "college_name": "Thanjavur Medical College,Thanjavur",
+    "college_type": "Government",
+    "district": "Thanjavur",
+    "city": "Thanjavur",
+    "pincode": "613004",
+    "address": "Medical college road , Thanjavur",
+    "website": "http://www.tmctnj.tn.gov.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcthe",
+    "college_name": "Government Medical College, The Nilgiris",
+    "college_type": "Government",
+    "district": "The Nilgiris",
+    "city": "Udhagamandalam",
+    "pincode": "643005",
+    "address": "Indhu Nagar, Mysore Road, Udhagamandalam, The Nilgiris-643005.",
+    "website": "https://www.gmchnilgiris.ac.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "kapvgmctri",
+    "college_name": "K A P Viswanathan Government Medical College, Trichy",
+    "college_type": "Government",
+    "district": "Tiruchirappalli",
+    "city": "Tiruchirappalli",
+    "pincode": "620001",
+    "address": "PERIYAMILAGUPARAI",
+    "website": "https://www.kapvgmc.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "tmciru",
+    "college_name": "Tirunelveli Medical College,Tirunelveli",
+    "college_type": "Government",
+    "district": "Tirunelveli",
+    "city": "Tirunelveli",
+    "pincode": "627011",
+    "address": "North Highground Road, Palayamkottai",
+    "website": "https://tvmc.ac.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmctir",
+    "college_name": "Government Medical College ,Tiruppur",
+    "college_type": "Government",
+    "district": "Tiruppur",
+    "city": "Tiruppur",
+    "pincode": "641608",
+    "address": "Government Medical College &amp; Hospital Tiruppur, 18, Dharapuram Road, Tiruppur - 641608",
+    "website": "https://www.gmctiruppur.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gtmcthi",
+    "college_name": "Government Tiruvannamalai Medical College, Tiruvannamalai",
+    "college_type": "Government",
+    "district": "Tiruvannamalai",
+    "city": "Thiruvannamalai",
+    "pincode": "606604",
+    "address": "Master complex, District collectorate, Outer ring Road, Vengikkal, Thiruvannamalai - 606604",
+    "website": "https://www.gtvmmc.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "tmctho",
+    "college_name": "Thoothukudi Medical College, Thoothukudi",
+    "college_type": "Government",
+    "district": "Tuticorin",
+    "city": "Thoothukudi",
+    "pincode": "628008",
+    "address": "3rd Mile, Kamaraj Nagar",
+    "website": "https://www.tmctkd.tn.gov.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gvmcvel",
+    "college_name": "Government Vellore Medical College, Vellore",
+    "college_type": "Government",
+    "district": "Vellore",
+    "city": "Adukamparai",
+    "pincode": "632011",
+    "address": "GOVERNMENT VELLORE MEDICAL COLLEGE",
+    "website": "https://www.vmcvlr.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gvmcvil",
+    "college_name": "Government Villupuram Medical College, Villupuram",
+    "college_type": "Government",
+    "district": "Villupuram",
+    "city": "Villupuram",
+    "pincode": "605601",
+    "address": "Government Villupuram Medical College, Mundiyampakkam,Villupuram, Tamil Nadu.",
+    "website": "https://www.vmcvpm.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "gmcvir",
+    "college_name": "Government Medical College, Virudhunagar",
+    "college_type": "Government",
+    "district": "Virudhunagar",
+    "city": "Virudhunagar",
+    "pincode": "626002",
+    "address": "No.1, COLLLECTORATE MASTER PLAN COMPLEX, KOORAIKUNDU VILLAGE,",
+    "website": "https://www.gmcvirudhunagar.tn.gov.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "chrikan",
+    "college_name": "Chettinad Hospital & Research Institute, Kanchipuram",
+    "college_type": "Private",
+    "district": "Chengalpattu",
+    "city": "Chengalpattu, Chennai",
+    "pincode": "603103",
+    "address": "Chettinad Hospital and Research Institute, Rajiv Gandhi Salai, OMR, Kelambakkam, Chengalpattu Dt, Old Kanchipuram District",
+    "website": "https://care.edu.in/",
+    "university": "Chettinad Academy of Research and Education (Deemed University)",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "sssmcrikan",
+    "college_name": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
+    "college_type": "Private",
+    "district": "Chengalpattu",
+    "city": "Chengalpattu",
+    "pincode": "603108",
+    "address": "Shri Sathya Sai Nagar, SBV Chennai campus, Ammapettai",
+    "website": "https://sssmcri.ac.in",
+    "university": "Sri Balaji Vidyapeeth (Deemed University), Pondicherry",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "sbmchche",
+    "college_name": "Sree Balaji Medical College and Hospital, Chennai",
+    "college_type": "Private",
+    "district": "Chengalpattu",
+    "city": "Chennai",
+    "pincode": "600044",
+    "address": "NO 7 WORKS ROAD CHROMEPET",
+    "website": "https://sbmch.ac.in/",
+    "university": "Bharath Institute of Higher Education &amp; Research (Deemed Univ.), Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "tmchche",
+    "college_name": "Tagore Medical College and Hospital, Chennai",
+    "college_type": "Private",
+    "district": "Chengalpattu",
+    "city": "Chennai",
+    "pincode": "600127",
+    "address": "RATHINAMANGALAM, MELAKOTTAIYUR POST",
+    "website": "https://tagoremch.edu.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "srmcriche",
+    "college_name": "Sri Ramachandra Medical College & Research Institute, Chennai",
+    "college_type": "Private",
+    "district": "Chennai",
+    "city": "Chennai",
+    "pincode": "600116",
+    "address": "No.1, Ramachandra Nagar, Porur",
+    "website": "https://www.sriramachandra.edu.in/university/colleges.php?cid=4",
+    "university": "Sri Ramachandra Institute of Higher Education &amp; Research(Deemed to be University), Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "pimscoi",
+    "college_name": "PSG Institute of Medical Sciences, Coimbatore",
+    "college_type": "Private",
+    "district": "Coimbatore",
+    "city": "Coimbatore South",
+    "pincode": "641004",
+    "address": "P.B.No.1609, Peelamedu, Coimbatore-641004",
+    "website": "https://psgimsr.ac.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "nmchero",
+    "college_name": "Nandha Medical College & Hospital, Erode, Tamil Nadu",
+    "college_type": "Private",
+    "district": "Erode",
+    "city": "Erode",
+    "pincode": "638052",
+    "address": "NANDHA MEDICAL COLLEGE AND HOSPITAL, ERODE TO PERUNDURAI MAIN ROAD, PITCHANDAMPALAYAM POST, ERODE-638052",
+    "website": "https://www.nandhamedicalcollege.org/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "mmchtha",
+    "college_name": "Madha Medical College and Hospital, Thandalam, Chennai",
+    "college_type": "Private",
+    "district": "Kanchipuram",
+    "city": "Kanchipuram",
+    "pincode": "600128",
+    "address": "Madha Medical College and Hospital, Kundrathur Main Road, Kovur",
+    "website": "https://mmcri.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "pspmchri",
+    "college_name": "PSP MEDICAL COLLEGE HOSPITAL AND RESEARCH INSTITUTE, Tamil Nadu",
+    "college_type": "Private",
+    "district": "Kanchipuram",
+    "city": "Kanchipuram",
+    "pincode": "631604",
+    "address": "TAMBARAM - KANCHIPURAM HIGHWAY,ORAGADAM,PANRUTTI,SRIPERUMBUDUR TALUK",
+    "website": "https://pspmchri.ac.in",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "smchkan",
+    "college_name": "Saveetha Medical College and Hospital, Kanchipuram",
+    "college_type": "Private",
+    "district": "Kanchipuram",
+    "city": "Chennai",
+    "pincode": "602105",
+    "address": "Saveetha Medical College, Saveetha nagar, Thandalam, Chennai",
+    "website": "https://www.smc.saveetha.com/",
+    "university": "Saveetha University (Deemed), Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "smmcche",
+    "college_name": "Sri Muthukumaran Medical College,Chennai",
+    "college_type": "Private",
+    "district": "Kanchipuram",
+    "city": "Chennai",
+    "pincode": "600069",
+    "address": "Chikkarayapuram, Near Mangadu, Chennai - 600069",
+    "website": "https://www.smmchri.res.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "smimskan",
+    "college_name": "Sree Mookambika Institute of Medical Sciences, Kanyakumari",
+    "college_type": "Private",
+    "district": "Kanniyakumari",
+    "city": "Kulasekharam",
+    "pincode": "629161",
+    "address": "Sree Mookambika Institute Of Medical Sciences",
+    "website": "https://smims.sreemookambikainstitute.com/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": 17,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "vmchrimad",
+    "college_name": "Velammal Medical College Hospital and Research Institute, Madurai",
+    "college_type": "Private",
+    "district": "Madurai",
+    "city": "Madurai",
+    "pincode": "625009",
+    "address": "Velammal Village, Anuppanadi",
+    "website": "https://velammalmedicalcollege.edu.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "dsimshp",
+    "college_name": "Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital, Perambalur, Tamil Nadu",
+    "college_type": "Private",
+    "district": "Perambalur",
+    "city": "Perambalur",
+    "pincode": "621212",
+    "address": "274/C, Thuraiyur Road",
+    "website": "https://dsimsh.org",
+    "university": "Dhanalakshmi Srinivasan University, a state private University of Tamil Nadu",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "amchsal",
+    "college_name": "Annapoorna Medical College & Hospital, Salem",
+    "college_type": "Private",
+    "district": "Salem",
+    "city": "Salem",
+    "pincode": "636308",
+    "address": "Sankari Main Road (NH- 544), Kombadipatty, Veerapandi Union, Salem- 636 308, Tamil Nadu , India.",
+    "website": "http://amchs.edu.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "vmkvmcsal",
+    "college_name": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
+    "college_type": "Private",
+    "district": "Salem",
+    "city": "Salem",
+    "pincode": "636308",
+    "address": "Sankari Main Road (NH-47), Seeragapadi",
+    "website": "https://www.vmkvmc.edu.in/",
+    "university": "Vinayaka Missions University (Deemed), Salem",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "amchche",
+    "college_name": "ACS Medical College and Hospital, Chennai",
+    "college_type": "Private",
+    "district": "Thiruvallur",
+    "city": "Chennai",
+    "pincode": "600077",
+    "address": "A.C.S. Medical College and Hospital, Velappanchavadi",
+    "website": "https://acsmch.ac.in/",
+    "university": "Dr. MGR Educational and Research Institute (Deemed University), Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "svmchric",
+    "college_name": "Sri Venkateswaraa Medical College Hospital and Research Institute,Chennai",
+    "college_type": "Private",
+    "district": "Thiruvallur",
+    "city": "Chennai",
+    "pincode": "600067",
+    "address": "No:51, GNT Road, Near Redhills Tollplaza, Nallur",
+    "website": "https://svmedcity.com/",
+    "university": "Sri Venkateswaraa University, Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "tsmchrctri",
+    "college_name": "Trichy SRM Medical College Hospital & Research Centre, Trichy",
+    "college_type": "Private",
+    "district": "Tiruchirappalli",
+    "city": "Tiruchirapalli",
+    "pincode": "621105",
+    "address": "SRM NAGAR, TRICHY -CHENNAI HIGHWAY, IRUNGALUR , TRICHY",
+    "website": "https://mchrc.srmtrichy.edu.in/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  },
+  {
+    "college_code": "cmcvel",
+    "college_name": "Christian Medical College, Vellore",
+    "college_type": "Private",
+    "district": "Vellore",
+    "city": "Vellore",
+    "pincode": "632002",
+    "address": "Christian Medical College, Bagayam",
+    "website": "https://www.cmch-vellore.edu/",
+    "university": "The Tamilnadu Dr. MGR Medical University,Chennai",
+    "mbbs_intake": null,
+    "courses": [
+      "MBBS"
+    ]
+  }
+]

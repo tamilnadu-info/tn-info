@@ -144,6 +144,20 @@ export interface PolyCollege {
   total_intake: number | null;
 }
 
+export interface MedicalCollege {
+  college_code: string;
+  college_name: string;
+  college_type: string; // "Government" | "Private" | "Government Aided"
+  district: string | null;
+  city: string | null;
+  pincode: string | null;
+  address: string | null;
+  website: string | null;
+  university: string | null;
+  mbbs_intake: number | null;
+  courses: string[];
+}
+
 function loadColleges(): College[] {
   try {
     return JSON.parse(
@@ -173,6 +187,16 @@ function loadPolyColleges(): PolyCollege[] {
     return JSON.parse(
       readFileSync(join(process.cwd(), "src", "data", "tnea", "polytechnic_colleges.json"), "utf8")
     ) as PolyCollege[];
+  } catch {
+    return [];
+  }
+}
+
+function loadMedicalColleges(): MedicalCollege[] {
+  try {
+    return JSON.parse(
+      readFileSync(join(process.cwd(), "src", "data", "tnea", "medical_colleges.json"), "utf8")
+    ) as MedicalCollege[];
   } catch {
     return [];
   }
@@ -227,6 +251,7 @@ export default function EducationPage() {
   const colleges = loadColleges();
   const artsColleges = loadArtsColleges();
   const polyColleges = loadPolyColleges();
+  const medicalColleges = loadMedicalColleges();
 
   return (
     <>
@@ -331,6 +356,7 @@ export default function EducationPage() {
             colleges={colleges}
             artsColleges={artsColleges}
             polyColleges={polyColleges}
+            medicalColleges={medicalColleges}
             districts={districts}
           />
         </div>

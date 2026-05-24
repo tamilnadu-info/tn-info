@@ -2,10 +2,11 @@
 
 import { useState, useMemo, useEffect } from "react";
 import type { NewsItem } from "@/data/news";
-import type { EduUpdate, College, ArtsCollege, PolyCollege } from "./page";
+import type { EduUpdate, College, ArtsCollege, PolyCollege, MedicalCollege } from "./page";
 import CollegeModal from "./CollegeModal";
 import ArtsModal from "./ArtsModal";
 import PolyModal from "./PolyModal";
+import MedicalModal from "./MedicalModal";
 
 const TYPE_LABELS: Record<string, string> = {
   "CEG DEPTS": "Govt (CEG)",
@@ -112,6 +113,7 @@ interface Props {
   colleges: College[];
   artsColleges: ArtsCollege[];
   polyColleges: PolyCollege[];
+  medicalColleges: MedicalCollege[];
   districts: string[];
 }
 
@@ -121,6 +123,7 @@ export default function EduInteractive({
   colleges,
   artsColleges,
   polyColleges,
+  medicalColleges,
   districts,
 }: Props) {
   const [sector, setSector] = useState<SectorPill>("All");
@@ -146,9 +149,16 @@ export default function EduInteractive({
   const [polyPage, setPolyPage] = useState(1);
   const [selectedPoly, setSelectedPoly] = useState<PolyCollege | null>(null);
 
+  const [medQuery, setMedQuery] = useState("");
+  const [medDist, setMedDist] = useState("All");
+  const [medType, setMedType] = useState("All");
+  const [medPage, setMedPage] = useState(1);
+  const [selectedMed, setSelectedMed] = useState<MedicalCollege | null>(null);
+
   useEffect(() => { setColPage(1); }, [colQuery, colDist, colType, colCat]);
   useEffect(() => { setArtsPage(1); }, [artsQuery, artsDist, artsMgmt]);
   useEffect(() => { setPolyPage(1); }, [polyQuery, polyDist, polyType]);
+  useEffect(() => { setMedPage(1); }, [medQuery, medDist, medType]);
 
   const filteredUpdates = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -222,6 +232,22 @@ export default function EduInteractive({
   );
   const polyTotalPages = Math.ceil(allFilteredPoly.length / PAGE_SIZE);
   const polyUniqueDists = Array.from(new Set(polyColleges.map((c) => c.district))).sort();
+
+  const allFilteredMed = useMemo(() => {
+    const q = medQuery.trim().toLowerCase();
+    return medicalColleges.filter((c) => {
+      const matchDist = medDist === "All" || c.district === medDist;
+      const matchType = medType === "All" || c.college_type === medType;
+      const matchQ = !q || c.college_name.toLowerCase().includes(q) || (c.district ?? "").toLowerCase().includes(q) || (c.city ?? "").toLowerCase().includes(q);
+      return matchDist && matchType && matchQ;
+    });
+  }, [medicalColleges, medQuery, medDist, medType]);
+  const filteredMed = useMemo(
+    () => allFilteredMed.slice((medPage - 1) * PAGE_SIZE, medPage * PAGE_SIZE),
+    [allFilteredMed, medPage]
+  );
+  const medTotalPages = Math.ceil(allFilteredMed.length / PAGE_SIZE);
+  const medUniqueDists = Array.from(new Set(medicalColleges.map((c) => c.district).filter(Boolean))).sort() as string[];
 
   return (
     <>
@@ -395,6 +421,7 @@ export default function EduInteractive({
               const count = cat === "Engineering" ? colleges.length
                 : cat === "Arts & Science" ? artsColleges.length
                 : cat === "Polytechnic" ? polyColleges.length
+                : cat === "Medical" ? medicalColleges.length
                 : null;
               return (
                 <button
@@ -674,6 +701,67 @@ export default function EduInteractive({
                 </>
               )}
             </>
+          ) : colCat === "Medical" ? (
+            <>
+              <div className="col-search">
+                <input
+                  type="search"
+                  placeholder="Search by name or district…"
+                  value={medQuery}
+                  onChange={(e) => setMedQuery(e.target.value)}
+                  aria-label="Search medical colleges"
+                />
+                <select value={medDist} onChange={(e) => setMedDist(e.target.value)} aria-label="Filter by district">
+                  <option value="All">All districts</option>
+                  {medUniqueDists.map((d) => <option key={d} value={d}>{d}</option>)}
+                </select>
+                <select value={medType} onChange={(e) => setMedType(e.target.value)} aria-label="Filter by type">
+                  <option value="All">All types</option>
+                  <option value="Government">Government</option>
+                  <option value="Government Aided">Government Aided</option>
+                  <option value="Private">Private</option>
+                </select>
+              </div>
+              <p style={{ fontFamily: "var(--mono)", fontSize: "10px", color: "var(--muted)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: "10px" }}>
+                {allFilteredMed.length} of {medicalColleges.length} colleges · NMC-approved MBBS · click row for details
+              </p>
+              {allFilteredMed.length === 0 ? (
+                <div className="col-coming-soon"><div className="cs-icon">○</div><p>No colleges match.</p></div>
+              ) : (
+                <>
+                  <div className="col-table">
+                    <div className="col-table-hd col-table-hd-med">
+                      <span>College Name</span><span className="col-dist">District</span><span>Type</span><span />
+                    </div>
+                    {filteredMed.map((c) => (
+                      <button key={c.college_code} className="col-row col-row-med col-row-btn" onClick={() => setSelectedMed(c)}>
+                        <span className="name">{c.college_name}</span>
+                        <span className="dist">{c.district ?? "—"}</span>
+                        <span className="type">{c.college_type === "Government" ? "Govt" : c.college_type === "Government Aided" ? "Aided" : "Pvt"}</span>
+                        <span className="arr">→</span>
+                      </button>
+                    ))}
+                  </div>
+                  {medTotalPages > 1 && (
+                    <div className="col-pager">
+                      <button className="col-pg-btn" onClick={() => setMedPage((p) => Math.max(1, p - 1))} disabled={medPage === 1}>←</button>
+                      {Array.from({ length: medTotalPages }, (_, i) => i + 1)
+                        .filter((p) => p === 1 || p === medTotalPages || Math.abs(p - medPage) <= 2)
+                        .reduce<(number | "…")[]>((acc, p, idx, arr) => {
+                          if (idx > 0 && typeof arr[idx - 1] === "number" && (p as number) - (arr[idx - 1] as number) > 1) acc.push("…");
+                          acc.push(p); return acc;
+                        }, [])
+                        .map((p, i) => p === "…" ? (
+                          <span key={`e-${i}`} style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--muted)", padding: "0 4px" }}>…</span>
+                        ) : (
+                          <button key={p} className={`col-pg-btn${medPage === p ? " on" : ""}`} onClick={() => setMedPage(p as number)}>{p}</button>
+                        ))}
+                      <button className="col-pg-btn" onClick={() => setMedPage((p) => Math.min(medTotalPages, p + 1))} disabled={medPage === medTotalPages}>→</button>
+                    </div>
+                  )}
+                </>
+              )}
+            </>
           ) : (
             <div className="col-coming-soon">
               <div className="cs-icon">◌</div>
@@ -686,6 +774,7 @@ export default function EduInteractive({
       <CollegeModal college={selectedCollege} onClose={() => setSelectedCollege(null)} />
       <ArtsModal college={selectedArts} onClose={() => setSelectedArts(null)} />
       <PolyModal college={selectedPoly} onClose={() => setSelectedPoly(null)} />
+      <MedicalModal college={selectedMed} onClose={() => setSelectedMed(null)} />
 
       <section aria-labelledby="quick-tools-hd" style={{ marginBottom: "32px" }}>
         <div
