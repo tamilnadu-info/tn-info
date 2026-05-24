@@ -461,9 +461,12 @@ export default function EduInteractive({
               ) : (
                 <>
                   <div className="col-table">
+                    <div className="col-table-hd col-table-hd-engg">
+                      <span>Code</span><span>College Name</span><span className="col-type">Type</span><span>Location</span><span />
+                    </div>
                     {filteredColleges.map((c) => (
                       <button
-                        className="col-row col-row-btn"
+                        className="col-row col-row-engg col-row-btn"
                         key={c.code}
                         onClick={() => setSelectedCollege(c)}
                         title="Click for cutoffs and branches"
@@ -568,12 +571,15 @@ export default function EduInteractive({
               ) : (
                 <>
                   <div className="col-table">
+                    <div className="col-table-hd col-table-hd-arts">
+                      <span>College Name</span><span className="col-dist">District</span><span>Type</span><span>NAAC</span><span />
+                    </div>
                     {filteredArts.map((c) => (
-                      <button key={c.college_code ?? c.college_name} className="col-row col-row-btn arts-row" onClick={() => setSelectedArts(c)}>
+                      <button key={c.college_code ?? c.college_name} className="col-row col-row-arts col-row-btn" onClick={() => setSelectedArts(c)}>
                         <span className="name">{c.college_name}</span>
                         <span className="dist">{c.district}</span>
                         <span className="type">
-                          {c.management === "Government" ? "Govt" : c.management === "Government Aided" ? "Aided" : "Private"}
+                          {c.management === "Government" ? "Govt" : c.management === "Government Aided" ? "Aided" : "SF"}
                         </span>
                         {c.naac_grade ? (
                           <span className="arts-naac" style={{ color: NAAC_COLOR[c.naac_grade] ?? "#aaa" }}>{c.naac_grade}</span>
@@ -627,8 +633,11 @@ export default function EduInteractive({
               ) : (
                 <>
                   <div className="col-table">
+                    <div className="col-table-hd col-table-hd-poly">
+                      <span>Code</span><span>College Name</span><span className="col-dist">City</span><span>Category</span><span />
+                    </div>
                     {filteredPoly.map((c) => (
-                      <button key={c.college_code} className="col-row col-row-btn" onClick={() => setSelectedPoly(c)}>
+                      <button key={c.college_code} className="col-row col-row-poly col-row-btn" onClick={() => setSelectedPoly(c)}>
                         <span className="code">{c.college_code}</span>
                         <span className="name">{c.college_name}</span>
                         <span className="dist">{c.city || c.district}</span>
