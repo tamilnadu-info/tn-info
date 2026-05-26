@@ -1,0 +1,38 @@
+name: Data Correction
+description: Report incorrect or outdated data (elections, MLAs, schemes, districts, etc.)
+title: "[Data]: "
+labels: ["data", "correction"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Data category
+      options:
+        - Elections (LS / MLA results)
+        - Constituency information
+        - Cabinet / Ministers
+        - Government schemes
+        - District information
+        - College / Education data
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is incorrect?
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What should it be?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL
+      description: Link to eci.gov.in, tn.gov.in, official gazette, etc.
+    validations:
+      required: true
