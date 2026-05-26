@@ -1,0 +1,33 @@
+name: Bug Report
+description: Report a bug or broken feature on TN Info
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting! Please fill in as much detail as possible.
+  - type: input
+    id: page
+    attributes:
+      label: Which page or feature?
+      placeholder: e.g. Elections > Lok Sabha 2024 > Coimbatore
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: e.g. Chrome 124 on Android 14
